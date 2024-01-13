@@ -1,0 +1,25 @@
+---
+name: 'Feed likes filter'
+description: 'いいね数などで記事を評価しフィルタしたフィードを生成する'
+author: 'Your name or organization here'
+
+branding:
+  icon: 'rss'
+  color: 'orange'
+
+inputs:
+  original:
+    description: '生成元フィードのファイルパス。前段のステップでローカルにダウンロードしておくことを想定'
+    required: true
+  cache:
+    description: '配信済みフィードのファイルパス。前回配信分のファイルを流用することを想定。'
+  output:
+    description: '配信用の生成先フィードのファイルパス。'
+    required: true
+  threshold:
+    description: '配信する評価の閾値'
+    default: '10'
+
+runs:
+  using: node20
+  main: dist/index.js

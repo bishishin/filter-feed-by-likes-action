@@ -1,0 +1,6 @@
+---
+default:
+  require:
+    - "./features/**/*.ts"
+  requireModule:
+    - "esbuild-register"

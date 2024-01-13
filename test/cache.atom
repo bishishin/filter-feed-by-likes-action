@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>tag:hoge.github.io,2024,/01234/test/output.atom</id>
+    <title>Example Feed</title>
+    <updated>2003-12-13T18:30:02.000Z</updated>
+    <generator>foo/bar</generator>
+    <rights>2003 Example Feed http://example.org/</rights>
+    <entry>
+        <title type="html"><![CDATA[Atom-Powered Robots Run Amok published]]></title>
+        <id>http://example.org/2003/12/13/atom01</id>
+        <link href="http://example.org/2003/12/13/atom01"/>
+        <updated>2003-12-13T18:30:02.000Z</updated>
+        <summary type="html"><![CDATA[Some text.]]></summary>
+        <published>2003-12-13T18:30:02.000Z</published>
+    </entry>
+</feed>
