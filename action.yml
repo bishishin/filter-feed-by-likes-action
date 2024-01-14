@@ -1,7 +1,7 @@
 ---
-name: 'Feed likes filter'
+name: 'filter-feed-by-likes-action'
 description: 'いいね数などで記事を評価しフィルタしたフィードを生成する'
-author: 'Your name or organization here'
+author: 'bishishin'
 
 branding:
   icon: 'rss'
@@ -9,12 +9,16 @@ branding:
 
 inputs:
   original:
-    description: '生成元フィードのファイルパス。前段のステップでローカルにダウンロードしておくことを想定'
+    description: '生成元フィードの入力ファイルパス。前段のステップでローカルにダウンロードしておくことを想定'
     required: true
   cache:
-    description: '配信済みフィードのファイルパス。前回配信分のファイルを流用することを想定。'
+    description: |
+      配信済みフィードの入力ファイルパス。
+      ここに含まれる配信済み記事は、評価および配信の再処理を行わない。
+      また元フィードからは消えた配信済み記事を含めるために用いる。
+      前回配信分のファイルを流用することを想定。
   output:
-    description: '配信用の生成先フィードのファイルパス。'
+    description: '生成フィードの出力ファイルパス。'
     required: true
   threshold:
     description: '配信する評価の閾値'
