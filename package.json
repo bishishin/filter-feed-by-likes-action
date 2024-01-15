@@ -41,7 +41,7 @@
     "@cucumber/cucumber": "^10.2.1",
     "@cucumber/gherkin-utils": "^8.0.5",
     "@types/chai": "^4.3.11",
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.11.1",
     "@vercel/ncc": "^0.38.1",
     "chai": "^5.0.0",
     "concurrently": "^8.2.2",
