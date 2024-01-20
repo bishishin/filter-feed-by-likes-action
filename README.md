@@ -42,7 +42,6 @@ steps:
       key: feed
   - name: リモートからの取得処理
     run: curl -o original.xml https://qiita.com/popular-items/feed
-  - run: npm install xslt3
   - name: はてブ数の取得を阻害するようなクエリ文字列が含まれたフィードのため、除くための前処理
     run: npx xslt3 -xsl:prepare.xsl -s:original.xml -o:normalized.xml
   - uses: bishishin/filter-feed-by-likes-action@v0
