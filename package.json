@@ -15,8 +15,9 @@
   },
   "scripts": {
     "lint-biome": "biome check --apply .",
-    "lint-feat": "gherkin-utils format features/main.feature && gherkin-lint",
-    "lint": "npm run lint-feat && npm run lint-biome",
+    "lint-feat": "gherkin-lint -c .github/linters/.gherkin-lintrc",
+    "fmt-feat": "gherkin-utils format features/main.feature",
+    "lint": "npm run fmt-feat && npm run lint-feat && npm run lint-biome",
     "package": "ncc build src/index.ts --license licenses.txt",
     "bundle": "npm run lint && npm run package",
     "test-type": "tsc --noEmit",

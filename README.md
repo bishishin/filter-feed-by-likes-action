@@ -1,8 +1,8 @@
 # filter-feed-by-likes-action
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D20-blue.svg?logo=nodedotjs)
 ![GitHub License](https://img.shields.io/github/license/bishishin/filter-feed-by-likes-action)
-[![lint](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/lint.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/lint.yaml)
-[![test](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/test.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/test.yaml)
+[![ci](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/ci.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/ci.yaml)
+[![CodeQL](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/github-code-scanning/codeql)
 
 フィードに対していいね数などで配信記事を評価し、閾値でフィルタしたフィードを再生成するカスタムアクション
 
@@ -28,7 +28,7 @@
 ```
 
 ### 前後処理を含めた具体例
-静的ファイルをデプロイするスターターワークフローを元にしている。
+[静的ファイルをデプロイするスターターワークフロー](https://github.com/actions/starter-workflows/blob/main/pages/static.yml)を元にしている。
 この例では前後処理にXSLTを用いているが、実利用時は任意の言語で問題ない。
 ```yaml
 steps:
