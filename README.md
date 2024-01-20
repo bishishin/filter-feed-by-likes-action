@@ -3,7 +3,6 @@
 ![GitHub License](https://img.shields.io/github/license/bishishin/filter-feed-by-likes-action)
 [![lint](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/lint.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/lint.yaml)
 [![test](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/test.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/test.yaml)
-[![CodeQL](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/codeql-analysis.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/codeql-analysis.yaml)
 
 フィードに対していいね数などで配信記事を評価し、閾値でフィルタしたフィードを再生成するカスタムアクション
 
