@@ -7,7 +7,9 @@ updates:
       interval: weekly
       day: sunday
     groups:
-      actions: {}
+      actions:
+        patterns:
+          - "*"
 
   - package-ecosystem: npm
     directory: /
