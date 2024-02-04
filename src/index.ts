@@ -4,7 +4,7 @@
  */
 import * as core from "@actions/core";
 import { Runtime as Node } from "@effect/platform-node";
-import { Parser, Schema } from "@effect/schema";
+import { Schema } from "@effect/schema";
 import {
 	Config,
 	Effect,
