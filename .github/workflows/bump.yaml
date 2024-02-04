@@ -1,0 +1,42 @@
+name: Manual Bump
+
+on:
+    workflow_dispatch:
+      inputs:
+        bump:
+          required: true
+          default: patch
+          type: choice
+          options:
+          - patch
+          - minor
+          - major
+  
+permissions:
+    contents: write
+
+jobs:
+  actions-tagger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: '0'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        id: bump-version
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DEFAULT_BUMP: ${{ inputs.bump }}
+            WITH_V: true
+            RELEASE_BRANCHES: main
+      - name: Extract major tag
+        id: extract-major
+        run: >-
+          echo major_tag="$(echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f1)" >> "$GITHUB_OUTPUT"
+      # TODO: replace with https://github.com/actions/publish-action
+      - name: Update major tag
+        run: |-
+          git tag --force ${{ steps.extract-major.outputs.major_tag }} ${{ steps.bump-version.outputs.new_tag }}
+          git push origin ${{ steps.extract-major.outputs.major_tag }} --force
