@@ -1,7 +1,6 @@
 {
   "name": "filter-feed-by-likes-action",
   "description": "いいね数などで記事を評価しフィルタしたフィードを生成する",
-  "version": "0.1.0",
   "author": "bishishin",
   "keywords": [
     "actions",

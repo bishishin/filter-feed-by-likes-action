@@ -1,0 +1,31 @@
+name: Manual Bump
+
+on:
+    workflow_dispatch:
+      inputs:
+        bump:
+          required: true
+          default: patch
+          type: choice
+          options:
+          - patch
+          - minor
+          - major
+  
+permissions:
+    contents: write
+
+jobs:
+  actions-tagger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: '0'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        with:
+            DEFAULT_BUMP: ${{ inputs.bump }}
+            WITH_V: true
+            RELEASE_BRANCHES: main
