@@ -33,7 +33,7 @@ const actionInputsConfig = Config.all({
 	threshold: Config.integer("INPUT_THRESHOLD"),
 });
 function get<T>(
-	schema: Schema.Schema<T>,
+	schema: Schema.Schema<never, T>,
 	url: string,
 	params: URLSearchParams,
 ): Effect.Effect<never, ApiFetchError, T> {
@@ -43,7 +43,7 @@ function get<T>(
 			(response) => new Error(`${response.status}\t${response.url}`),
 		),
 		Effect.flatMap((response) => Effect.tryPromise(() => response.json())),
-		Effect.flatMap(Parser.parse(schema)),
+		Effect.flatMap(Schema.decodeUnknownEither(schema)),
 	);
 }
 const makeApiService = Effect.succeed(ApiServiceContext.of({ get }));

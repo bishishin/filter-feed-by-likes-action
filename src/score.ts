@@ -16,7 +16,7 @@ export type ApiFetchError =
 	| Error;
 export interface ApiService {
 	get<T>(
-		schema: Schema.Schema<T>,
+		schema: Schema.Schema<never, T>,
 		url: string,
 		params: URLSearchParams,
 	): Effect.Effect<ApiService, ApiFetchError, T>;
