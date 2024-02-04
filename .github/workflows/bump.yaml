@@ -34,7 +34,7 @@ jobs:
       - name: Extract major tag
         id: extract-major
         run: >-
-          echo major_tag=$(echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f1) >> $GITHUB_OUTPUT
+          echo major_tag="$(echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f1)" >> $GITHUB_OUTPUT
       # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
         run: |-
