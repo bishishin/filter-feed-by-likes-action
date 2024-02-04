@@ -25,7 +25,7 @@ jobs:
             fetch-depth: '0'
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@v1
-        with:
+        env:
             DEFAULT_BUMP: ${{ inputs.bump }}
             WITH_V: true
             RELEASE_BRANCHES: main
