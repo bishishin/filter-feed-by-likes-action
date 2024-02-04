@@ -30,4 +30,4 @@ jobs:
             DEFAULT_BUMP: ${{ inputs.bump }}
             WITH_V: true
             RELEASE_BRANCHES: main
-      - uses: Actions-R-Us/actions-tagger@v2
+      - uses: Actions-R-Us/actions-tagger@v2.1.0-rc5
