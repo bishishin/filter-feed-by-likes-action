@@ -39,13 +39,13 @@
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@cucumber/cucumber": "^10.3.1",
-    "@cucumber/gherkin-utils": "^8.0.5",
+    "@cucumber/gherkin-utils": "^8.0.6",
     "@types/chai": "^4.3.11",
-    "@types/node": "^20.11.14",
+    "@types/node": "^20.11.24",
     "@vercel/ncc": "^0.38.1",
-    "chai": "^5.0.3",
+    "chai": "^5.1.0",
     "concurrently": "^8.2.2",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.20.1",
     "esbuild-register": "^3.5.0",
     "gherkin-lint": "^4.2.4",
     "typescript": "^5.3.3"
