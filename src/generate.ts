@@ -29,7 +29,7 @@ export class FeedGenerator {
 	public generate(
 		original: parser.Output<parser.Item>,
 		published?: parser.Output<parser.Item>,
-	): Effect.Effect<ApiService, ApiFetchError | Error, gen.Feed> {
+	): Effect.Effect<gen.Feed, ApiFetchError | Error, ApiService> {
 		return Effect.Do.pipe(
 			Effect.bind("now", () => Clock.currentTimeMillis),
 			Effect.let("publishableItems", () =>

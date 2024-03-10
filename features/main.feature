@@ -14,7 +14,7 @@ Feature: いいね数などで記事を評価しフィルタしたフィード�
     When 取得対象が<targetCount>件
     Then 50件ずつにまとめて<requestCount>回のリクエストにする
 
-    Examples: 
+    Examples:
       | targetCount | requestCount |
       |           1 |            1 |
       |          50 |            1 |
@@ -29,7 +29,7 @@ Feature: いいね数などで記事を評価しフィルタしたフィード�
     When 記事の評価が<score>
     Then 対象記事を生成するフィードに配信<publishable>
 
-    Examples: 
+    Examples:
       | score | publishable |
-      |    10 | 可能          |
-      |     9 | 不可能         |
+      |    10 | 可能        |
+      |     9 | 不可能      |

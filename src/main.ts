@@ -9,9 +9,9 @@ export function main(
 	env: ActionEnvironment,
 	inputs: ActionInputs,
 ): Effect.Effect<
-	ApiService,
+	gen.Feed,
 	Cause.UnknownException | Error | ApiFetchError,
-	gen.Feed
+	ApiService
 > {
 	return Effect.Do.pipe(
 		Effect.bind("origFeed", () =>
@@ -30,9 +30,8 @@ export function main(
 export function loadCacheFile(
 	path: Option.Option<string>,
 ): Effect.Effect<
-	never,
-	Cause.UnknownException,
-	parser.Output<parser.Item> | undefined
+	parser.Output<parser.Item> | undefined,
+	Cause.UnknownException
 > {
 	return path.pipe(
 		Effect.flatMap((p) =>
