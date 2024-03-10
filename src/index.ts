@@ -3,7 +3,7 @@
  * action環境に依存する実装もここで注入する
  */
 import * as core from "@actions/core";
-import { Runtime as Node } from "@effect/platform-node";
+import { NodeRuntime as Node } from "@effect/platform-node";
 import { Schema } from "@effect/schema";
 import {
 	Config,
@@ -16,7 +16,7 @@ import {
 	identity,
 } from "effect";
 import { main } from "./main";
-import { ApiFetchError, ApiServiceContext } from "./score";
+import { ApiFetchError, ApiService } from "./score";
 
 // https://docs.github.com/ja/actions/learn-github-actions/variables#default-environment-variables
 const actionEnvConfig = Config.all({
@@ -33,10 +33,10 @@ const actionInputsConfig = Config.all({
 	threshold: Config.integer("INPUT_THRESHOLD"),
 });
 function get<T>(
-	schema: Schema.Schema<never, T>,
+	schema: Schema.Schema<T>,
 	url: string,
 	params: URLSearchParams,
-): Effect.Effect<never, ApiFetchError, T> {
+): Effect.Effect<T, ApiFetchError> {
 	return Effect.tryPromise(() => fetch(`${url}?${params.toString()}`)).pipe(
 		Effect.filterOrFail(
 			(response) => response.ok,
@@ -46,7 +46,7 @@ function get<T>(
 		Effect.flatMap(Schema.decodeUnknownEither(schema)),
 	);
 }
-const makeApiService = Effect.succeed(ApiServiceContext.of({ get }));
+const makeApiService = Effect.succeed(ApiService.of({ get }));
 const logger = Logger.make(({ logLevel, message }) => {
 	Match.type<LogLevel.LogLevel>().pipe(
 		Match.tagsExhaustive({
@@ -65,7 +65,7 @@ Effect.Do.pipe(
 	Effect.bind("env", () => actionEnvConfig),
 	Effect.bind("inputs", () => actionInputsConfig),
 	Effect.flatMap(({ env, inputs }) => main(env, inputs)),
-	Effect.provide(Layer.effect(ApiServiceContext, makeApiService)),
+	Effect.provide(Layer.effect(ApiService, makeApiService)),
 	Effect.provide(Logger.replace(Logger.defaultLogger, logger)),
 	Effect.catchAllCause((e) => Either.try(() => core.setFailed(e.toString()))),
 	Node.runMain,

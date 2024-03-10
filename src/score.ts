@@ -14,18 +14,20 @@ export type ApiFetchError =
 	| Cause.UnknownException
 	| ParseResult.ParseError
 	| Error;
-export interface ApiService {
-	get<T>(
-		schema: Schema.Schema<never, T>,
-		url: string,
-		params: URLSearchParams,
-	): Effect.Effect<ApiService, ApiFetchError, T>;
-}
-export const ApiServiceContext = Context.Tag<ApiService>();
-export type ScoreFetchEffect = Effect.Effect<
+export class ApiService extends Context.Tag("ApiService")<
 	ApiService,
+	{
+		get<T>(
+			schema: Schema.Schema<T>,
+			url: string,
+			params: URLSearchParams,
+		): Effect.Effect<T, ApiFetchError, ApiService>;
+	}
+>() {}
+export type ScoreFetchEffect = Effect.Effect<
+	ReadonlyMap<string, number>,
 	ApiFetchError,
-	ReadonlyMap<string, number>
+	ApiService
 >;
 export interface ScoreApi {
 	fetch(links: ReadonlySet<string>): ScoreFetchEffect;
@@ -37,7 +39,7 @@ export class HatenaCounts implements ScoreApi {
 		const schema = Schema.record(Schema.string, Schema.Int);
 		return Stream.Do.pipe(
 			Stream.bind("params", () => this.createRequestStream(links)),
-			Stream.bindEffect("api", () => ApiServiceContext),
+			Stream.bindEffect("api", () => ApiService),
 			Stream.mapEffect(({ api, params }) => api.get(schema, url, params)),
 			Stream.map(ReadonlyRecord.toEntries),
 			Stream.flattenIterables,
@@ -49,7 +51,7 @@ export class HatenaCounts implements ScoreApi {
 
 	protected createRequestStream(
 		links: ReadonlySet<string>,
-	): Stream.Stream<never, never, URLSearchParams> {
+	): Stream.Stream<URLSearchParams> {
 		const paramsList = HatenaCounts.buildParamsList(links);
 		return Stream.fromIterable(paramsList).pipe(
 			Stream.tap((v) => Effect.logInfo(v.toString())),

@@ -12,7 +12,7 @@ import {
 } from "effect";
 import * as R from "rambda";
 import { main } from "../src/main";
-import { ApiServiceContext } from "../src/score";
+import { ApiService } from "../src/score";
 
 /*
   @effect/platform-nodeのファイル操作を導入した際に、flaky testが発生したため
@@ -29,7 +29,7 @@ describe("prevent flaky test", async () => {
 			};
 			const schema = Schema.record(Schema.string, Schema.Int);
 			const makeApiService = Effect.succeed(
-				ApiServiceContext.of({ get: <T>() => Effect.succeed(scores as T) }),
+				ApiService.of({ get: <T>() => Effect.succeed(scores as T) }),
 			);
 			const dummyEnv = {
 				repositoryOwner: "hoge",
@@ -49,7 +49,7 @@ describe("prevent flaky test", async () => {
 				Effect.zipLeft(TestClock.adjust(Duration.seconds(3)), {
 					concurrent: true,
 				}),
-				Effect.provide(Layer.effect(ApiServiceContext, makeApiService)),
+				Effect.provide(Layer.effect(ApiService, makeApiService)),
 				Effect.provide(TestContext.TestContext),
 				Effect.runPromise,
 			);
