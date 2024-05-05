@@ -1,7 +1,12 @@
 import { Clock, Effect, Option } from "effect";
 import * as gen from "feed";
-import parser from "rss-parser";
-import { ApiFetchError, ApiService, HatenaCounts, ScoreApi } from "./score";
+import type parser from "rss-parser";
+import {
+	type ApiFetchError,
+	type ApiService,
+	HatenaCounts,
+	type ScoreApi,
+} from "./score";
 
 export interface ActionEnvironment {
 	readonly repositoryOwner: string;

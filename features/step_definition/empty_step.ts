@@ -1,4 +1,4 @@
-import { Then, When, World } from "@cucumber/cucumber";
+import { Then, When, type World } from "@cucumber/cucumber";
 import { NodeContext } from "@effect/platform-node";
 import { expect } from "chai";
 import { Effect, Option } from "effect";

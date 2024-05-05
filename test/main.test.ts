@@ -27,7 +27,7 @@ describe("prevent flaky test", async () => {
 				"http://example.org/2003/12/13/atom02": 0,
 				"http://example.org/2003/12/13/atom03": 1,
 			};
-			const schema = Schema.record(Schema.string, Schema.Int);
+			const schema = Schema.Record(Schema.String, Schema.Int);
 			const makeApiService = Effect.succeed(
 				ApiService.of({ get: <T>() => Effect.succeed(scores as T) }),
 			);
