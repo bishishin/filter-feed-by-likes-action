@@ -1,10 +1,10 @@
-import { ParseResult, Schema } from "@effect/schema";
+import { type ParseResult, Schema } from "@effect/schema";
 import {
-	Cause,
+	type Cause,
 	Context,
 	Duration,
 	Effect,
-	ReadonlyRecord,
+	Record,
 	Schedule,
 	Stream,
 } from "effect";
@@ -36,12 +36,12 @@ export interface ScoreApi {
 export class HatenaCounts implements ScoreApi {
 	public fetch(links: ReadonlySet<string>): ScoreFetchEffect {
 		const url = "https://bookmark.hatenaapis.com/count/entries";
-		const schema = Schema.record(Schema.string, Schema.Int);
+		const schema = Schema.Record(Schema.String, Schema.Int);
 		return Stream.Do.pipe(
 			Stream.bind("params", () => this.createRequestStream(links)),
 			Stream.bindEffect("api", () => ApiService),
 			Stream.mapEffect(({ api, params }) => api.get(schema, url, params)),
-			Stream.map(ReadonlyRecord.toEntries),
+			Stream.map(Record.toEntries),
 			Stream.flattenIterables,
 			Stream.runCollect,
 			Effect.tap(Effect.logInfo),

@@ -22,7 +22,7 @@ Then(
 		expect(paramsList.length).to.equal(count);
 		const sizes = paramsList.map((v) => v.size);
 		expect(R.sum(sizes)).to.eq(this.links.size);
-		const maxSize = sizes.reduce(R.max, -Infinity);
+		const maxSize = sizes.reduce(R.max, Number.NEGATIVE_INFINITY);
 		expect(maxSize).to.be.at.most(50);
 	},
 );

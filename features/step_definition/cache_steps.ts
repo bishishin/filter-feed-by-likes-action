@@ -1,9 +1,9 @@
 import { Given, Then, When, World } from "@cucumber/cucumber";
 import { expect } from "chai";
-import * as parser from "rss-parser";
+import type * as parser from "rss-parser";
 import {
-	ActionEnvironment,
-	ActionInputs,
+	type ActionEnvironment,
+	type ActionInputs,
 	FeedGenerator,
 } from "../../src/generate";
 

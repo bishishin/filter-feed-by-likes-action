@@ -10,13 +10,13 @@ import {
 	Effect,
 	Either,
 	Layer,
-	LogLevel,
+	type LogLevel,
 	Logger,
 	Match,
 	identity,
 } from "effect";
 import { main } from "./main";
-import { ApiFetchError, ApiService } from "./score";
+import { type ApiFetchError, ApiService } from "./score";
 
 // https://docs.github.com/ja/actions/learn-github-actions/variables#default-environment-variables
 const actionEnvConfig = Config.all({

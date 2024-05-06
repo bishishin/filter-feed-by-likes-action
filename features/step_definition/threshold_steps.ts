@@ -1,9 +1,9 @@
 import { Given, Then, When, World } from "@cucumber/cucumber";
 import { expect } from "chai";
-import * as gen from "feed";
+import type * as gen from "feed";
 import {
-	ActionEnvironment,
-	ActionInputs,
+	type ActionEnvironment,
+	type ActionInputs,
 	FeedGenerator,
 } from "../../src/generate";
 

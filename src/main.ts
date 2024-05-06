@@ -1,9 +1,13 @@
 import * as fs from "node:fs";
-import { Cause, Effect, Option } from "effect";
-import * as gen from "feed";
+import { type Cause, Effect, Option } from "effect";
+import type * as gen from "feed";
 import parser from "rss-parser";
-import { ActionEnvironment, ActionInputs, FeedGenerator } from "./generate";
-import { ApiFetchError, ApiService } from "./score";
+import {
+	type ActionEnvironment,
+	type ActionInputs,
+	FeedGenerator,
+} from "./generate";
+import type { ApiFetchError, ApiService } from "./score";
 
 export function main(
 	env: ActionEnvironment,
