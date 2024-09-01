@@ -35,17 +35,17 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"@cucumber/cucumber": "^10.8.0",
+		"@cucumber/cucumber": "^10.9.0",
 		"@cucumber/gherkin-utils": "^9.0.0",
-		"@types/chai": "^4.3.16",
-		"@types/node": "^20.14.9",
+		"@types/chai": "^4.3.19",
+		"@types/node": "^22.5.1",
 		"@vercel/ncc": "^0.38.1",
 		"chai": "^5.1.1",
 		"concurrently": "^8.2.2",
-		"esbuild": "^0.22.0",
-		"esbuild-register": "^3.5.0",
+		"esbuild": "^0.23.1",
+		"esbuild-register": "^3.6.0",
 		"gherkin-lint": "^4.2.4",
-		"typescript": "^5.5.2"
+		"typescript": "^5.5.4"
 	},
 	"volta": {
 		"node": "20.10.0",
