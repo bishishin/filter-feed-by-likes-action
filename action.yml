@@ -1,15 +1,15 @@
 ---
-name: 'filter-feed-by-likes-action'
-description: 'いいね数などで記事を評価しフィルタしたフィードを生成する'
-author: 'bishishin'
+name: "filter-feed-by-likes-action"
+description: "いいね数などで記事を評価しフィルタしたフィードを生成する"
+author: "bishishin"
 
 branding:
-  icon: 'rss'
-  color: 'orange'
+  icon: "rss"
+  color: "orange"
 
 inputs:
   original:
-    description: '生成元フィードの入力ファイルパス。前段のステップでローカルにダウンロードしておくことを想定'
+    description: "生成元フィードの入力ファイルパス。前段のステップでローカルにダウンロードしておくことを想定"
     required: true
   cache:
     description: |
@@ -18,11 +18,11 @@ inputs:
       また元フィードからは消えた配信済み記事を含めるために用いる。
       前回配信分のファイルを流用することを想定。
   output:
-    description: '生成フィードの出力ファイルパス。'
+    description: "生成フィードの出力ファイルパス。"
     required: true
   threshold:
-    description: '配信する評価の閾値'
-    default: '10'
+    description: "配信する評価の閾値"
+    default: "10"
 
 runs:
   using: node20
