@@ -1,4 +1,5 @@
 # filter-feed-by-likes-action
+
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D20-blue.svg?logo=nodedotjs)
 ![GitHub License](https://img.shields.io/github/license/bishishin/filter-feed-by-likes-action)
 [![ci](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/ci.yaml/badge.svg)](https://github.com/bishishin/filter-feed-by-likes-action/actions/workflows/ci.yaml)
@@ -19,6 +20,7 @@
 下記に利用例を示す。
 
 ### 最小例
+
 ```yaml
 - uses: bishishin/filter-feed-by-likes-action@v0
   with:
@@ -28,8 +30,10 @@
 ```
 
 ### 前後処理を含めた具体例
+
 [静的ファイルをデプロイするスターターワークフロー](https://github.com/actions/starter-workflows/blob/main/pages/static.yml)を元にしている。
 この例では前後処理にXSLTを用いているが、実利用時は任意の言語で問題ない。
+
 ```yaml
 steps:
   - name: Checkout
@@ -49,7 +53,7 @@ steps:
       original: normalized.xml
       cache: feed/qiita.xml
       output: filtered.xml
-      threshold: ${{ vars.LIKE_THRESHOLD }}  # 閾値の変更をコミットせずに可能にする
+      threshold: ${{ vars.LIKE_THRESHOLD }} # 閾値の変更をコミットせずに可能にする
   - name: 20件を超えた記事を削除する後処理
     run: npx xslt3 -xsl:trim.xsl -s:filtered.xml -o:feed/qiita.xml
   - name: 配信済み記事のキャッシュ
@@ -63,12 +67,14 @@ steps:
   - name: Upload artifact
     uses: actions/upload-pages-artifact@v3
     with:
-      path: 'feed'
+      path: "feed"
   - name: Deploy to GitHub Pages
     id: deployment
     uses: actions/deploy-pages@v4
 ```
+
 prepare.xsl
+
 ```xsl
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -88,7 +94,9 @@ prepare.xsl
     </xsl:template>
 </xsl:stylesheet>
 ```
+
 trim.xsl
+
 ```xsl
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
