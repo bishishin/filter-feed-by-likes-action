@@ -36,7 +36,7 @@ export interface ScoreApi {
 export class HatenaCounts implements ScoreApi {
   public fetch(links: ReadonlySet<string>): ScoreFetchEffect {
     const url = "https://bookmark.hatenaapis.com/count/entries";
-    const schema = Schema.Record(Schema.String, Schema.Int);
+    const schema = Schema.Record({ key: Schema.String, value: Schema.Int });
     return Stream.Do.pipe(
       Stream.bind("params", () => this.createRequestStream(links)),
       Stream.bindEffect("api", () => ApiService),
