@@ -2,10 +2,7 @@
   "name": "filter-feed-by-likes-action",
   "description": "いいね数などで記事を評価しフィルタしたフィードを生成する",
   "author": "bishishin",
-  "keywords": [
-    "actions",
-    "node"
-  ],
+  "keywords": ["actions", "node"],
   "exports": {
     ".": "./dist/index.js"
   },
@@ -13,7 +10,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "lint-biome": "biome check --apply .",
+    "lint-biome": "biome check --write .",
     "lint-feat": "gherkin-lint -c .github/linters/.gherkin-lintrc",
     "fmt-feat": "gherkin-utils format features/main.feature",
     "lint": "npm run fmt-feat && npm run lint-feat && npm run lint-biome",
