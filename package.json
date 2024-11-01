@@ -28,9 +28,9 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.68.5",
-    "@effect/platform-node": "^0.63.5",
-    "@effect/schema": "^0.75.4",
+    "@effect/platform": "^0.69.13",
+    "@effect/platform-node": "^0.64.14",
+    "@effect/schema": "^0.75.5",
     "effect": "^3.1.0",
     "feed": "^4.2.2",
     "rambda": "^9.3.0",
