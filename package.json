@@ -38,14 +38,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cucumber/cucumber": "^11.1.0",
+    "@cucumber/cucumber": "^11.1.1",
     "@cucumber/gherkin-utils": "^9.0.0",
     "@types/chai": "^5.0.1",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.3",
     "@vercel/ncc": "^0.38.3",
     "chai": "^5.1.2",
-    "concurrently": "^9.1.0",
-    "esbuild": "^0.24.0",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.24.2",
     "esbuild-register": "^3.6.0",
     "gherkin-lint": "^4.2.4",
     "typescript": "^5.7.2"
