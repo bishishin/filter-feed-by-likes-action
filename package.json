@@ -45,7 +45,7 @@
     "@vercel/ncc": "^0.38.3",
     "chai": "^5.1.2",
     "concurrently": "^9.1.2",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "esbuild-register": "^3.6.0",
     "gherkin-lint": "^4.2.4",
     "typescript": "^5.7.3"
