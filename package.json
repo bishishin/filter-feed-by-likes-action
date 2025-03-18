@@ -10,7 +10,7 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20.18.1"
+    "node": ">=20"
   },
   "scripts": {
     "lint-biome": "biome check --write .",
@@ -52,7 +52,7 @@
     "typescript": "^5.8.2"
   },
   "volta": {
-    "node": "20.10.0",
+    "node": "20.18.1",
     "npm": "10.2.5"
   }
 }
