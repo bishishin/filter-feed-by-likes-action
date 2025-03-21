@@ -52,7 +52,6 @@
     "typescript": "^5.8.2"
   },
   "volta": {
-    "node": "20.18.1",
-    "npm": "10.2.5"
+    "extends": "./volta.json"
   }
 }
