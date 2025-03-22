@@ -28,8 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.75.1",
-    "@effect/platform-node": "^0.71.1",
+    "@effect/platform": "^0.79.3",
+    "@effect/platform-node": "^0.75.3",
     "@effect/schema": "^0.75.5",
     "effect": "^3.1.0",
     "feed": "^4.2.2",
@@ -51,7 +51,6 @@
     "typescript": "^5.8.2"
   },
   "volta": {
-    "node": "20.10.0",
-    "npm": "10.2.5"
+    "extends": "./volta.json"
   }
 }
