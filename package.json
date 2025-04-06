@@ -28,8 +28,8 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.79.3",
-    "@effect/platform-node": "^0.75.3",
+    "@effect/platform": "^0.80.4",
+    "@effect/platform-node": "^0.76.7",
     "@effect/schema": "^0.75.5",
     "effect": "^3.1.0",
     "feed": "^4.2.2",
