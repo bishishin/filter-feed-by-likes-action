@@ -41,14 +41,14 @@
     "@cucumber/cucumber": "^11.2.0",
     "@cucumber/gherkin-utils": "^9.2.0",
     "@types/chai": "^5.2.1",
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.15.3",
     "@vercel/ncc": "^0.38.3",
     "chai": "^5.2.0",
     "concurrently": "^9.1.2",
-    "esbuild": "^0.25.2",
+    "esbuild": "^0.25.3",
     "esbuild-register": "^3.6.0",
     "gherkin-lint": "^4.2.4",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "volta": {
     "extends": "./volta.json"
