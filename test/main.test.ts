@@ -54,7 +54,7 @@ describe("prevent flaky test", async () => {
         Effect.runPromise,
       );
       const actual = fs.readFileSync(dummyInputs.outputPath).toString();
-      for (const lines of R.zip(actual.split("\n"), expected.split("\n"))) {
+      for (const lines of R.zip(actual.split("\n"))(expected.split("\n"))) {
         expect(lines[0]).to.equal(lines[1]);
       }
     });

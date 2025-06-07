@@ -21,8 +21,8 @@ Then(
     const paramsList = new HatenaCountsForTest().buildParamsList(this.links);
     expect(paramsList.length).to.equal(count);
     const sizes = paramsList.map((v) => v.size);
-    expect(R.sum(sizes)).to.eq(this.links.size);
-    const maxSize = sizes.reduce(R.max, Number.NEGATIVE_INFINITY);
+    expect(sizes.reduce((acc, value) => acc + value, 0)).to.eq(this.links.size);
+    const maxSize = Math.max(...sizes);
     expect(maxSize).to.be.at.most(50);
   },
 );

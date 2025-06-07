@@ -38,7 +38,7 @@ Then("3秒以上の間隔を設ける", async function (this: CustomWorld) {
       Stream.map((v) => v[1] - v[0]),
       Stream.runCollect,
       Effect.map((v) => Array.from<number>(v)),
-      Effect.map((v) => v.reduce(R.min, Number.POSITIVE_INFINITY)),
+      Effect.map(v => Math.min(...v)),
       Effect.fork,
       Effect.tap(() => TestClock.adjust(Duration.millis(6000))),
       Effect.flatMap(Fiber.join),
