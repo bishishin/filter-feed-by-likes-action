@@ -1,12 +1,12 @@
 import * as fs from "node:fs";
 import { describe, it } from "node:test";
-import { Schema } from "@effect/schema";
 import { expect } from "chai";
 import {
   Duration,
   Effect,
   Layer,
   Option,
+  Schema,
   TestClock,
   TestContext,
 } from "effect";

@@ -30,7 +30,6 @@
     "@actions/core": "^1.11.1",
     "@effect/platform": "^0.84.4",
     "@effect/platform-node": "^0.84.0",
-    "@effect/schema": "^0.75.5",
     "effect": "^3.1.0",
     "feed": "^5.1.0",
     "rambda": "^10.2.0",

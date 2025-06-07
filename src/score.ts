@@ -1,11 +1,12 @@
-import { type ParseResult, Schema } from "@effect/schema";
 import {
   type Cause,
   Context,
   Duration,
   Effect,
+  type ParseResult,
   Record,
   Schedule,
+  Schema,
   Stream,
 } from "effect";
 import * as R from "rambda";
@@ -64,9 +65,9 @@ export class HatenaCounts implements ScoreApi {
   ): readonly URLSearchParams[] {
     return R.pipe(
       Array.from(links),
-      R.map(l => ["url", l] as [string, string]),
+      R.map((l) => ["url", l] as [string, string]),
       R.splitEvery(50),
-      R.map(kv => new URLSearchParams(kv)),
+      R.map((kv) => new URLSearchParams(kv)),
     );
   }
 }
