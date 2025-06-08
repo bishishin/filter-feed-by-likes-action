@@ -1,14 +1,15 @@
-import { type ParseResult, Schema } from "@effect/schema";
 import {
   type Cause,
   Context,
   Duration,
   Effect,
+  type ParseResult,
   Record,
   Schedule,
+  Schema,
   Stream,
 } from "effect";
-import * as R from "rambda/immutable";
+import * as R from "rambda";
 
 export type ApiFetchError =
   | Cause.UnknownException
@@ -63,9 +64,10 @@ export class HatenaCounts implements ScoreApi {
     links: ReadonlySet<string>,
   ): readonly URLSearchParams[] {
     return R.pipe(
-      R.map((l) => ["url", l]),
+      Array.from(links),
+      R.map((l) => ["url", l] as [string, string]),
       R.splitEvery(50),
-      R.map((kv: readonly [string, string][]) => new URLSearchParams(kv)),
-    )(Array.from(links));
+      R.map((kv) => new URLSearchParams(kv)),
+    );
   }
 }

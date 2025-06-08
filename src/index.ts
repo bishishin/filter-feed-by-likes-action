@@ -4,7 +4,6 @@
  */
 import * as core from "@actions/core";
 import { NodeRuntime as Node } from "@effect/platform-node";
-import { Schema } from "@effect/schema";
 import {
   Config,
   Effect,
@@ -13,6 +12,7 @@ import {
   type LogLevel,
   Logger,
   Match,
+  Schema,
   identity,
 } from "effect";
 import { main } from "./main";
