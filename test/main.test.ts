@@ -6,7 +6,6 @@ import {
   Effect,
   Layer,
   Option,
-  Schema,
   TestClock,
   TestContext,
 } from "effect";
@@ -27,7 +26,6 @@ describe("prevent flaky test", async () => {
         "http://example.org/2003/12/13/atom02": 0,
         "http://example.org/2003/12/13/atom03": 1,
       };
-      const schema = Schema.Record({ key: Schema.String, value: Schema.Int });
       const makeApiService = Effect.succeed(
         ApiService.of({ get: <T>() => Effect.succeed(scores as T) }),
       );

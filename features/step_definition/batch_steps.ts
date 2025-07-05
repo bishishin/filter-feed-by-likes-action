@@ -1,6 +1,5 @@
 import { Then, When, World } from "@cucumber/cucumber";
 import { expect } from "chai";
-import * as R from "rambda";
 import { HatenaCounts } from "../../src/score";
 
 class CustomWorld extends World {
