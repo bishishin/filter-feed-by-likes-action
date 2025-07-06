@@ -9,7 +9,6 @@ import {
   TestClock,
   TestContext,
 } from "effect";
-import * as R from "rambda";
 import { HatenaCounts } from "../../src/score";
 
 class CustomWorld extends World {

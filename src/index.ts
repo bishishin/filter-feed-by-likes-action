@@ -8,12 +8,12 @@ import {
   Config,
   Effect,
   Either,
+  identity,
   Layer,
-  type LogLevel,
   Logger,
+  type LogLevel,
   Match,
   Schema,
-  identity,
 } from "effect";
 import { main } from "./main";
 import { type ApiFetchError, ApiService } from "./score";
