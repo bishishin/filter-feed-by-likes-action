@@ -1,6 +1,7 @@
 import { Clock, Effect, Option } from "effect";
 import * as gen from "feed";
 import type parser from "rss-parser";
+import { type MimeTypeValidationOptions, validateAndNormalizeMimeType } from "./mime";
 import {
   type ApiFetchError,
   type ApiService,
@@ -19,6 +20,8 @@ export interface ActionInputs {
   readonly cachePath: Option.Option<string>;
   readonly outputPath: string;
   readonly threshold: number;
+  readonly validateMimeTypes: boolean;
+  readonly defaultMimeType: string;
 }
 
 export class FeedGenerator {
@@ -61,10 +64,16 @@ export class FeedGenerator {
         .map((item) => Option.fromNullable(item.link))
         .flatMap(Option.toArray),
     );
+
+    const validationOptions: MimeTypeValidationOptions = {
+      enabled: this.inputs.validateMimeTypes,
+      defaultMimeType: this.inputs.defaultMimeType,
+    };
+
     return fetchedItems
-      .map(convertFeedItem)
+      .map(item => convertFeedItem(item, validationOptions))
       .flatMap(Option.toArray)
-      .filter((item) => !publishedLinks.has(item.link));
+      .filter((item): item is gen.Item => !publishedLinks.has(item.link));
   }
 
   protected publishItemsOnHighScore(
@@ -116,21 +125,40 @@ export class FeedGenerator {
   }
 }
 
-function convertFeedItem(item: parser.Item): Option.Option<gen.Item> {
+function convertFeedItem(
+  item: parser.Item,
+  mimeTypeValidation?: MimeTypeValidationOptions
+): Option.Option<gen.Item> {
   return Option.fromNullable(item.link).pipe(
-    Option.map((l) => ({
-      title: item.title ?? "",
-      link: l,
-      date: item.isoDate ? new Date(item.isoDate) : new Date(),
-      ...(item.pubDate && { published: new Date(item.pubDate) }),
-      ...(item.summary && { description: item.summary }),
-      ...(item.content && { content: item.content }),
-      ...(item.guid && { guid: item.guid }),
-      ...(item.creator && { author: [{ name: item.creator }] }),
-      ...(item.enclosure && { enclosure: item.enclosure }),
-      ...(item.categories && {
-        category: item.categories.map((v) => ({ name: v })),
-      }),
-    })),
+    Option.map((l: string) => {
+      // エンクロージャーの処理: MIMEタイプのバリデーションを適用
+      const enclosure = item.enclosure
+        ? {
+            ...item.enclosure,
+            type:
+              (mimeTypeValidation
+                ? validateAndNormalizeMimeType(
+                    item.enclosure.type ?? "",
+                    mimeTypeValidation
+                  )
+                : null) ?? item.enclosure.type,
+          }
+        : undefined;
+
+      return {
+        title: item.title ?? "",
+        link: l,
+        date: item.isoDate ? new Date(item.isoDate) : new Date(),
+        ...(item.pubDate && { published: new Date(item.pubDate) }),
+        ...(item.summary && { description: item.summary }),
+        ...(item.content && { content: item.content }),
+        ...(item.guid && { guid: item.guid }),
+        ...(item.creator && { author: [{ name: item.creator }] }),
+        ...(enclosure && { enclosure }),
+        ...(item.categories && {
+          category: item.categories.map((v: string) => ({ name: v })),
+        }),
+      };
+    }),
   );
 }

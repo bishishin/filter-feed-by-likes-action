@@ -31,6 +31,8 @@ const actionInputsConfig = Config.all({
   cachePath: Config.option(Config.string("INPUT_CACHE")),
   outputPath: Config.string("INPUT_OUTPUT"),
   threshold: Config.integer("INPUT_THRESHOLD"),
+  validateMimeTypes: Config.boolean("INPUT_VALIDATE-MIME-TYPES"),
+  defaultMimeType: Config.string("INPUT_DEFAULT-MIME-TYPE"),
 });
 function get<T>(
   schema: Schema.Schema<T>,

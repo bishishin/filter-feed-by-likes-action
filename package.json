@@ -32,6 +32,7 @@
     "@effect/platform-node": "^0.88.3",
     "effect": "^3.1.0",
     "feed": "~5.0.1",
+    "mime-db": "^1.54.0",
     "rambda": "^10.2.0",
     "rss-parser": "^3.13.0"
   },

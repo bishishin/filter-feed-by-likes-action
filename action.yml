@@ -23,6 +23,12 @@ inputs:
   threshold:
     description: "配信する評価の閾値"
     default: "10"
+  validate-mime-types:
+    description: "type属性のMIMEタイプバリデーションを有効にするかどうか"
+    default: "true"
+  default-mime-type:
+    description: "不正なMIMEタイプを検出した場合のデフォルト値"
+    default: "image/jpeg"
 
 runs:
   using: node20

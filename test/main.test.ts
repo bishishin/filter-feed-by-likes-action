@@ -19,6 +19,40 @@ import { ApiService } from "../src/score";
   Promise resolution is still pending but the event loop has already resolved
 */
 describe("prevent flaky test", async () => {
+  it("MIMEタイプバリデーションを適用する", async (t) => {
+    const scores: Record<string, number> = {
+      "http://example.org/2003/12/13/atom01": 1,
+      "http://example.org/2003/12/13/atom02": 1,
+      "http://example.org/2003/12/13/atom03": 1,
+    };
+    const makeApiService = Effect.succeed(
+      ApiService.of({ get: <T>() => Effect.succeed(scores as T) }),
+    );
+    const dummyEnv = {
+      repositoryOwner: "hoge",
+      repositoryId: "01234",
+      actionRepository: "foo/bar",
+    };
+    const dummyInputs = {
+      originalPath: "test/original.atom",
+      cachePath: Option.some("test/cache.atom"),
+      outputPath: "test/output.atom",
+      threshold: 1,
+      validateMimeTypes: true,
+      defaultMimeType: "image/jpeg",
+    };
+    t.after(() => fs.rmSync(dummyInputs.outputPath));
+    await Effect.Do.pipe(
+      Effect.flatMap(() => main(dummyEnv, dummyInputs)),
+      Effect.provide(Layer.effect(ApiService, makeApiService)),
+      Effect.provide(TestContext.TestContext),
+      Effect.runPromise,
+    );
+    const actual = fs.readFileSync(dummyInputs.outputPath).toString();
+    expect(actual).to.not.include('type="image//i/jbkwRaW"');
+    expect(actual).to.include('type="image/jpeg"');
+  });
+
   for (let step = 0; step < 100; step++) {
     it(`${step} step`, async (t) => {
       const scores: Record<string, number> = {
