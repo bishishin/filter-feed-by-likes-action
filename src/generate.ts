@@ -127,7 +127,6 @@ function convertFeedItem(item: parser.Item): Option.Option<gen.Item> {
       ...(item.content && { content: item.content }),
       ...(item.guid && { guid: item.guid }),
       ...(item.creator && { author: [{ name: item.creator }] }),
-      ...(item.enclosure && { enclosure: item.enclosure }),
       ...(item.categories && {
         category: item.categories.map((v) => ({ name: v })),
       }),
