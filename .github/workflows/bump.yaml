@@ -41,8 +41,8 @@ jobs:
       # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
         run: |-
-          git tag --force ${MAJOR_TAG} ${NEW_TAG}
-          git push origin ${MAJOR_TAG} --force
+          git tag --force "${MAJOR_TAG}" "${NEW_TAG}"
+          git push origin "${MAJOR_TAG}" --force
         env:
           NEW_TAG: ${{ steps.bump-version.outputs.new_tag }}
           MAJOR_TAG: ${{ steps.extract-major.outputs.major_tag }}
