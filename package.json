@@ -28,11 +28,11 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.87.1",
-    "@effect/platform-node": "^0.88.3",
+    "@effect/platform": "^0.90.10",
+    "@effect/platform-node": "^0.96.1",
     "effect": "^3.1.0",
-    "feed": "~5.0.1",
-    "rambda": "^10.2.0",
+    "feed": "~5.1.0",
+    "rambda": "^10.3.2",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
