@@ -20,11 +20,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: "0"
+          persist-credentials: false
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@v1
+        uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8 # 1.75.0
         id: bump-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,9 +35,14 @@ jobs:
       - name: Extract major tag
         id: extract-major
         run: >-
-          echo major_tag="$(echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f1)" >> "$GITHUB_OUTPUT"
+          echo major_tag="$(echo "${NEW_TAG}" | cut -d'.' -f1)" >> "${GITHUB_OUTPUT}"
+        env:
+          NEW_TAG: ${{ steps.bump-version.outputs.new_tag }}
       # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
         run: |-
-          git tag --force ${{ steps.extract-major.outputs.major_tag }} ${{ steps.bump-version.outputs.new_tag }}
-          git push origin ${{ steps.extract-major.outputs.major_tag }} --force
+          git tag --force "${MAJOR_TAG}" "${NEW_TAG}"
+          git push origin "${MAJOR_TAG}" --force
+        env:
+          NEW_TAG: ${{ steps.bump-version.outputs.new_tag }}
+          MAJOR_TAG: ${{ steps.extract-major.outputs.major_tag }}
