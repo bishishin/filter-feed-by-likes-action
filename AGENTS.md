@@ -7,6 +7,7 @@
 このプロジェクトは **filter-feed-by-likes-action** - RSSフィードをはてなブックマーク件数などの「いいね」指標で評価し、閾値を超えた記事だけをフィルタリングして再配信するGitHub Actionです。
 
 ### 主な機能
+
 - RSSフィードの取得と解析(Atom/RSS対応)
 - はてなブックマークAPI経由での記事評価
 - 閾値によるフィルタリング
@@ -22,7 +23,7 @@
   - `feed`: Atom/RSSフィード生成
   - `rss-parser`: フィード解析
   - `@actions/core`: GitHub Actions統合
-- **テスト**: 
+- **テスト**:
   - Node.js組み込みテストランナー(ユニットテスト)
   - Cucumber.js + Gherkin(BDDシナリオテスト)
 - **ビルド**: `@vercel/ncc`(単一バンドル生成)
@@ -30,7 +31,7 @@
 
 ## プロジェクト構造
 
-```
+```text
 src/
   ├── index.ts       # GitHub Actionsエントリーポイント
   ├── main.ts        # メイン処理フロー(フィード読み込み、フィルタ、書き込み)
@@ -48,10 +49,12 @@ action.yml           # GitHub Action定義
 ## コーディング規約・スタイル
 
 ### 言語使用ルール
+
 - **コメント、ドキュメント、会話**: 日本語を使用
 - **コード**: 英語を使用
 
 ### TypeScript スタイル
+
 - **関数型プログラミング**: Effect-TSを活用した副作用管理
 - **イミュータブル**: `readonly`配列、ReadonlyMap等を積極的に使用
 - **型安全**: 明示的な型注釈、`Option`型でnullableを扱う
@@ -59,6 +62,7 @@ action.yml           # GitHub Action定義
 - **副作用の分離**: ファイルI/O、API呼び出しなどはEffectでラップ
 
 ### コード例(既存パターンに従う)
+
 ```typescript
 // Effect パイプライン
 return Effect.Do.pipe(
@@ -84,16 +88,19 @@ protected selectPublishable(
 ## テスト方針
 
 ### ユニットテスト (`test/main.test.ts`)
+
 - Node.js組み込みテストランナー使用
 - 主要ロジック(フィルタリング、スコア取得、キャッシュ処理)をテスト
 - モックAPIサービスを`Effect.provideService()`で注入
 
 ### BDDシナリオテスト (`features/`)
+
 - Gherkinで仕様を記述(日本語)
 - ステップ定義は`features/step_definition/`に配置
 - 実行: `npm run test-feat`
 
 ### テストファイル命名
+
 - ユニット: `*.test.ts`
 - フィクスチャ: `test/*.atom`(Atomフィードサンプル)
 
@@ -113,14 +120,17 @@ npm test  # ユニット+BDD並列実行
 ## デバッグ・トラブルシューティング
 
 ### ログ確認
+
 - Effect-TSの`Effect.logInfo()`/`Effect.logError()`を使用
 - GitHub Actions実行時は`@actions/core`のロギングが出力される
 
 ### APIレート制限
+
 - `src/score.ts`の`Schedule.spaced(Duration.seconds(3))`で遅延制御
 - バッチサイズは50件/リクエスト(はてなブックマークAPI制限)
 
 ### キャッシュ問題
+
 - `src/main.ts`の`loadCacheFile()`でキャッシュ読み込み処理
 - キャッシュファイルが不正な場合は無視して初期状態として扱う
 
