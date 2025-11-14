@@ -38,6 +38,13 @@ jobs:
           echo major_tag="$(echo "${NEW_TAG}" | cut -d'.' -f1)" >> "${GITHUB_OUTPUT}"
         env:
           NEW_TAG: ${{ steps.bump-version.outputs.new_tag }}
+      - name: Configure auth for pushing major tag
+        run: |-
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          gh auth setup-git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
         run: |-
