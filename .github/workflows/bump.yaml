@@ -49,7 +49,8 @@ jobs:
       - name: Update major tag
         run: |-
           git tag --force "${MAJOR_TAG}" "${NEW_TAG}"
-          git push origin "${MAJOR_TAG}" --force
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${MAJOR_TAG}" --force
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEW_TAG: ${{ steps.bump-version.outputs.new_tag }}
           MAJOR_TAG: ${{ steps.extract-major.outputs.major_tag }}
