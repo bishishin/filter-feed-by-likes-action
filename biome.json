@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
   "linter": {
     "enabled": true,
     "rules": {
@@ -7,7 +7,7 @@
     }
   },
   "files": {
-    "includes": ["**", "!dist/**", "!node_modules/**"],
+    "includes": ["**", "!dist", "!node_modules"],
     "ignoreUnknown": false
   },
   "vcs": {
