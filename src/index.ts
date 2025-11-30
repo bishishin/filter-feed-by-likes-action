@@ -3,7 +3,7 @@
  * action環境に依存する実装もここで注入する
  */
 import * as core from "@actions/core";
-import { NodeRuntime as Node } from "@effect/platform-node";
+import { NodeContext, NodeRuntime as Node } from "@effect/platform-node";
 import {
   Config,
   Effect,
@@ -66,6 +66,7 @@ Effect.Do.pipe(
   Effect.bind("inputs", () => actionInputsConfig),
   Effect.flatMap(({ env, inputs }) => main(env, inputs)),
   Effect.provide(Layer.effect(ApiService, makeApiService)),
+  Effect.provide(NodeContext.layer),
   Effect.provide(Logger.replace(Logger.defaultLogger, logger)),
   Effect.catchAllCause((e) => Either.try(() => core.setFailed(e.toString()))),
   Node.runMain,

@@ -1,5 +1,6 @@
 import * as fs from "node:fs";
 import { describe, it } from "node:test";
+import { NodeFileSystem } from "@effect/platform-node";
 import { expect } from "chai";
 import {
   Duration,
@@ -48,6 +49,7 @@ describe("prevent flaky test", async () => {
           concurrent: true,
         }),
         Effect.provide(Layer.effect(ApiService, makeApiService)),
+        Effect.provide(NodeFileSystem.layer),
         Effect.provide(TestContext.TestContext),
         Effect.runPromise,
       );

@@ -1,4 +1,4 @@
-import * as fs from "node:fs";
+import { Error as PlatformError, FileSystem } from "@effect/platform";
 import { type Cause, Effect, Option } from "effect";
 import type * as gen from "feed";
 import parser from "rss-parser";
@@ -14,20 +14,26 @@ export function main(
   inputs: ActionInputs,
 ): Effect.Effect<
   gen.Feed,
-  Cause.UnknownException | Error | ApiFetchError,
-  ApiService
+  Cause.UnknownException | Error | ApiFetchError | PlatformError.PlatformError,
+  ApiService | FileSystem.FileSystem
 > {
   return Effect.Do.pipe(
-    Effect.bind("origFeed", () =>
-      Effect.tryPromise(() =>
-        new parser().parseString(fs.readFileSync(inputs.originalPath, "utf-8")),
+    Effect.bind("fs", () => FileSystem.FileSystem),
+    Effect.bind("origFeed", ({ fs }) =>
+      fs.readFileString(inputs.originalPath).pipe(
+        Effect.flatMap((content) =>
+          Effect.tryPromise(() => new parser().parseString(content)),
+        ),
       ),
     ),
     Effect.bind("cacheFeed", () => loadCacheFile(inputs.cachePath)),
-    Effect.flatMap(({ origFeed, cacheFeed }) =>
+    Effect.bind("feed", ({ origFeed, cacheFeed }) =>
       new FeedGenerator(env, inputs).generate(origFeed, cacheFeed),
     ),
-    Effect.tap((feed) => fs.writeFileSync(inputs.outputPath, feed.atom1())),
+    Effect.tap(({ fs, feed }) =>
+      fs.writeFileString(inputs.outputPath, feed.atom1()),
+    ),
+    Effect.map(({ feed }) => feed),
   );
 }
 
@@ -35,18 +41,25 @@ export function loadCacheFile(
   path: Option.Option<string>,
 ): Effect.Effect<
   parser.Output<parser.Item> | undefined,
-  Cause.UnknownException
+  Cause.UnknownException | PlatformError.PlatformError,
+  FileSystem.FileSystem
 > {
-  return path.pipe(
-    Effect.flatMap((p) =>
-      Effect.try(() => (fs.existsSync(p) ? Option.some(p) : Option.none())),
-    ),
-    Effect.flatten,
-    Effect.flatMap((p) => Effect.try(() => fs.readFileSync(p, "utf-8"))),
-    Effect.flatMap((data) =>
-      Effect.tryPromise(() => new parser().parseString(data)),
-    ),
-    Effect.optionFromOptional,
-    Effect.map(Option.getOrUndefined),
-  );
+  return Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const result = yield* path.pipe(
+      Effect.flatMap((p) =>
+        fs.exists(p).pipe(
+          Effect.map((exists) => (exists ? Option.some(p) : Option.none())),
+        ),
+      ),
+      Effect.flatten,
+      Effect.flatMap((p) => fs.readFileString(p)),
+      Effect.flatMap((data) =>
+        Effect.tryPromise(() => new parser().parseString(data)),
+      ),
+      Effect.optionFromOptional,
+      Effect.map(Option.getOrUndefined),
+    );
+    return result;
+  });
 }
