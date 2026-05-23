@@ -110,7 +110,7 @@ export class FeedGenerator {
       updated: updateAt,
       ...(original.description && { description: original.description }),
       ...(original.link && { link: original.link }),
-      ...(original.feedUrl && { feedLinks: original.feedUrl }),
+      ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
       ...(original.image && { image: original.image.url }),
     });
   }
