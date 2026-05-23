@@ -27,12 +27,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.93.3",
-    "@effect/platform-node": "^0.101.1",
+    "@actions/core": "^2.0.1",
+    "@effect/platform": "^0.94.2",
+    "@effect/platform-node": "^0.104.1",
     "effect": "^3.21.2",
-    "feed": "~5.1.0",
-    "rambda": "^10.3.4",
+    "feed": "~5.2.0",
+    "rambda": "^11.0.1",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
