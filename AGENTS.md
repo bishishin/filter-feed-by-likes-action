@@ -17,7 +17,7 @@
 ## 技術スタック
 
 - **ランタイム**: Node.js 20+
-- **言語**: TypeScript 5.x
+- **言語**: TypeScript
 - **主要ライブラリ**:
   - `effect`: 関数型プログラミング、副作用管理
   - `feed`: Atom/RSSフィード生成
