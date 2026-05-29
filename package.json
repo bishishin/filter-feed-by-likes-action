@@ -27,12 +27,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@effect/platform": "^0.93.3",
-    "@effect/platform-node": "^0.101.1",
+    "@actions/core": "2.x",
+    "@effect/platform": "^0.96.1",
+    "@effect/platform-node": "^0.106.0",
     "effect": "^3.21.2",
-    "feed": "~5.1.0",
-    "rambda": "^10.3.4",
+    "feed": "~5.2.1",
+    "rambda": "^11.0.1",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
@@ -48,8 +48,5 @@
     "esbuild-register": "^3.6.0",
     "gherkin-lint": "^4.2.4",
     "typescript": "^6.0.3"
-  },
-  "volta": {
-    "extends": "./volta.json"
   }
 }
