@@ -36,15 +36,15 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.15",
+    "@biomejs/biome": "2.5.1",
     "@cucumber/cucumber": "^12.9.0",
     "@cucumber/gherkin-utils": "^11.0.0",
     "@types/chai": "^5.2.2",
-    "@types/node": "^25.6.0",
-    "@vercel/ncc": "^0.38.4",
+    "@types/node": "^25.9.4",
+    "@vercel/ncc": "^0.44.0",
     "chai": "^6.2.2",
-    "concurrently": "^9.2.1",
-    "esbuild": "^0.28.0",
+    "concurrently": "^10.0.1",
+    "esbuild": "^0.28.1",
     "esbuild-register": "^3.6.0",
     "gherkin-lint": "^4.2.4",
     "typescript": "^6.0.3"
