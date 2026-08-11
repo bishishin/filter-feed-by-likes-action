@@ -9,6 +9,11 @@ Feature: いいね数などで記事を評価しフィルタしたフィード�
     When 元フィードの記事がキャッシュに存在
     Then 対象記事を再配信不可能として評価処理を行わない
 
+  Scenario: 元記事の本文と要約を再配信しない
+    Given 本文と要約と作成者を含む元記事
+    When 元記事を配信用の記事に変換
+    Then タイトルとリンクと作成者と更新日時と公開日時だけを引き継ぐ
+
   Scenario Outline: はてなブックマーク件数を、まとめたリクエストで取得する
   # https://developer.hatena.ne.jp/ja/documents/bookmark/apis/getcount/
     When 取得対象が<targetCount>件

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Example Feed</title>
+	<subtitle>Source feed description that must not be republished.</subtitle>
 	<link href="http://example.org/"/>
 	<updated>2003-12-13T18:30:02Z</updated>
 	<author>
@@ -13,6 +14,8 @@
 		<id>foo</id>
 		<updated>2003-12-13T18:30:02Z</updated>
 		<summary>Some text.</summary>
+		<content type="html">Full source content.</content>
+		<category term="source-category"/>
 	</entry>
 	<entry>
 		<title>Atom-Powered Robots Run Amok lowScore</title>

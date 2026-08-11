@@ -9,7 +9,6 @@ import {
   TestClock,
   TestContext,
 } from "effect";
-import * as R from "rambda";
 import { main } from "../src/main";
 import { ApiService } from "../src/score";
 
@@ -52,9 +51,7 @@ describe("prevent flaky test", async () => {
         Effect.runPromise,
       );
       const actual = fs.readFileSync(dummyInputs.outputPath).toString();
-      for (const lines of R.zip(actual.split("\n"))(expected.split("\n"))) {
-        expect(lines[0]).to.equal(lines[1]);
-      }
+      expect(actual).to.equal(expected.replace(/\r?\n$/, ""));
     });
   }
 });

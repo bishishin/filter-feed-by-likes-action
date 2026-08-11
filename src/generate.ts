@@ -108,10 +108,8 @@ export class FeedGenerator {
       language: "ja",
       generator: this.env.actionRepository,
       updated: updateAt,
-      ...(original.description && { description: original.description }),
       ...(original.link && { link: original.link }),
       ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
-      ...(original.image && { image: original.image.url }),
     });
   }
 }
@@ -123,13 +121,7 @@ function convertFeedItem(item: parser.Item): Option.Option<gen.Item> {
       link: l,
       date: item.isoDate ? new Date(item.isoDate) : new Date(),
       ...(item.pubDate && { published: new Date(item.pubDate) }),
-      ...(item.summary && { description: item.summary }),
-      ...(item.content && { content: item.content }),
-      ...(item.guid && { guid: item.guid }),
       ...(item.creator && { author: [{ name: item.creator }] }),
-      ...(item.categories && {
-        category: item.categories.map((v) => ({ name: v })),
-      }),
     })),
   );
 }
