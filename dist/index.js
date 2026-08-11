@@ -197689,10 +197689,8 @@ class FeedGenerator {
             language: "ja",
             generator: this.env.actionRepository,
             updated: updateAt,
-            ...(original.description && { description: original.description }),
             ...(original.link && { link: original.link }),
             ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
-            ...(original.image && { image: original.image.url }),
         });
     }
 }
@@ -197703,13 +197701,7 @@ function convertFeedItem(item) {
         link: l,
         date: item.isoDate ? new Date(item.isoDate) : new Date(),
         ...(item.pubDate && { published: new Date(item.pubDate) }),
-        ...(item.summary && { description: item.summary }),
-        ...(item.content && { content: item.content }),
-        ...(item.guid && { guid: item.guid }),
         ...(item.creator && { author: [{ name: item.creator }] }),
-        ...(item.categories && {
-            category: item.categories.map((v) => ({ name: v })),
-        }),
     })));
 }
 
@@ -197906,11 +197898,11 @@ class HatenaCounts {
     fetch(links) {
         const url = "https://bookmark.hatenaapis.com/count/entries";
         const schema = effect_1.Schema.Record({ key: effect_1.Schema.String, value: effect_1.Schema.Int });
-        return effect_1.Stream.Do.pipe(effect_1.Stream.bind("params", () => this.createRequestStream(links)), effect_1.Stream.bindEffect("api", () => ApiService), effect_1.Stream.mapEffect(({ api, params }) => api.get(schema, url, params)), effect_1.Stream.map(effect_1.Record.toEntries), effect_1.Stream.flattenIterables, effect_1.Stream.runCollect, effect_1.Effect.tap(effect_1.Effect.logInfo), effect_1.Effect.map((v) => new Map(v)));
+        return effect_1.Stream.Do.pipe(effect_1.Stream.bind("params", () => this.createRequestStream(links)), effect_1.Stream.bindEffect("api", () => ApiService), effect_1.Stream.mapEffect(({ api, params }) => api.get(schema, url, params)), effect_1.Stream.map(effect_1.Record.toEntries), effect_1.Stream.flattenIterables, effect_1.Stream.runCollect, effect_1.Effect.map((v) => new Map(v)));
     }
     createRequestStream(links) {
         const paramsList = HatenaCounts.buildParamsList(links);
-        return effect_1.Stream.fromIterable(paramsList).pipe(effect_1.Stream.tap((v) => effect_1.Effect.logInfo(v.toString())), effect_1.Stream.schedule(effect_1.Schedule.spaced(effect_1.Duration.seconds(3))));
+        return effect_1.Stream.fromIterable(paramsList).pipe(effect_1.Stream.schedule(effect_1.Schedule.spaced(effect_1.Duration.seconds(3))));
     }
     static buildParamsList(links) {
         return R.pipe(Array.from(links), R.map((l) => ["url", l]), R.splitEvery(50), R.map((kv) => new URLSearchParams(kv)));
