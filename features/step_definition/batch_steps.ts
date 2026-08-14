@@ -1,6 +1,6 @@
 import { Then, When, World } from "@cucumber/cucumber";
 import { expect } from "chai";
-import { HatenaCounts } from "../../src/score";
+import { HatenaCounts } from "../../src/score.ts";
 
 class CustomWorld extends World {
   links: Set<string>;

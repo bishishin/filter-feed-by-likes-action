@@ -45,7 +45,6 @@ export class HatenaCounts implements ScoreApi {
       Stream.map(Record.toEntries),
       Stream.flattenIterables,
       Stream.runCollect,
-      Effect.tap(Effect.logInfo),
       Effect.map((v) => new Map(v)),
     );
   }
@@ -55,7 +54,6 @@ export class HatenaCounts implements ScoreApi {
   ): Stream.Stream<URLSearchParams> {
     const paramsList = HatenaCounts.buildParamsList(links);
     return Stream.fromIterable(paramsList).pipe(
-      Stream.tap((v) => Effect.logInfo(v.toString())),
       Stream.schedule(Schedule.spaced(Duration.seconds(3))),
     );
   }

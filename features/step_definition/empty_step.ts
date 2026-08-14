@@ -2,7 +2,7 @@ import { Then, When, type World } from "@cucumber/cucumber";
 import { NodeContext } from "@effect/platform-node";
 import { expect } from "chai";
 import { Effect, Option } from "effect";
-import { loadCacheFile } from "../../src/main";
+import { loadCacheFile } from "../../src/main.ts";
 
 When("配信済みキャッシュファイルが存在しない", function (this: World) {});
 

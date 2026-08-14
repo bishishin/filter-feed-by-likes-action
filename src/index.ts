@@ -15,8 +15,8 @@ import {
   Match,
   Schema,
 } from "effect";
-import { main } from "./main";
-import { type ApiFetchError, ApiService } from "./score";
+import { main } from "./main.ts";
+import { type ApiFetchError, ApiService } from "./score.ts";
 
 // https://docs.github.com/ja/actions/learn-github-actions/variables#default-environment-variables
 const actionEnvConfig = Config.all({

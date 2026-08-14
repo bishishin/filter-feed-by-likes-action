@@ -1,5 +1,6 @@
 {
   "name": "filter-feed-by-likes-action",
+  "type": "module",
   "description": "いいね数などで記事を評価しフィルタしたフィードを生成する",
   "author": "bishishin",
   "keywords": [
@@ -10,42 +11,40 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": "24.x"
   },
   "scripts": {
     "lint-biome": "biome check --write .",
     "lint-feat": "gherkin-lint -c .github/linters/.gherkin-lintrc",
     "fmt-feat": "gherkin-utils format features/main.feature",
     "lint": "npm run fmt-feat && npm run lint-feat && npm run lint-biome",
-    "package": "ncc build src/index.ts --license licenses.txt",
+    "package": "ncc build src/index.ts --license licenses.txt && node --check dist/index.js && node --test test/bundle.test.ts",
     "bundle": "npm run lint && npm run package",
     "test-type": "tsc --noEmit",
     "test-feat": "cucumber-js",
-    "test-unit": "node --require esbuild-register --test test/main.test.ts",
+    "test-unit": "node --test test/main.test.ts",
     "test": "concurrently \"npm run test-*\"",
     "all": "npm run test && npm run bundle"
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "2.x",
-    "@effect/platform": "^0.96.1",
-    "@effect/platform-node": "^0.106.0",
+    "@actions/core": "^3.0.1",
+    "@effect/platform": "^0.96.2",
+    "@effect/platform-node": "^0.107.0",
     "effect": "^3.21.2",
     "feed": "~5.2.1",
     "rambda": "^11.0.1",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.15",
-    "@cucumber/cucumber": "^12.9.0",
-    "@cucumber/gherkin-utils": "^11.0.0",
+    "@biomejs/biome": "2.5.5",
+    "@cucumber/cucumber": "^13.0.0",
+    "@cucumber/gherkin-utils": "^12.0.1",
     "@types/chai": "^5.2.2",
-    "@types/node": "^25.6.0",
-    "@vercel/ncc": "^0.38.4",
+    "@types/node": "24.x",
+    "@vercel/ncc": "^0.44.1",
     "chai": "^6.2.2",
-    "concurrently": "^9.2.1",
-    "esbuild": "^0.28.0",
-    "esbuild-register": "^3.6.0",
+    "concurrently": "^10.0.3",
     "gherkin-lint": "^4.2.4",
     "typescript": "^6.0.3"
   }
