@@ -26,3 +26,9 @@ updates:
         dependency-type: development
       npm-production:
         dependency-type: production
+    ignore:
+      # nccがTypeScript 7に対応するまで6.xを使用する
+      # https://github.com/vercel/ncc/issues/1336
+      - dependency-name: typescript
+        versions:
+          - ">=7"

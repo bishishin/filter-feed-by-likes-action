@@ -6,7 +6,7 @@ import {
   type ApiService,
   HatenaCounts,
   type ScoreApi,
-} from "./score";
+} from "./score.ts";
 
 export interface ActionEnvironment {
   readonly repositoryOwner: string;
@@ -22,12 +22,13 @@ export interface ActionInputs {
 }
 
 export class FeedGenerator {
+  private readonly env: ActionEnvironment;
+  private readonly inputs: ActionInputs;
   private readonly scoreApi: ScoreApi;
 
-  constructor(
-    private readonly env: ActionEnvironment,
-    private readonly inputs: ActionInputs,
-  ) {
+  constructor(env: ActionEnvironment, inputs: ActionInputs) {
+    this.env = env;
+    this.inputs = inputs;
     this.scoreApi = new HatenaCounts();
   }
 

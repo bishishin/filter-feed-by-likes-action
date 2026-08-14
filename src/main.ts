@@ -6,8 +6,8 @@ import {
   type ActionEnvironment,
   type ActionInputs,
   FeedGenerator,
-} from "./generate";
-import type { ApiFetchError, ApiService } from "./score";
+} from "./generate.ts";
+import type { ApiFetchError, ApiService } from "./score.ts";
 
 export function main(
   env: ActionEnvironment,

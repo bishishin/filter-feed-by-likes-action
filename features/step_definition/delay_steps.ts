@@ -9,7 +9,7 @@ import {
   TestClock,
   TestContext,
 } from "effect";
-import { HatenaCounts } from "../../src/score";
+import { HatenaCounts } from "../../src/score.ts";
 
 class CustomWorld extends World {
   streams: Stream.Stream<URLSearchParams, never, never>[];

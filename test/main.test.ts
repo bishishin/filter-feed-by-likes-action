@@ -9,8 +9,8 @@ import {
   TestClock,
   TestContext,
 } from "effect";
-import { main } from "../src/main";
-import { ApiService } from "../src/score";
+import { main } from "../src/main.ts";
+import { ApiService } from "../src/score.ts";
 
 /*
   @effect/platform-nodeのファイル操作を導入した際に、flaky testが発生したため

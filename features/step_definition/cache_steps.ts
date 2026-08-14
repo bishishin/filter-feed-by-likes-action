@@ -5,7 +5,7 @@ import {
   type ActionEnvironment,
   type ActionInputs,
   FeedGenerator,
-} from "../../src/generate";
+} from "../../src/generate.ts";
 
 class CustomWorld extends World {
   publishedList: parser.Item[];
