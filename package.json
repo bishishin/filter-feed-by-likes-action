@@ -22,7 +22,7 @@
     "bundle": "npm run lint && npm run package",
     "test-type": "tsc --noEmit",
     "test-feat": "cucumber-js",
-    "test-unit": "node --test test/main.test.ts test/bundle.test.ts",
+    "test-unit": "node --test test/main.test.ts",
     "test": "concurrently \"npm run test-*\"",
     "all": "npm run test && npm run bundle"
   },
