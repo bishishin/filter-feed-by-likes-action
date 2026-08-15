@@ -39802,7 +39802,7 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Function.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Function.js
 /**
  * Tests if a value is a `function`.
  *
@@ -40270,7 +40270,7 @@ const hole = /*#__PURE__*/(/* unused pure expression or super */ null && (Functi
  */
 const SK = (_, b) => b;
 //# sourceMappingURL=Function.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/GlobalValue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/GlobalValue.js
 /**
  * The `GlobalValue` module ensures that a single instance of a value is created globally,
  * even when modules are imported multiple times (e.g., due to mixing CommonJS and ESM builds)
@@ -40323,7 +40323,7 @@ const GlobalValue_globalValue = (id, compute) => {
   return globalStore.get(id);
 };
 //# sourceMappingURL=GlobalValue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Predicate.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Predicate.js
 /**
  * This module provides a collection of functions for working with predicates and refinements.
  *
@@ -41441,14 +41441,14 @@ const some = collection => a => {
   return false;
 };
 //# sourceMappingURL=Predicate.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/errors.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/errors.js
 /**
  * @since 2.0.0
  */
 /** @internal */
 const getBugErrorMessage = message => `BUG: ${message} - please report an issue at https://github.com/Effect-TS/effect/issues`;
 //# sourceMappingURL=errors.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Utils.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Utils.js
 /**
  * @since 2.0.0
  */
@@ -41806,7 +41806,7 @@ const genConstructor = function* () {}.constructor;
  */
 const Utils_isGeneratorFunction = u => isObject(u) && u.constructor === genConstructor;
 //# sourceMappingURL=Utils.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Hash.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Hash.js
 /**
  * @since 2.0.0
  */
@@ -41973,7 +41973,7 @@ const cached = function () {
   return hash;
 };
 //# sourceMappingURL=Hash.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Equal.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Equal.js
 
 
 
@@ -42048,7 +42048,7 @@ const isEqual = u => Predicate_hasProperty(u, Equal_symbol);
  */
 const equivalence = () => equals;
 //# sourceMappingURL=Equal.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Inspectable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Inspectable.js
 
 
 /**
@@ -42243,7 +42243,7 @@ const redact = u => {
   return u;
 };
 //# sourceMappingURL=Inspectable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Pipeable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Pipeable.js
 /**
  * @since 2.0.0
  */
@@ -42306,7 +42306,7 @@ const Pipeable_Class = klass => klass ? class extends klass {
   }
 } : Base;
 //# sourceMappingURL=Pipeable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/effect.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/effect.js
 /** @internal */
 const OP_ASYNC = "Async";
 /** @internal */
@@ -42338,14 +42338,14 @@ const OP_YIELD = "Yield";
 /** @internal */
 const OP_REVERT_FLAGS = "RevertFlags";
 //# sourceMappingURL=effect.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/version.js
-let moduleVersion = "3.21.4";
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/version.js
+let moduleVersion = "3.22.1";
 const getCurrentVersion = () => moduleVersion;
 const setCurrentVersion = version => {
   moduleVersion = version;
 };
 //# sourceMappingURL=version.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/effectable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/effectable.js
 
 
 
@@ -42459,7 +42459,7 @@ const StructuralBase = /*#__PURE__*/function () {
   return Base;
 }();
 //# sourceMappingURL=effectable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/option.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/option.js
 /**
  * @since 2.0.0
  */
@@ -42530,7 +42530,7 @@ const option_some = value => {
   return a;
 };
 //# sourceMappingURL=option.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/either.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/either.js
 /**
  * @since 2.0.0
  */
@@ -42616,7 +42616,7 @@ const getRight = self => isLeft(self) ? none : option_some(self.right);
 /** @internal */
 const fromOption = /*#__PURE__*/Function_dual(2, (self, onNone) => isNone(self) ? left(onNone()) : right(self.value));
 //# sourceMappingURL=either.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Either.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Either.js
 /**
  * @since 2.0.0
  */
@@ -43260,7 +43260,7 @@ const transposeOption = self => {
  */
 const transposeMapOption = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (self, f) => option_.isNone(self) ? Either_right(option_.none) : map(f(self.value), option_.some))));
 //# sourceMappingURL=Either.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Equivalence.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Equivalence.js
 /**
  * This module provides an implementation of the `Equivalence` type class, which defines a binary relation
  * that is reflexive, symmetric, and transitive. In other words, it defines a notion of equivalence between values of a certain type.
@@ -43427,14 +43427,14 @@ const Equivalence_struct = fields => {
   });
 };
 //# sourceMappingURL=Equivalence.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/array.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/array.js
 /**
  * @since 2.0.0
  */
 /** @internal */
 const isNonEmptyArray = self => self.length > 0;
 //# sourceMappingURL=array.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Option.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Option.js
 
 
 
@@ -45182,7 +45182,7 @@ const mergeWith = f => (o1, o2) => {
   return Option_some(f(o1.value, o2.value));
 };
 //# sourceMappingURL=Option.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Iterable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Iterable.js
 /**
  * This module provides utility functions for working with Iterables in TypeScript.
  *
@@ -46170,7 +46170,7 @@ const countBy = /*#__PURE__*/(/* unused pure expression or super */ null && (dua
   return count;
 })));
 //# sourceMappingURL=Iterable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Order.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Order.js
 /**
  * This module provides an implementation of the `Order` type class which is used to define a total ordering on some type `A`.
  * An order is defined by a relation `<=`, which obeys the following laws:
@@ -46423,7 +46423,7 @@ const clamp = O => Function_dual(2, (self, options) => min(O)(options.maximum, m
  */
 const between = O => Function_dual(2, (self, options) => !lessThan(O)(self, options.minimum) && !greaterThan(O)(self, options.maximum));
 //# sourceMappingURL=Order.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Record.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Record.js
 /**
  * This module provides utility functions for working with records in TypeScript.
  *
@@ -47270,7 +47270,7 @@ const Record_findFirst = /*#__PURE__*/(/* unused pure expression or super */ nul
   return Option.none();
 })));
 //# sourceMappingURL=Record.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Tuple.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Tuple.js
 /**
  * This module provides utility functions for working with tuples in TypeScript.
  *
@@ -47456,7 +47456,7 @@ const appendElement = /*#__PURE__*/(/* unused pure expression or super */ null &
 const at = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (self, index) => self[index])));
 
 //# sourceMappingURL=Tuple.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Array.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Array.js
 /**
  * This module provides utility functions for working with arrays in TypeScript.
  *
@@ -50111,7 +50111,7 @@ const Array_bindTo = /*#__PURE__*/(/* unused pure expression or super */ null &&
 const Array_let_ = /*#__PURE__*/(/* unused pure expression or super */ null && (internalDoNotation.let_(Array_map)));
 
 //# sourceMappingURL=Array.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Chunk.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Chunk.js
 /**
  * @since 2.0.0
  */
@@ -51195,7 +51195,7 @@ const Chunk_differenceWith = isEquivalent => {
  */
 const Chunk_difference = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (self, that) => unsafeFromArray(RA.difference(that, self)))));
 //# sourceMappingURL=Chunk.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap/config.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap/config.js
 /** @internal */
 const SIZE = 5;
 /** @internal */
@@ -51207,7 +51207,7 @@ const MAX_INDEX_NODE = BUCKET_SIZE / 2;
 /** @internal */
 const MIN_ARRAY_NODE = BUCKET_SIZE / 4;
 //# sourceMappingURL=config.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap/bitwise.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap/bitwise.js
 
 /**
  * Hamming weight.
@@ -51237,13 +51237,13 @@ function fromBitmap(bitmap, bit) {
   return popcount(bitmap & bit - 1);
 }
 //# sourceMappingURL=bitwise.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stack.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stack.js
 const stack_make = (value, previous) => ({
   value,
   previous
 });
 //# sourceMappingURL=stack.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap/array.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap/array.js
 /** @internal */
 function arrayUpdate(mutate, at, v, arr) {
   let out = arr;
@@ -51292,7 +51292,7 @@ function arraySpliceIn(mutate, at, v, arr) {
   return out;
 }
 //# sourceMappingURL=array.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap/node.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap/node.js
 
 
 
@@ -51546,7 +51546,7 @@ function mergeLeaves(edit, shift, h1, n1, h2, n2) {
   }
 }
 //# sourceMappingURL=node.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap.js
 
 
 
@@ -51907,7 +51907,7 @@ const hashMap_some = /*#__PURE__*/Function_dual(2, (self, predicate) => {
 /** @internal */
 const hashMap_every = /*#__PURE__*/Function_dual(2, (self, predicate) => !hashMap_some(self, (a, k) => !predicate(a, k)));
 //# sourceMappingURL=hashMap.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashSet.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashSet.js
 
 
 
@@ -52090,7 +52090,7 @@ const hashSet_partition = /*#__PURE__*/Function_dual(2, (self, predicate) => {
   return [hashSet_endMutation(left), hashSet_endMutation(right)];
 });
 //# sourceMappingURL=hashSet.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/HashSet.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/HashSet.js
 /**
  * # HashSet
  *
@@ -53344,7 +53344,7 @@ const HashSet_filter = hashSet_filter;
  */
 const HashSet_partition = hashSet_partition;
 //# sourceMappingURL=HashSet.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/cause.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/cause.js
 /** @internal */
 const OP_DIE = "Die";
 /** @internal */
@@ -53358,7 +53358,7 @@ const OP_PARALLEL = "Parallel";
 /** @internal */
 const OP_SEQUENTIAL = "Sequential";
 //# sourceMappingURL=cause.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/cause.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/cause.js
 
 
 
@@ -54182,7 +54182,7 @@ const prettyErrors = cause => reduceWithContext(cause, void 0, {
   sequentialCase: (_, l, r) => [...l, ...r]
 });
 //# sourceMappingURL=cause.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/context.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/context.js
 
 
 
@@ -54436,7 +54436,7 @@ const omit = (...tags) => self => {
   return makeContext(newEnv);
 };
 //# sourceMappingURL=context.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Context.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Context.js
 
 /**
  * @since 2.0.0
@@ -54449,7 +54449,7 @@ const Context_TagTypeId = TagTypeId;
  */
 const Context_ReferenceTypeId = ReferenceTypeId;
 /**
- * Creates a new `Tag` instance with an optional key parameter.
+ * Creates a new `Tag` instance with the specified key.
  *
  * @example
  * ```ts
@@ -54797,7 +54797,7 @@ const Context_Tag = Tag;
  */
 const Context_Reference = Reference;
 //# sourceMappingURL=Context.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Duration.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Duration.js
 /**
  * @since 2.0.0
  */
@@ -55500,7 +55500,7 @@ const fromIso = iso => {
 };
 const DURATION_ISO_REGEX = /^P(?!$)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?!$)(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$/;
 //# sourceMappingURL=Duration.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/MutableRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/MutableRef.js
 /**
  * @since 2.0.0
  */
@@ -55628,7 +55628,7 @@ const updateAndGet = /*#__PURE__*/(/* unused pure expression or super */ null &&
  */
 const MutableRef_toggle = self => update(self, _ => !_);
 //# sourceMappingURL=MutableRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberId.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberId.js
 
 
 
@@ -55848,7 +55848,7 @@ const fiberId_unsafeMake = () => {
   return new Runtime(id, Date.now());
 };
 //# sourceMappingURL=fiberId.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/FiberId.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/FiberId.js
 
 /**
  * @since 2.0.0
@@ -55964,14 +55964,14 @@ const FiberId_toSet = toSet;
  */
 const FiberId_unsafeMake = fiberId_unsafeMake;
 //# sourceMappingURL=FiberId.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/hashMap/keySet.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/hashMap/keySet.js
 
 /** @internal */
 function keySet(self) {
   return hashSet_makeImpl(self);
 }
 //# sourceMappingURL=keySet.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/HashMap.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/HashMap.js
 /**
  * @since 2.0.0
  */
@@ -56284,7 +56284,7 @@ const HashMap_some = hashMap_some;
  */
 const HashMap_every = hashMap_every;
 //# sourceMappingURL=HashMap.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/List.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/List.js
 /**
  * A data type for immutable linked lists representing ordered collections of elements of type `A`.
  *
@@ -57041,7 +57041,7 @@ const unsafeTail = self => {
   return self.tail;
 };
 //# sourceMappingURL=List.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/data.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/data.js
 
 
 
@@ -57071,7 +57071,7 @@ const Structural = /*#__PURE__*/function () {
 /** @internal */
 const data_struct = as => Object.assign(Object.create(effectable_StructuralPrototype), as);
 //# sourceMappingURL=data.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/chunkPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/chunkPatch.js
 
 
 
@@ -57202,7 +57202,7 @@ const chunkPatch_patch = /*#__PURE__*/Function_dual(3, (self, oldValue, differ) 
   return chunk;
 });
 //# sourceMappingURL=chunkPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/contextPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/contextPatch.js
 
 
 
@@ -57346,7 +57346,7 @@ const contextPatch_patch = /*#__PURE__*/Function_dual(2, (self, context) => {
   return makeContext(map);
 });
 //# sourceMappingURL=contextPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/hashMapPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/hashMapPatch.js
 
 
 
@@ -57477,7 +57477,7 @@ const hashMapPatch_patch = /*#__PURE__*/Function_dual(3, (self, oldValue, differ
   return map;
 });
 //# sourceMappingURL=hashMapPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/hashSetPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/hashSetPatch.js
 
 
 
@@ -57579,7 +57579,7 @@ const hashSetPatch_patch = /*#__PURE__*/Function_dual(2, (self, oldValue) => {
   return set;
 });
 //# sourceMappingURL=hashSetPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/orPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/orPatch.js
 
 
 
@@ -57750,7 +57750,7 @@ const orPatch_patch = /*#__PURE__*/Function_dual(2, (self, {
   return result;
 });
 //# sourceMappingURL=orPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ/readonlyArrayPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ/readonlyArrayPatch.js
 
 
 
@@ -57880,7 +57880,7 @@ const readonlyArrayPatch_patch = /*#__PURE__*/Function_dual(3, (self, oldValue, 
   return readonlyArray;
 });
 //# sourceMappingURL=readonlyArrayPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/differ.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/differ.js
 
 
 
@@ -58015,7 +58015,7 @@ const differ_zip = /*#__PURE__*/Function_dual(2, (self, that) => differ_make({
   patch: (patch, oldValue) => [self.patch(patch[0], oldValue[0]), that.patch(patch[1], oldValue[1])]
 }));
 //# sourceMappingURL=differ.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/runtimeFlagsPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/runtimeFlagsPatch.js
 
 /** @internal */
 const BIT_MASK = 0xff;
@@ -58054,7 +58054,7 @@ const inverse = patch => runtimeFlagsPatch_make(enabled(patch), invert(active(pa
 /** @internal */
 const invert = n => ~n >>> 0 & BIT_MASK;
 //# sourceMappingURL=runtimeFlagsPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/runtimeFlags.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/runtimeFlags.js
 
 
 
@@ -58162,7 +58162,7 @@ const differ = /*#__PURE__*/differ_make({
   patch: (_patch, oldValue) => runtimeFlags_patch(oldValue, _patch)
 });
 //# sourceMappingURL=runtimeFlags.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/RuntimeFlagsPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/RuntimeFlagsPatch.js
 /**
  * @since 2.0.0
  */
@@ -58297,13 +58297,13 @@ const RuntimeFlagsPatch_disabledSet = disabledSet;
  */
 const RuntimeFlagsPatch_render = renderPatch;
 //# sourceMappingURL=RuntimeFlagsPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/deferred.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/deferred.js
 /** @internal */
 const OP_STATE_PENDING = "Pending";
 /** @internal */
 const OP_STATE_DONE = "Done";
 //# sourceMappingURL=deferred.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/deferred.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/deferred.js
 
 /** @internal */
 const DeferredSymbolKey = "effect/Deferred";
@@ -58331,7 +58331,7 @@ const done = effect => {
   };
 };
 //# sourceMappingURL=deferred.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/singleShotGen.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/singleShotGen.js
 /** @internal */
 class singleShotGen_SingleShotGen {
   self;
@@ -58362,7 +58362,7 @@ class singleShotGen_SingleShotGen {
   }
 }
 //# sourceMappingURL=singleShotGen.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/core.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/core.js
 
 
 
@@ -59971,7 +59971,7 @@ const NoopSpanProto = {
 /** @internal */
 const noopSpan = options => Object.assign(Object.create(NoopSpanProto), options);
 //# sourceMappingURL=core.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Cause.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Cause.js
 
 
 /**
@@ -60976,7 +60976,7 @@ const Cause_prettyErrors = prettyErrors;
  */
 const originalError = originalInstance;
 //# sourceMappingURL=Cause.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/clock.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/clock.js
 
 
 
@@ -61054,7 +61054,7 @@ class ClockImpl {
 /** @internal */
 const clock_make = () => new ClockImpl();
 //# sourceMappingURL=clock.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Number.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Number.js
 /**
  * # Number
  *
@@ -61942,7 +61942,7 @@ const round = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(
   return Math.round(self * factor) / factor;
 })));
 //# sourceMappingURL=Number.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/RegExp.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/RegExp.js
 /**
  * This module provides utility functions for working with RegExp in TypeScript.
  *
@@ -61980,7 +61980,7 @@ const RegExp_isRegExp = isRegExp;
  */
 const RegExp_escape = string => string.replace(/[/\\^$*+?.()|[\]{}]/g, "\\$&");
 //# sourceMappingURL=RegExp.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/configError.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/configError.js
 /** @internal */
 const OP_AND = "And";
 /** @internal */
@@ -61994,7 +61994,7 @@ const OP_SOURCE_UNAVAILABLE = "SourceUnavailable";
 /** @internal */
 const OP_UNSUPPORTED = "Unsupported";
 //# sourceMappingURL=configError.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/configError.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/configError.js
 
 
 
@@ -62258,7 +62258,7 @@ const configError_reduceWithContext = /*#__PURE__*/Function_dual(3, (self, conte
 /** @internal */
 const isMissingDataOnly = self => configError_reduceWithContext(self, void 0, IsMissingDataOnlyReducer);
 //# sourceMappingURL=configError.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/configProvider/pathPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/configProvider/pathPatch.js
 
 
 
@@ -62335,7 +62335,7 @@ const patch = /*#__PURE__*/Function_dual(2, (path, patch) => {
   return Either_right(output);
 });
 //# sourceMappingURL=pathPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/config.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/config.js
 /** @internal */
 const OP_CONSTANT = "Constant";
 /** @internal */
@@ -62353,13 +62353,15 @@ const OP_NESTED = "Nested";
 /** @internal */
 const OP_PRIMITIVE = "Primitive";
 /** @internal */
+const OP_REDACTED = "Redacted";
+/** @internal */
 const OP_SEQUENCE = "Sequence";
 /** @internal */
 const OP_HASHMAP = "HashMap";
 /** @internal */
 const OP_ZIP_WITH = "ZipWith";
 //# sourceMappingURL=config.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/configProvider.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/configProvider.js
 
 
 
@@ -62506,6 +62508,15 @@ const appendConfigPath = (path, config) => {
   }
   return path;
 };
+const RedactedConfigErrorReducer = {
+  andCase: (_, left, right) => And(left, right),
+  orCase: (_, left, right) => Or(left, right),
+  invalidDataCase: (_, path) => InvalidData(path, "<redacted>"),
+  missingDataCase: (_, path) => MissingData(path, "<redacted>"),
+  sourceUnavailableCase: (_, path, _message, cause) => SourceUnavailable(path, "<redacted>", cause),
+  unsupportedCase: (_, path) => Unsupported(path, "<redacted>")
+};
+const redactConfigError = error => configError_reduceWithContext(error, void 0, RedactedConfigErrorReducer);
 const fromFlatLoop = (flat, prefix, config, split) => {
   const op = config;
   switch (op._tag) {
@@ -62551,6 +62562,10 @@ const fromFlatLoop = (flat, prefix, config, split) => {
           }
           return succeed(values);
         }))));
+      }
+    case OP_REDACTED:
+      {
+        return suspend(() => Function_pipe(fromFlatLoop(flat, prefix, op.original, split), mapError(redactConfigError), core_map(Array_map(op.redact))));
       }
     case OP_SEQUENCE:
       {
@@ -62725,7 +62740,7 @@ const keyIndex = index => ({
 /** @internal */
 const fromJson = json => {
   const hiddenDelimiter = "\ufeff";
-  const indexedEntries = Arr.map(getIndexedEntries(json), ([key, value]) => [configPathToString(key).join(hiddenDelimiter), value]);
+  const indexedEntries = Arr.map(getIndexedEntries(json).filter(([path]) => path.every(component => component._tag === "KeyIndex" || !component.name.includes(hiddenDelimiter))), ([key, value]) => [configPathToString(key).join(hiddenDelimiter), value]);
   return fromMap(new Map(indexedEntries), {
     pathDelim: hiddenDelimiter,
     seqDelim: hiddenDelimiter
@@ -62785,7 +62800,7 @@ const getIndexedEntries = config => {
   return loopObject(Arr.empty(), config);
 };
 //# sourceMappingURL=configProvider.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/defaultServices/console.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/defaultServices/console.js
 
 
 /** @internal */
@@ -62878,7 +62893,7 @@ const console_defaultConsole = {
   unsafe: console
 };
 //# sourceMappingURL=console.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/random.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/random.js
 
 
 
@@ -62998,7 +63013,7 @@ class FixedRandomImpl {
 /** @internal */
 const fixed = values => new FixedRandomImpl(values);
 //# sourceMappingURL=random.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/tracer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/tracer.js
 /**
  * @since 2.0.0
  */
@@ -63121,7 +63136,7 @@ const DisablePropagation = /*#__PURE__*/Context_Reference()("effect/Tracer/Disab
   defaultValue: Function_constFalse
 });
 //# sourceMappingURL=tracer.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/defaultServices.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/defaultServices.js
 
 
 
@@ -63195,7 +63210,7 @@ const tracerWith = f => defaultServicesWith(services => f(services.unsafeMap.get
 /** @internal */
 const withTracer = /*#__PURE__*/Function_dual(2, (effect, value) => fiberRefLocallyWith(currentServices, Context_add(tracerTag, value))(effect));
 //# sourceMappingURL=defaultServices.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Boolean.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Boolean.js
 /**
  * This module provides utility functions and type class instances for working with the `boolean` type in TypeScript.
  * It includes functions for basic boolean operations, as well as type class instances for
@@ -63436,7 +63451,7 @@ const Boolean_some = collection => {
   return false;
 };
 //# sourceMappingURL=Boolean.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Effectable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Effectable.js
 
 /**
  * @since 2.0.0
@@ -63486,7 +63501,7 @@ class Effectable_Class extends Effectable_Base {}
  */
 class StructuralClass extends (/* unused pure expression or super */ null && (Effectable_StructuralBase)) {}
 //# sourceMappingURL=Effectable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/executionStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/executionStrategy.js
 
 /** @internal */
 const executionStrategy_OP_SEQUENTIAL = "Sequential";
@@ -63531,7 +63546,7 @@ const executionStrategy_match = /*#__PURE__*/Function_dual(2, (self, options) =>
   }
 });
 //# sourceMappingURL=executionStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ExecutionStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ExecutionStrategy.js
 
 /**
  * Execute effects sequentially.
@@ -63587,7 +63602,7 @@ const ExecutionStrategy_isParallelN = isParallelN;
  */
 const ExecutionStrategy_match = executionStrategy_match;
 //# sourceMappingURL=ExecutionStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberRefs.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberRefs.js
 
 
 
@@ -63777,7 +63792,7 @@ const updateManyAs = /*#__PURE__*/Function_dual(2, (self, {
   return new FiberRefsImpl(locals);
 });
 //# sourceMappingURL=fiberRefs.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/FiberRefs.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/FiberRefs.js
 
 /**
  * @since 2.0.0
@@ -63863,7 +63878,7 @@ const FiberRefs_unsafeMake = fiberRefs_unsafeMake;
  */
 const FiberRefs_empty = fiberRefs_empty;
 //# sourceMappingURL=FiberRefs.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberRefs/patch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberRefs/patch.js
 
 
 
@@ -63971,7 +63986,7 @@ const patch_patch = /*#__PURE__*/Function_dual(3, (self, fiberId, oldValue) => {
   return fiberRefs;
 });
 //# sourceMappingURL=patch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/FiberRefsPatch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/FiberRefsPatch.js
 
 /**
  * @since 2.0.0
@@ -64004,7 +64019,7 @@ const FiberRefsPatch_combine = patch_combine;
  */
 const FiberRefsPatch_patch = patch_patch;
 //# sourceMappingURL=FiberRefsPatch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberStatus.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberStatus.js
 
 
 
@@ -64077,7 +64092,7 @@ const isRunning = self => self._tag === OP_RUNNING;
 /** @internal */
 const isSuspended = self => self._tag === OP_SUSPENDED;
 //# sourceMappingURL=fiberStatus.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/FiberStatus.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/FiberStatus.js
 
 /**
  * @since 2.0.0
@@ -64130,7 +64145,7 @@ const FiberStatus_isRunning = isRunning;
  */
 const FiberStatus_isSuspended = isSuspended;
 //# sourceMappingURL=FiberStatus.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/LogLevel.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/LogLevel.js
 
 
 
@@ -64266,7 +64281,7 @@ const fromLiteral = literal => {
   }
 };
 //# sourceMappingURL=LogLevel.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Micro.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Micro.js
 /**
  * A lightweight alternative to the `Effect` data type, with a subset of the functionality.
  *
@@ -66760,7 +66775,7 @@ class Micro_NoSuchElementException extends /*#__PURE__*/(/* unused pure expressi
  */
 class Micro_TimeoutException extends /*#__PURE__*/(/* unused pure expression or super */ null && (TaggedError("TimeoutException"))) {}
 //# sourceMappingURL=Micro.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Readable.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Readable.js
 
 
 
@@ -66806,7 +66821,7 @@ const mapEffect = /*#__PURE__*/(/* unused pure expression or super */ null && (d
  */
 const unwrap = effect => Readable_make(core.flatMap(effect, s => s.get));
 //# sourceMappingURL=Readable.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/ref.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/ref.js
 
 
 
@@ -66917,7 +66932,7 @@ const updateSomeAndGet = /*#__PURE__*/Function_dual(2, (self, pf) => self.modify
 /** @internal */
 const ref_unsafeGet = self => MutableRef.get(self.ref);
 //# sourceMappingURL=ref.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Ref.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Ref.js
 
 /**
  * @since 2.0.0
@@ -66995,7 +67010,7 @@ const Ref_updateSomeAndGet = updateSomeAndGet;
  */
 const Ref_unsafeMake = ref_unsafeMake;
 //# sourceMappingURL=Ref.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Scheduler.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Scheduler.js
 /**
  * @since 2.0.0
  */
@@ -67285,7 +67300,7 @@ const currentScheduler = /*#__PURE__*/GlobalValue_globalValue(/*#__PURE__*/Symbo
 /** @internal */
 const withScheduler = /*#__PURE__*/Function_dual(2, (self, scheduler) => fiberRefLocally(self, currentScheduler, scheduler));
 //# sourceMappingURL=Scheduler.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/blockedRequests.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/blockedRequests.js
 
 
 
@@ -67627,13 +67642,13 @@ const sequentialCollectionKeys = self => Array.from(HashMap_keys(self.map));
 /** @internal */
 const sequentialCollectionToChunk = self => Array.from(self.map);
 //# sourceMappingURL=blockedRequests.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/completedRequestMap.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/completedRequestMap.js
 
 
 /** @internal */
 const currentRequestMap = /*#__PURE__*/GlobalValue_globalValue(/*#__PURE__*/Symbol.for("effect/FiberRef/currentRequestMap"), () => fiberRefUnsafeMake(new Map()));
 //# sourceMappingURL=completedRequestMap.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/concurrency.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/concurrency.js
 
 /** @internal */
 const concurrency_match = (concurrency, sequential, unbounded, bounded) => {
@@ -67662,7 +67677,7 @@ const matchSimple = (concurrency, sequential, concurrent) => {
   }
 };
 //# sourceMappingURL=concurrency.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Clock.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Clock.js
 
 
 /**
@@ -67701,7 +67716,7 @@ const Clock_clockWith = clockWith;
  */
 const Clock_Clock = clock_clockTag;
 //# sourceMappingURL=Clock.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/logSpan.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/logSpan.js
 /** @internal */
 const logSpan_make = (label, startTime) => ({
   label,
@@ -67719,7 +67734,7 @@ const logSpan_render = now => self => {
   return `${label}=${now - self.startTime}ms`;
 };
 //# sourceMappingURL=logSpan.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/LogSpan.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/LogSpan.js
 /**
  * @since 2.0.0
  */
@@ -67735,7 +67750,7 @@ const LogSpan_make = logSpan_make;
  */
 const LogSpan_render = logSpan_render;
 //# sourceMappingURL=LogSpan.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Tracer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Tracer.js
 
 
 /**
@@ -67773,7 +67788,7 @@ const Tracer_tracerWith = tracerWith;
  */
 const Tracer_DisablePropagation = DisablePropagation;
 //# sourceMappingURL=Tracer.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/doNotation.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/doNotation.js
 
 /** @internal */
 const doNotation_let_ = map => Function_dual(3, (self, name, f) => map(self, a => ({
@@ -67790,7 +67805,7 @@ const doNotation_bind = (map, flatMap) => Function_dual(3, (self, name, f) => fl
   [name]: b
 }))));
 //# sourceMappingURL=doNotation.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/label.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/label.js
 
 
 
@@ -67827,7 +67842,7 @@ const label_make = (key, value) => {
 /** @internal */
 const isMetricLabel = u => Predicate_hasProperty(u, MetricLabelTypeId);
 //# sourceMappingURL=label.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/core-effect.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/core-effect.js
 
 
 
@@ -68643,7 +68658,7 @@ const core_effect_fromNullable = value => value == null ? core_fail(new NoSuchEl
 /* @internal */
 const optionFromOptional = self => catchAll(core_map(self, Option_some), error => isNoSuchElementException(error) ? core_effect_succeedNone : core_fail(error));
 //# sourceMappingURL=core-effect.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Exit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Exit.js
 
 /**
  * Returns `true` if the specified value is an `Exit`, `false` otherwise.
@@ -68894,7 +68909,7 @@ const zipParRight = exitZipParRight;
  */
 const Exit_zipWith = exitZipWith;
 //# sourceMappingURL=Exit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberMessage.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberMessage.js
 /** @internal */
 const OP_INTERRUPT_SIGNAL = "InterruptSignal";
 /** @internal */
@@ -68923,7 +68938,7 @@ const fiberMessage_yieldNow = () => ({
   _tag: OP_YIELD_NOW
 });
 //# sourceMappingURL=fiberMessage.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberScope.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberScope.js
 
 
 
@@ -68968,7 +68983,7 @@ const fiberScope_unsafeMake = fiber => {
 /** @internal */
 const globalScope = /*#__PURE__*/GlobalValue_globalValue(/*#__PURE__*/Symbol.for("effect/FiberScope/Global"), () => new Global());
 //# sourceMappingURL=fiberScope.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiber.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiber.js
 
 
 
@@ -69221,7 +69236,7 @@ const currentFiberURI = "effect/FiberCurrent";
 /** @internal */
 const getCurrentFiber = () => Option_fromNullable(globalThis[currentFiberURI]);
 //# sourceMappingURL=fiber.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/logger.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/logger.js
 
 
 
@@ -69587,7 +69602,7 @@ const prettyLoggerBrowser = options => {
 /** @internal */
 const prettyLoggerDefault = /*#__PURE__*/GlobalValue_globalValue("effect/Logger/prettyLoggerDefault", () => prettyLogger());
 //# sourceMappingURL=logger.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/keyType.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/keyType.js
 
 
 
@@ -69757,7 +69772,7 @@ const isHistogramKey = u => Predicate_hasProperty(u, HistogramKeyTypeTypeId);
 /** @internal */
 const isSummaryKey = u => Predicate_hasProperty(u, SummaryKeyTypeTypeId);
 //# sourceMappingURL=keyType.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/key.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/key.js
 
 
 
@@ -69818,7 +69833,7 @@ const tagged = /*#__PURE__*/(/* unused pure expression or super */ null && (dual
 /** @internal */
 const taggedWithLabels = /*#__PURE__*/Function_dual(2, (self, extraTags) => extraTags.length === 0 ? self : new MetricKeyImpl(self.name, self.keyType, self.description, Array_union(self.tags, extraTags)));
 //# sourceMappingURL=key.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/MutableHashMap.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/MutableHashMap.js
 
 
 
@@ -70118,7 +70133,7 @@ const MutableHashMap_forEach = /*#__PURE__*/(/* unused pure expression or super 
   }
 })));
 //# sourceMappingURL=MutableHashMap.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/state.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/state.js
 
 
 
@@ -70300,7 +70315,7 @@ const isHistogramState = u => Predicate_hasProperty(u, HistogramStateTypeId);
  */
 const isSummaryState = u => Predicate_hasProperty(u, SummaryStateTypeId);
 //# sourceMappingURL=state.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/hook.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/hook.js
 
 
 
@@ -70676,7 +70691,7 @@ const resolveQuantile = (error, sampleCount, current, consumed, quantile, rest) 
   throw new Error("BUG: MetricHook.resolveQuantiles - please report an issue at https://github.com/Effect-TS/effect/issues");
 };
 //# sourceMappingURL=hook.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/pair.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/pair.js
 
 /** @internal */
 const MetricPairSymbolKey = "effect/MetricPair";
@@ -70709,7 +70724,7 @@ const pair_unsafeMake = (metricKey, metricState) => {
   };
 };
 //# sourceMappingURL=pair.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/registry.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/registry.js
 
 
 
@@ -70815,7 +70830,7 @@ const registry_make = () => {
   return new MetricRegistryImpl();
 };
 //# sourceMappingURL=registry.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric.js
 
 
 
@@ -70997,7 +71012,7 @@ const unsafeSnapshot = () => globalMetricRegistry.snapshot();
 /** @internal */
 const snapshot = /*#__PURE__*/(/* unused pure expression or super */ null && (core.sync(unsafeSnapshot)));
 //# sourceMappingURL=metric.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/metric/boundaries.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/metric/boundaries.js
 
 
 
@@ -71040,7 +71055,7 @@ const linear = options => pipe(Arr.makeBy(options.count - 1, i => options.start 
 /** @internal */
 const exponential = options => Function_pipe(Array_makeBy(options.count - 1, i => options.start * Math.pow(options.factor, i)), unsafeFromArray, boundaries_fromIterable);
 //# sourceMappingURL=boundaries.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/request.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/request.js
 
 
 
@@ -71132,7 +71147,7 @@ class Listeners {
  */
 const filterOutCompleted = requests => core.fiberRefGetWith(completedRequestMap.currentRequestMap, map => core.succeed(requests.filter(request => !(map.get(request)?.state.completed === true))));
 //# sourceMappingURL=request.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/supervisor.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/supervisor.js
 
 
 
@@ -71340,7 +71355,7 @@ const supervisor_none = /*#__PURE__*/GlobalValue_globalValue("effect/Supervisor/
 /** @internal */
 const fibersIn = ref => core.sync(() => new FibersIn(ref));
 //# sourceMappingURL=supervisor.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Differ.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Differ.js
 
 
 
@@ -71473,7 +71488,7 @@ const Differ_updateWith = updateWith;
  */
 const Differ_zip = differ_zip;
 //# sourceMappingURL=Differ.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/supervisor/patch.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/supervisor/patch.js
 
 
 
@@ -71599,7 +71614,7 @@ const patch_differ = /*#__PURE__*/Differ_make({
   diff: supervisor_patch_diff
 });
 //# sourceMappingURL=patch.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/fiberRuntime.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/fiberRuntime.js
 
 
 
@@ -73748,7 +73763,7 @@ const withSpanScoped = function () {
   return self => core_flatMap(makeSpanScoped(name, addSpanStackTrace(options)), span => core_effect_provideService(self, spanTag, span));
 };
 //# sourceMappingURL=fiberRuntime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/console.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/console.js
 
 
 
@@ -73803,7 +73818,7 @@ const withGroup = /*#__PURE__*/(/* unused pure expression or super */ null && (d
 /** @internal */
 const withTime = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(args => core.isEffect(args[0]), (self, label) => consoleWith(_ => core.acquireUseRelease(_.time(label), () => self, () => _.timeEnd(label))))));
 //# sourceMappingURL=console.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/effect/circular.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/effect/circular.js
 
 
 
@@ -74101,12 +74116,13 @@ const timeoutTo = /*#__PURE__*/Function_dual(2, (self, {
   duration,
   onSuccess,
   onTimeout
-}) => fiberIdWith(parentFiberId => uninterruptibleMask(restore => raceFibersWith(restore(self), core_interruptible(core_effect_sleep(duration)), {
+}) => fiberIdWith(parentFiberId => uninterruptibleMask(restore => raceFibersWith(core_exit(restore(self)), core_interruptible(core_effect_sleep(duration)), {
   onSelfWin: (winner, loser) => core_flatMap(winner.await, exit => {
-    if (exit._tag === "Success") {
-      return core_flatMap(winner.inheritAll, () => core_as(interruptAsFiber(loser, parentFiberId), onSuccess(exit.value)));
+    const selfExit = exitFlatten(exit);
+    if (selfExit._tag === "Success") {
+      return core_flatMap(winner.inheritAll, () => core_as(interruptAsFiber(loser, parentFiberId), onSuccess(selfExit.value)));
     } else {
-      return core_flatMap(interruptAsFiber(loser, parentFiberId), () => exitFailCause(exit.cause));
+      return core_flatMap(interruptAsFiber(loser, parentFiberId), () => exitFailCause(selfExit.cause));
     }
   }),
   onOtherWin: (winner, loser) => core_flatMap(winner.await, exit => {
@@ -74206,7 +74222,7 @@ const zipWithFiber = /*#__PURE__*/Function_dual(3, (self, that, f) => ({
 /* @internal */
 const bindAll = /*#__PURE__*/Function_dual(args => isEffect(args[0]), (self, f, options) => core_flatMap(self, a => fiberRuntime_all(f(a), options).pipe(core_map(record => Object.assign({}, a, record)))));
 //# sourceMappingURL=circular.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schedule/interval.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schedule/interval.js
 
 
 
@@ -74277,7 +74293,7 @@ const before = endMilliseconds => {
   return interval_make(Number.NEGATIVE_INFINITY, endMilliseconds);
 };
 //# sourceMappingURL=interval.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ScheduleInterval.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ScheduleInterval.js
 
 /**
  * @since 2.0.0
@@ -74378,7 +74394,7 @@ const ScheduleInterval_after = after;
  */
 const ScheduleInterval_before = before;
 //# sourceMappingURL=ScheduleInterval.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schedule/intervals.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schedule/intervals.js
 
 
 
@@ -74501,7 +74517,7 @@ const intervals_isNonEmpty = self => {
 /** @internal */
 const intervals_max = /*#__PURE__*/Function_dual(2, (self, that) => intervals_lessThan(self, that) ? that : self);
 //# sourceMappingURL=intervals.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ScheduleIntervals.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ScheduleIntervals.js
 
 /**
  * @since 2.0.0
@@ -74580,7 +74596,7 @@ const ScheduleIntervals_isNonEmpty = intervals_isNonEmpty;
  */
 const ScheduleIntervals_max = intervals_max;
 //# sourceMappingURL=ScheduleIntervals.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schedule/decision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schedule/decision.js
 
 
 /** @internal */
@@ -74614,7 +74630,7 @@ const decision_isDone = self => {
   return self._tag === decision_OP_DONE;
 };
 //# sourceMappingURL=decision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ScheduleDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ScheduleDecision.js
 /**
  * @since 2.0.0
  */
@@ -74642,7 +74658,7 @@ const ScheduleDecision_isContinue = isContinue;
  */
 const ScheduleDecision_isDone = decision_isDone;
 //# sourceMappingURL=ScheduleDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Scope.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Scope.js
 /**
  * @since 2.0.0
  */
@@ -74737,12 +74753,12 @@ const use = scopeUse;
  */
 const Scope_make = fiberRuntime_scopeMake;
 //# sourceMappingURL=Scope.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/managedRuntime/circular.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/managedRuntime/circular.js
 // circular with Layer
 /** @internal */
 const circular_TypeId = /*#__PURE__*/Symbol.for("effect/ManagedRuntime");
 //# sourceMappingURL=circular.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/layer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/layer.js
 /** @internal */
 const OP_EXTEND_SCOPE = "ExtendScope";
 /** @internal */
@@ -74764,7 +74780,7 @@ const OP_MERGE_ALL = "MergeAll";
 /** @internal */
 const layer_OP_ZIP_WITH = "ZipWith";
 //# sourceMappingURL=layer.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Fiber.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Fiber.js
 
 
 
@@ -75100,7 +75116,7 @@ const Fiber_zipRight = zipRightFiber;
  */
 const Fiber_zipWith = zipWithFiber;
 //# sourceMappingURL=Fiber.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/runtime.js
 
 
 
@@ -75408,7 +75424,7 @@ const asyncEffect = register => suspend(() => {
   }))), restore(onInterrupt(deferredAwait(deferred), () => cleanup ?? core_void_))))));
 });
 //# sourceMappingURL=runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/synchronizedRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/synchronizedRef.js
 
 
 
@@ -75453,7 +75469,7 @@ const updateSomeEffect = /*#__PURE__*/(/* unused pure expression or super */ nul
   }
 }))));
 //# sourceMappingURL=synchronizedRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/layer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/layer.js
 
 
 
@@ -76006,7 +76022,7 @@ const effect_provide = /*#__PURE__*/Function_dual(2, (self, source) => {
   }
 });
 //# sourceMappingURL=layer.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Data.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Data.js
 
 
 
@@ -76283,7 +76299,7 @@ const Data_TaggedError = tag => {
   return O.BaseEffectError;
 };
 //# sourceMappingURL=Data.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/dateTime.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/dateTime.js
 
 
 
@@ -77080,7 +77096,7 @@ const formatIsoOffset = self => {
 /** @internal */
 const formatIsoZoned = self => self.zone._tag === "Offset" ? formatIsoOffset(self) : `${formatIsoOffset(self)}[${self.zone.id}]`;
 //# sourceMappingURL=dateTime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/String.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/String.js
 /**
  * This module provides utility functions and type class instances for working with the `string` type in TypeScript.
  * It includes functions for basic string manipulation, as well as type class instances for
@@ -77716,7 +77732,7 @@ const isLineBreak = char => {
 const isLineBreak2 = (char0, char1) => char0.charCodeAt(0) === CR && char1.charCodeAt(0) === LF;
 const linesSeparated = (self, stripped) => new LinesIterator(self, stripped);
 //# sourceMappingURL=String.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Cron.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Cron.js
 /**
  * @since 2.0.0
  */
@@ -77745,7 +77761,7 @@ const CronProto = {
     return isCron(that) && Cron_equals(this, that);
   },
   [symbol]() {
-    return Function_pipe(Hash_hash(this.tz), combine(array(Array_fromIterable(this.seconds))), combine(array(Array_fromIterable(this.minutes))), combine(array(Array_fromIterable(this.hours))), combine(array(Array_fromIterable(this.days))), combine(array(Array_fromIterable(this.months))), combine(array(Array_fromIterable(this.weekdays))), cached(this));
+    return Function_pipe(Hash_hash(this.tz), combine(Hash_hash(this.and)), combine(array(Array_fromIterable(this.seconds))), combine(array(Array_fromIterable(this.minutes))), combine(array(Array_fromIterable(this.hours))), combine(array(Array_fromIterable(this.days))), combine(array(Array_fromIterable(this.months))), combine(array(Array_fromIterable(this.weekdays))), cached(this));
   },
   toString() {
     return format(this.toJSON());
@@ -77790,6 +77806,7 @@ const Cron_make = values => {
   o.days = new Set(sort(values.days, Number_Order));
   o.months = new Set(sort(values.months, Number_Order));
   o.weekdays = new Set(sort(values.weekdays, Number_Order));
+  o.and = values.and === true;
   o.tz = Option_fromNullable(values.tz);
   const seconds = Array.from(o.seconds);
   const minutes = Array.from(o.minutes);
@@ -77903,7 +77920,7 @@ const isParseError = u => hasProperty(u, ParseErrorTypeId);
  * @category constructors
  */
 const Cron_parse = (cron, tz) => {
-  const segments = cron.split(" ").filter(String_isNonEmpty);
+  const segments = cron.trim().split(/\s+/).filter(String_isNonEmpty);
   if (segments.length !== 5 && segments.length !== 6) {
     return Either_left(new ParseError({
       message: `Invalid number of segments in cron expression`,
@@ -77926,7 +77943,24 @@ const Cron_parse = (cron, tz) => {
     days: parseSegment(days, dayOptions),
     months: parseSegment(months, monthOptions),
     weekdays: parseSegment(weekdays, weekdayOptions)
-  }).pipe(map(Cron_make));
+  }).pipe(map(({
+    days,
+    hours,
+    minutes,
+    months,
+    seconds,
+    tz,
+    weekdays
+  }) => Cron_make({
+    tz,
+    seconds: seconds.values,
+    minutes: minutes.values,
+    hours: hours.values,
+    days: days.values,
+    months: months.values,
+    weekdays: weekdays.values,
+    and: (days.wildcard || weekdays.wildcard) && days.values.size !== 0 && weekdays.values.size !== 0
+  })));
 };
 /**
  * Parses a cron expression into a `Cron` instance.
@@ -78004,6 +78038,9 @@ const Cron_match = (cron, date) => {
   }
   if (cron.days.size === 0 && cron.weekdays.size === 0) {
     return true;
+  }
+  if (cron.and) {
+    return (cron.days.size === 0 || cron.days.has(parts.day)) && (cron.weekdays.size === 0 || cron.weekdays.has(parts.weekDay));
   }
   if (cron.weekdays.size === 0) {
     return cron.days.has(parts.day);
@@ -78130,52 +78167,64 @@ const stepCron = (cron, startFrom, direction) => {
         }
       }
       if (cron.weekdays.size !== 0 || cron.days.size !== 0) {
-        let a = prev ? -Infinity : Infinity;
-        let b = prev ? -Infinity : Infinity;
-        if (cron.weekdays.size !== 0) {
-          const currentWeekday = current.getUTCDay();
-          const nextWeekday = table.weekday[currentWeekday];
-          if (nextWeekday === undefined) {
-            a = prev ? currentWeekday - 7 + boundary.weekday : 7 - currentWeekday + boundary.weekday;
-          } else {
-            a = nextWeekday - currentWeekday;
+        if (cron.and) {
+          const matchesDay = cron.days.size === 0 || cron.days.has(current.getUTCDate());
+          const matchesWeekday = cron.weekdays.size === 0 || cron.weekdays.has(current.getUTCDay());
+          if (!matchesDay || !matchesWeekday) {
+            current.setUTCDate(current.getUTCDate() + tick);
+            current.setUTCHours(boundary.hour, boundary.minute, boundary.second);
+            adjustDst(current);
+            continue;
           }
-        }
-        // Only check day-of-month if weekday constraint not already satisfied (they're OR'd)
-        if (cron.days.size !== 0 && a !== 0) {
-          const currentDay = current.getUTCDate();
-          const nextDay = table.day[currentDay];
-          if (nextDay === undefined) {
-            if (prev) {
-              // When wrapping to previous month, calculate days back:
-              // Current day offset + gap from end of prev month to target day
-              // Example: June 3 → May 20 with boundary.day=20: -(3 + (31 - 20)) = -14
-              const prevMonthDays = daysInMonth(new Date(Date.UTC(current.getUTCFullYear(), current.getUTCMonth(), 0)));
-              b = -(currentDay + (prevMonthDays - boundary.day));
+        } else {
+          let a = prev ? -Infinity : Infinity;
+          let b = prev ? -Infinity : Infinity;
+          if (cron.weekdays.size !== 0) {
+            const currentWeekday = current.getUTCDay();
+            const nextWeekday = table.weekday[currentWeekday];
+            if (nextWeekday === undefined) {
+              a = prev ? currentWeekday - 7 + boundary.weekday : 7 - currentWeekday + boundary.weekday;
             } else {
-              b = daysInMonth(current) - currentDay + boundary.day;
+              a = nextWeekday - currentWeekday;
             }
-          } else {
-            b = nextDay - currentDay;
           }
-        }
-        const addDays = prev ? Math.max(a, b) : Math.min(a, b);
-        if (addDays !== 0) {
-          current.setUTCDate(current.getUTCDate() + addDays);
-          current.setUTCHours(boundary.hour, boundary.minute, boundary.second);
-          adjustDst(current);
-          continue;
+          // Only check day-of-month if weekday constraint not already satisfied (they're OR'd)
+          if (cron.days.size !== 0 && a !== 0) {
+            const currentDay = current.getUTCDate();
+            const nextDay = table.day[currentDay];
+            if (nextDay === undefined) {
+              if (prev) {
+                const prevMonthDays = daysInMonth(new Date(Date.UTC(current.getUTCFullYear(), current.getUTCMonth(), 0)));
+                b = -(currentDay + (prevMonthDays - boundary.day));
+              } else {
+                b = daysInMonth(current) - currentDay + boundary.day;
+              }
+            } else if (!prev && nextDay > daysInMonth(current)) {
+              // The next matching day does not exist in the current month. Setting it
+              // directly would overflow and skip earlier matching days next month.
+              b = daysInMonth(current) - currentDay + boundary.day;
+            } else {
+              b = nextDay - currentDay;
+            }
+          }
+          const addDays = prev ? Math.max(a, b) : Math.min(a, b);
+          if (addDays !== 0) {
+            current.setUTCDate(current.getUTCDate() + addDays);
+            current.setUTCHours(boundary.hour, boundary.minute, boundary.second);
+            adjustDst(current);
+            continue;
+          }
         }
       }
       if (cron.months.size !== 0) {
         const currentMonth = current.getUTCMonth() + 1;
         const nextMonth = table.month[currentMonth];
         const clampBoundaryDay = targetMonthIndex => {
-          if (cron.days.size !== 0) {
+          if (cron.days.size !== 0 && cron.weekdays.size === 0) {
             return boundary.day;
           }
           const maxDayInMonth = daysInMonth(new Date(Date.UTC(current.getUTCFullYear(), targetMonthIndex, 1)));
-          return Math.min(boundary.day, maxDayInMonth);
+          return prev ? maxDayInMonth : 1;
         };
         if (nextMonth === undefined) {
           current.setUTCFullYear(current.getUTCFullYear() + tick);
@@ -78223,7 +78272,7 @@ const sequenceReverse = function* (cron, startFrom) {
  * @category instances
  * @since 2.0.0
  */
-const Cron_Equivalence = /*#__PURE__*/make((self, that) => restrictionsEquals(self.seconds, that.seconds) && restrictionsEquals(self.minutes, that.minutes) && restrictionsEquals(self.hours, that.hours) && restrictionsEquals(self.days, that.days) && restrictionsEquals(self.months, that.months) && restrictionsEquals(self.weekdays, that.weekdays));
+const Cron_Equivalence = /*#__PURE__*/make((self, that) => self.and === that.and && restrictionsEquals(self.seconds, that.seconds) && restrictionsEquals(self.minutes, that.minutes) && restrictionsEquals(self.hours, that.hours) && restrictionsEquals(self.days, that.days) && restrictionsEquals(self.months, that.months) && restrictionsEquals(self.weekdays, that.weekdays));
 const restrictionsArrayEquals = /*#__PURE__*/Equivalence_array(Equivalence_number);
 const restrictionsEquals = (self, that) => restrictionsArrayEquals(Array_fromIterable(self), Array_fromIterable(that));
 /**
@@ -78269,7 +78318,8 @@ const monthOptions = {
 };
 const weekdayOptions = {
   min: 0,
-  max: 6,
+  max: 7,
+  normalize: value => value === 7 ? 0 : value,
   aliases: {
     sun: 0,
     mon: 1,
@@ -78281,14 +78331,17 @@ const weekdayOptions = {
   }
 };
 const parseSegment = (input, options) => {
-  const capacity = options.max - options.min + 1;
   const values = new Set();
   const fields = input.split(",");
-  for (const field of fields) {
-    const [raw, step] = splitStep(field);
-    if (raw === "*" && step === undefined) {
-      return Either_right(new Set());
-    }
+  const first = splitStep(fields[0]);
+  const wildcard = first[0] === "*";
+  const normalize = options.normalize ?? (value => value);
+  const add = wildcard && (first[1] === undefined || first[1] === 1) ? Function_constVoid : value => {
+    values.add(normalize(value));
+  };
+  for (let index = 0; index < fields.length; index++) {
+    const field = fields[index];
+    const [raw, step] = index === 0 ? first : splitStep(field);
     if (step !== undefined) {
       if (!Number.isInteger(step)) {
         return Either_left(new ParseError({
@@ -78310,8 +78363,11 @@ const parseSegment = (input, options) => {
       }
     }
     if (raw === "*") {
+      if (index === 0 && (step === undefined || step === 1)) {
+        continue;
+      }
       for (let i = options.min; i <= options.max; i += step ?? 1) {
-        values.add(i);
+        add(i);
       }
     } else {
       const [left, right] = splitRange(raw, options.aliases);
@@ -78328,7 +78384,9 @@ const parseSegment = (input, options) => {
         }));
       }
       if (right === undefined) {
-        values.add(left);
+        for (let i = left; i <= (step === undefined ? left : options.max); i += step ?? 1) {
+          add(i);
+        }
       } else {
         if (!Number.isInteger(right)) {
           return Either_left(new ParseError({
@@ -78349,20 +78407,21 @@ const parseSegment = (input, options) => {
           }));
         }
         for (let i = left; i <= right; i += step ?? 1) {
-          values.add(i);
+          add(i);
         }
       }
     }
-    if (values.size >= capacity) {
-      return Either_right(new Set());
-    }
   }
-  return Either_right(values);
+  return Either_right({
+    values,
+    wildcard
+  });
 };
 const splitStep = input => {
   const seperator = input.indexOf("/");
   if (seperator !== -1) {
-    return [input.slice(0, seperator), Number(input.slice(seperator + 1))];
+    const step = input.slice(seperator + 1);
+    return [input.slice(0, seperator), decimalRegex.test(step) ? Number(step) : NaN];
   }
   return [input, undefined];
 };
@@ -78374,10 +78433,11 @@ const splitRange = (input, aliases) => {
   return [aliasOrValue(input, aliases), undefined];
 };
 function aliasOrValue(field, aliases) {
-  return aliases?.[field.toLocaleLowerCase()] ?? Number(field);
+  return aliases?.[field.toLocaleLowerCase()] ?? (decimalRegex.test(field) ? Number(field) : NaN);
 }
+const decimalRegex = /^\d+$/;
 //# sourceMappingURL=Cron.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Random.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Random.js
 
 
 /**
@@ -78516,7 +78576,7 @@ const Random_make = random_make;
  */
 const Random_fixed = fixed;
 //# sourceMappingURL=Random.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schedule.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schedule.js
 
 
 
@@ -78713,6 +78773,9 @@ const mapInputEffect = /*#__PURE__*/Function_dual(2, (self, f) => makeWithState(
 const cron = (expression, tz) => {
   const parsed = isCron(expression) ? Either_right(expression) : Cron_parse(expression, tz);
   return makeWithState([true, [Number.MIN_SAFE_INTEGER, 0, 0]], (now, _, [initial, previous]) => {
+    if (now === Number.POSITIVE_INFINITY) {
+      return succeed([[false, previous], [previous[1], previous[2]], ScheduleDecision_done]);
+    }
     if (now < previous[0]) {
       return succeed([[false, previous], [previous[1], previous[2]], ScheduleDecision_continueWith(ScheduleInterval_make(previous[1], previous[2]))]);
     }
@@ -79349,7 +79412,7 @@ const stop = /*#__PURE__*/schedule_asVoid(/*#__PURE__*/recurs(0));
 /** @internal */
 const scheduleForked = /*#__PURE__*/Function_dual(2, (self, schedule) => circular_forkScoped(schedule_Effect(self, schedule)));
 //# sourceMappingURL=schedule.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/executionPlan.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/executionPlan.js
 
 
 
@@ -79409,7 +79472,7 @@ const scheduleFromStep = (step, first) => {
   });
 };
 //# sourceMappingURL=executionPlan.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Deferred.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Deferred.js
 
 
 /**
@@ -79571,7 +79634,7 @@ const Deferred_unsafeMake = deferredUnsafeMake;
  */
 const unsafeDone = deferredUnsafeDone;
 //# sourceMappingURL=Deferred.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/MutableList.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/MutableList.js
 /**
  * @since 2.0.0
  */
@@ -79812,7 +79875,7 @@ const MutableList_remove = (self, node) => {
   }
 };
 //# sourceMappingURL=MutableList.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/MutableQueue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/MutableQueue.js
 /**
  * @since 2.0.0
  */
@@ -79972,7 +80035,7 @@ const pollUpTo = /*#__PURE__*/Function_dual(2, (self, n) => {
   return Chunk_reverse(result);
 });
 //# sourceMappingURL=MutableQueue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/cache.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/cache.js
 
 
 
@@ -80453,7 +80516,7 @@ const makeWith = options => core.map(fiberRuntime.all([core.context(), core.fibe
 /** @internal */
 const unsafeMakeWith = (capacity, lookup, timeToLive) => new CacheImpl(capacity, Context_empty(), fiberId_none, lookup, exit => decode(timeToLive(exit)));
 //# sourceMappingURL=cache.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/query.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/query.js
 
 
 
@@ -80547,7 +80610,7 @@ const withRequestCache = /*#__PURE__*/Function_dual(2,
 // @ts-expect-error
 (self, cache) => fiberRefLocally(self, currentCache, cache));
 //# sourceMappingURL=query.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Request.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Request.js
 
 
 
@@ -80688,7 +80751,7 @@ const Request_isEntry = isEntry;
  */
 const Request_makeEntry = makeEntry;
 //# sourceMappingURL=Request.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Effect.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Effect.js
 
 
 
@@ -91398,7 +91461,7 @@ const ensureErrorType = () => effect => effect;
  */
 const ensureRequirementsType = () => effect => effect;
 //# sourceMappingURL=Effect.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/FiberRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/FiberRef.js
 
 
 
@@ -91636,7 +91699,7 @@ const FiberRef_currentTracerSpanLinks = currentTracerSpanLinks;
  */
 const interruptedCause = currentInterruptedCause;
 //# sourceMappingURL=FiberRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/layer/circular.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/layer/circular.js
 
 
 
@@ -91700,7 +91763,7 @@ const circular_span = (name, options) => {
 /** @internal */
 const setTracer = tracer => scopedDiscard(withTracerScoped(tracer));
 //# sourceMappingURL=circular.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/logger-circular.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/logger-circular.js
 
 
 
@@ -91720,7 +91783,7 @@ const test = /*#__PURE__*/Function_dual(2, (self, input) => self.log({
   date: new Date()
 }));
 //# sourceMappingURL=logger-circular.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Logger.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Logger.js
 
 
 
@@ -92211,7 +92274,7 @@ const Logger_minimumLogLevel = minimumLogLevel;
  */
 const Logger_isLogger = isLogger;
 //# sourceMappingURL=Logger.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform@0.96.2-tHTbrqtLWPj7x1yExaMMmg/node_modules/@effect/platform/dist/esm/Runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform@0.97.1-BiKkVHQi__yzsvYcFlrTvg/node_modules/@effect/platform/dist/esm/Runtime.js
 /**
  * @since 1.0.0
  */
@@ -92263,7 +92326,7 @@ const makeRunMain = f => Function_dual(args => Effect_isEffect(args[0]), (effect
   });
 });
 //# sourceMappingURL=Runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.60.0-W_1T6Er3AtMv92VzJVFX3A/node_modules/@effect/platform-node-shared/dist/esm/internal/runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-9TQhWuxQ2MHNrgDCUyLmrg/node_modules/@effect/platform-node-shared/dist/esm/internal/runtime.js
 
 
 /** @internal */
@@ -92295,7 +92358,7 @@ const runMain = /*#__PURE__*/makeRunMain(({
   process.on("SIGTERM", onSigint);
 });
 //# sourceMappingURL=runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.60.0-W_1T6Er3AtMv92VzJVFX3A/node_modules/@effect/platform-node-shared/dist/esm/NodeRuntime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-9TQhWuxQ2MHNrgDCUyLmrg/node_modules/@effect/platform-node-shared/dist/esm/NodeRuntime.js
 
 /**
  * @since 1.0.0
@@ -92303,7 +92366,7 @@ const runMain = /*#__PURE__*/makeRunMain(({
  */
 const NodeRuntime_runMain = runMain;
 //# sourceMappingURL=NodeRuntime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node@0.107.0-95gGp-_XZBnmA9-87KFhUA/node_modules/@effect/platform-node/dist/esm/NodeRuntime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node@0.108.1-GwsKkZWEElmbPKLk8F6FeA/node_modules/@effect/platform-node/dist/esm/NodeRuntime.js
 /**
  * @since 1.0.0
  */
@@ -92314,7 +92377,7 @@ const NodeRuntime_runMain = runMain;
  */
 const esm_NodeRuntime_runMain = NodeRuntime_runMain;
 //# sourceMappingURL=NodeRuntime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ConfigError.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ConfigError.js
 
 /**
  * @since 2.0.0
@@ -92422,7 +92485,7 @@ const ConfigError_prefixed = prefixed;
  */
 const ConfigError_reduceWithContext = configError_reduceWithContext;
 //# sourceMappingURL=ConfigError.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/redacted.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/redacted.js
 
 
 
@@ -92479,7 +92542,7 @@ const redacted_value = self => {
 /** @internal */
 const unsafeWipe = self => redactedRegistry.delete(self);
 //# sourceMappingURL=redacted.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/secret.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/secret.js
 
 
 
@@ -92557,7 +92620,7 @@ const secret_unsafeWipe = self => {
   redacted_.redactedRegistry.delete(self);
 };
 //# sourceMappingURL=secret.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/config.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/config.js
 
 
 
@@ -92786,7 +92849,11 @@ const secret = name => {
 /** @internal */
 const redacted = nameOrConfig => {
   const config = isConfig(nameOrConfig) ? nameOrConfig : config_string(nameOrConfig);
-  return config_map(config, redacted_make);
+  const redacted = Object.create(config_proto);
+  redacted._tag = OP_REDACTED;
+  redacted.original = config;
+  redacted.redact = redacted_make;
+  return redacted;
 };
 /** @internal */
 const branded = /*#__PURE__*/Function_dual(2, (nameOrConfig, constructor) => {
@@ -92921,7 +92988,7 @@ const config_zipWith = /*#__PURE__*/Function_dual(3, (self, that, f) => {
   return zipWith;
 });
 //# sourceMappingURL=config.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Config.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Config.js
 
 /**
  * @since 2.0.0
@@ -93243,7 +93310,7 @@ const Config_zip = config_zip;
  */
 const Config_zipWith = config_zipWith;
 //# sourceMappingURL=Config.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/BigDecimal.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/BigDecimal.js
 /**
  * This module provides utility functions and type class instances for working with the `BigDecimal` type in TypeScript.
  * It includes functions for basic arithmetic operations, as well as type class instances for `Equivalence` and `Order`.
@@ -94331,7 +94398,7 @@ const BigDecimal_sumAll = collection => {
   return out;
 };
 //# sourceMappingURL=BigDecimal.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/BigInt.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/BigInt.js
 /**
  * This module provides utility functions and type class instances for working with the `bigint` type in TypeScript.
  * It includes functions for basic arithmetic operations, as well as type class instances for
@@ -94880,7 +94947,7 @@ const BigInt_fromNumber = n => {
   }
 };
 //# sourceMappingURL=BigInt.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/DateTime.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/DateTime.js
 
 
 
@@ -95952,7 +96019,7 @@ const layerCurrentZoneNamed = zoneId => Layer.effect(CurrentTimeZone, Internal.z
  */
 const layerCurrentZoneLocal = /*#__PURE__*/(/* unused pure expression or super */ null && (Layer.sync(CurrentTimeZone, DateTime_zoneMakeLocal)));
 //# sourceMappingURL=DateTime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/encoding/common.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/encoding/common.js
 
 /** @internal */
 const DecodeExceptionTypeId = /*#__PURE__*/Symbol.for("effect/Encoding/errors/Decode");
@@ -95991,7 +96058,7 @@ const encoder = /*#__PURE__*/new TextEncoder();
 /** @interal */
 const decoder = /*#__PURE__*/new TextDecoder();
 //# sourceMappingURL=common.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/encoding/base64.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/encoding/base64.js
 
 
 /** @internal */
@@ -96063,7 +96130,7 @@ const base64abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "
 /** @internal */
 const base64codes = [255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 62, 255, 255, 255, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 255, 255, 255, 0, 255, 255, 255, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 255, 255, 255, 255, 255, 255, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51];
 //# sourceMappingURL=base64.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/encoding/base64Url.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/encoding/base64Url.js
 
 
 
@@ -96085,7 +96152,7 @@ const base64Url_decode = str => {
   return base64_decode(sanitized);
 };
 //# sourceMappingURL=base64Url.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/encoding/hex.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/encoding/hex.js
 
 
 /** @internal */
@@ -96134,7 +96201,7 @@ const fromHexChar = byte => {
   throw new TypeError("Invalid input");
 };
 //# sourceMappingURL=hex.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Encoding.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Encoding.js
 /**
  * This module provides encoding & decoding functionality for:
  *
@@ -96271,7 +96338,7 @@ const Encoding_EncodeException = EncodeException;
  */
 const Encoding_isEncodeException = isEncodeException;
 //# sourceMappingURL=Encoding.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schema/schemaId.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schema/schemaId.js
 /** @internal */
 const DateFromSelfSchemaId = /*#__PURE__*/Symbol.for("effect/SchemaId/DateFromSelf");
 /** @internal */
@@ -96315,7 +96382,7 @@ const MaxItemsSchemaId = /*#__PURE__*/Symbol.for("effect/SchemaId/MaxItems");
 /** @internal */
 const ItemsCountSchemaId = /*#__PURE__*/Symbol.for("effect/SchemaId/ItemsCount");
 //# sourceMappingURL=schemaId.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schema/util.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schema/util.js
 
 /** @internal */
 const getKeysForIndexSignature = (input, parameter) => {
@@ -96351,7 +96418,7 @@ const formatPathKey = key => `[${formatPropertyKey(key)}]`;
 /** @internal */
 const formatPath = path => util_isNonEmpty(path) ? path.map(formatPathKey).join("") : formatPathKey(path);
 //# sourceMappingURL=util.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/schema/errors.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/schema/errors.js
 
 
 
@@ -96438,7 +96505,7 @@ const getASTUnsupportedRenameSchemaErrorMessage = ast => getUnsupportedSchemaErr
 /** @internal */
 const getASTDuplicatePropertySignatureErrorMessage = key => getErrorMessage("Duplicate property signature", `Duplicate key ${formatUnknown(key)}`);
 //# sourceMappingURL=errors.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/SchemaAST.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/SchemaAST.js
 /**
  * @since 3.10.0
  */
@@ -98919,7 +98986,7 @@ const pruneUndefined = (ast, self, onTransformation) => {
   }
 };
 //# sourceMappingURL=SchemaAST.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/ParseResult.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/ParseResult.js
 /**
  * @since 3.10.0
  */
@@ -99525,6 +99592,24 @@ const go = (ast, isDecoding) => {
       return fromRefinement(ast, u => ast.enums.some(([_, value]) => value === u));
     case "TemplateLiteral":
       {
+        if (ast.spans.every(span => isStringKeyword(span.type))) {
+          return fromRefinement(ast, u => {
+            if (!isString(u) || !u.startsWith(ast.head)) {
+              return false;
+            }
+            let position = ast.head.length;
+            for (let i = 0; i < ast.spans.length - 1; i++) {
+              const literal = ast.spans[i].literal;
+              const index = u.indexOf(literal, position);
+              if (index === -1) {
+                return false;
+              }
+              position = index + literal.length;
+            }
+            const literal = ast.spans[ast.spans.length - 1].literal;
+            return u.endsWith(literal) && u.length - literal.length >= position;
+          });
+        }
         const regex = getTemplateLiteralRegExp(ast);
         return fromRefinement(ast, u => isString(u) && regex.test(u));
       }
@@ -100471,7 +100556,7 @@ const getArrayFormatterIssues = (issue, parentTag, path) => {
   }
 };
 //# sourceMappingURL=ParseResult.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Struct.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Struct.js
 /**
  * This module provides utility functions for working with structs in TypeScript.
  *
@@ -100663,7 +100748,7 @@ const Struct_keys = o => Object.keys(o);
  */
 const Struct_entries = obj => Object.entries(obj);
 //# sourceMappingURL=Struct.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Schema.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Schema.js
 /**
  * @since 3.10.0
  */
@@ -106549,7 +106634,7 @@ class ArrayFormatterIssue extends /*#__PURE__*/Struct({
   description: "Represents an issue returned by the ArrayFormatter formatter"
 }) {}
 //# sourceMappingURL=Schema.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/matcher.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/matcher.js
 
 
 
@@ -106841,7 +106926,7 @@ const exhaustive = self => {
   };
 };
 //# sourceMappingURL=matcher.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Match.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Match.js
 
 
 /**
@@ -107656,7 +107741,7 @@ const Match_exhaustive = exhaustive;
 const SafeRefinementId = /*#__PURE__*/(/* unused pure expression or super */ null && (Symbol.for("effect/SafeRefinement")));
 const Match_Fail = /*#__PURE__*/(/* unused pure expression or super */ null && (Symbol.for("effect/Fail")));
 //# sourceMappingURL=Match.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Layer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Layer.js
 
 
 
@@ -108344,26 +108429,30 @@ var rss_parser = __nccwpck_require__(190);
 var rss_parser_default = /*#__PURE__*/__nccwpck_require__.n(rss_parser);
 // EXTERNAL MODULE: ./node_modules/.store/xml-js@1.6.11-V9oqbQIw05xxjNG_DoGLOg/node_modules/xml-js/lib/index.js
 var lib = __nccwpck_require__(2950);
-;// CONCATENATED MODULE: ./node_modules/.store/feed@5.2.1-RmxwQtA9rPoVkpCiTwYu5w/node_modules/feed/lib/feed.js
+;// CONCATENATED MODULE: ./node_modules/.store/feed@6.0.0-WfRxaOr1QtSLbHGbdyKzIw/node_modules/feed/lib/feed.js
 
 
 
-//#region src/config/index.ts
+//#region src/config.ts
 const generator = "https://github.com/jpmonette/feed";
 
 //#endregion
 //#region src/utils.ts
-function sanitize(url) {
-	if (typeof url === "undefined") return;
-	return url.replace(/&/g, "&amp;");
+function escapeAmp(value) {
+	return value.replace(/&/g, "&amp;");
+}
+function sanitize(text) {
+	if (text === void 0) return void 0;
+	return escapeAmp(text);
+}
+function sanitizeUrl(url) {
+	if (url === void 0) return void 0;
+	const parsed = new URL(url);
+	return escapeAmp(parsed.toString());
 }
 
 //#endregion
 //#region src/atom1.ts
-/**
-* Returns an Atom feed
-* @param ins
-*/
 var atom1_default = (ins) => {
 	const { options } = ins;
 	const base = {
@@ -108376,8 +108465,8 @@ var atom1_default = (ins) => {
 			_attributes: { xmlns: "http://www.w3.org/2005/Atom" },
 			id: options.id,
 			title: options.title,
-			updated: options.updated ? options.updated.toISOString() : new Date().toISOString(),
-			generator: sanitize(options.generator ?? generator)
+			updated: options.updated?.toISOString() ?? new Date().toISOString(),
+			...options.generator === false ? {} : { generator: sanitize(options.generator ?? generator) }
 		}
 	};
 	if (options.stylesheet) base._instruction = { "xml-stylesheet": { _attributes: {
@@ -108389,44 +108478,38 @@ var atom1_default = (ins) => {
 	base.feed.link = [];
 	if (options.link) base.feed.link.push({ _attributes: {
 		rel: "alternate",
-		href: sanitize(options.link)
+		href: sanitizeUrl(options.link)
 	} });
-	const atomLink = options.feed ?? (options.feedLinks && options.feedLinks.atom);
+	const atomLink = options.feed ?? options.feedLinks?.atom;
 	if (atomLink) base.feed.link.push({ _attributes: {
 		rel: "self",
-		href: sanitize(atomLink)
+		href: sanitizeUrl(atomLink)
 	} });
 	if (options.hub) base.feed.link.push({ _attributes: {
 		rel: "hub",
-		href: sanitize(options.hub)
+		href: sanitizeUrl(options.hub)
 	} });
-	/**************************************************************************
-	* "feed" node: optional elements
-	*************************************************************************/
 	if (options.description) base.feed.subtitle = options.description;
 	if (options.image) base.feed.logo = options.image;
 	if (options.favicon) base.feed.icon = options.favicon;
 	if (options.copyright) base.feed.rights = options.copyright;
 	base.feed.category = [];
 	ins.categories.forEach((category) => {
-		base.feed.category.push({ _attributes: { term: category } });
+		base.feed.category.push({ _attributes: { term: sanitize(category) } });
 	});
 	base.feed.contributor = [];
 	ins.contributors.forEach((contributor) => {
 		base.feed.contributor.push(formatAuthor(contributor));
 	});
 	base.feed.entry = [];
-	/**************************************************************************
-	* "entry" nodes
-	*************************************************************************/
 	ins.items.forEach((item) => {
 		const entry = {
 			title: {
 				_attributes: { type: "html" },
 				_cdata: item.title
 			},
-			id: sanitize(item.id ?? item.link),
-			link: [{ _attributes: { href: sanitize(item.link) } }],
+			id: sanitizeUrl(item.id ?? item.link),
+			link: [{ _attributes: { href: sanitizeUrl(item.link) } }],
 			updated: item.date.toISOString()
 		};
 		if (item.description) entry.summary = {
@@ -108449,10 +108532,6 @@ var atom1_default = (ins) => {
 				entry.category.push(formatCategory$1(category));
 			});
 		}
-		/**
-		* Item Enclosure
-		* https://validator.w3.org/feed/docs/atom.html#link
-		*/
 		if (item.enclosure) entry.link.push(formatEnclosure$1(item.enclosure));
 		if (item.image) entry.link.push(formatEnclosure$1(item.image, "image"));
 		if (item.audio) entry.link.push(formatEnclosure$1(item.audio, "audio"));
@@ -108473,59 +108552,44 @@ var atom1_default = (ins) => {
 		spaces: 4
 	});
 };
-/**
-* Returns a formatted author
-* @param author
-*/
 const formatAuthor = (author) => {
 	const { name, email, link } = author;
 	const out = { name };
 	if (email) out.email = email;
-	if (link) out.uri = sanitize(link);
+	if (link) out.uri = sanitizeUrl(link);
 	return out;
 };
-/**
-* Returns a formated enclosure
-* @param enclosure
-* @param mimeCategory
-*/
 const formatEnclosure$1 = (enclosure, mimeCategory = "image") => {
 	if (typeof enclosure === "string") {
-		const type$1 = new URL(enclosure).pathname.split(".").slice(-1)[0];
+		const sanitizedUrl$1 = sanitizeUrl(enclosure);
+		const type$1 = new URL(sanitizedUrl$1).pathname.split(".").slice(-1)[0];
 		return { _attributes: {
 			rel: "enclosure",
-			href: enclosure,
+			href: sanitizedUrl$1,
 			type: `${mimeCategory}/${type$1}`
 		} };
 	}
-	const type = new URL(enclosure.url).pathname.split(".").slice(-1)[0];
+	const sanitizedUrl = sanitizeUrl(enclosure.url);
+	const type = new URL(sanitizedUrl).pathname.split(".").slice(-1)[0];
 	return { _attributes: {
 		rel: "enclosure",
-		href: enclosure.url,
+		href: sanitizedUrl,
 		title: enclosure.title,
 		type: `${mimeCategory}/${type}`,
 		length: enclosure.length
 	} };
 };
-/**
-* Returns a formatted category
-* @param category
-*/
 const formatCategory$1 = (category) => {
 	const { name, scheme, term } = category;
 	return { _attributes: {
-		label: name,
-		scheme,
-		term
+		label: sanitize(name),
+		scheme: sanitizeUrl(scheme),
+		term: sanitize(term)
 	} };
 };
 
 //#endregion
 //#region src/json.ts
-/**
-* Returns a JSON feed
-* @param ins
-*/
 var json_default = (ins) => {
 	const { options, items, extensions } = ins;
 	const feed = {
@@ -108533,7 +108597,7 @@ var json_default = (ins) => {
 		title: options.title
 	};
 	if (options.link) feed.home_page_url = options.link;
-	if (options.feedLinks && options.feedLinks.json) feed.feed_url = options.feedLinks.json;
+	if (options.feedLinks?.json) feed.feed_url = options.feedLinks.json;
 	if (options.description) feed.description = options.description;
 	if (options.image) feed.icon = options.image;
 	if (options.author) {
@@ -108553,12 +108617,11 @@ var json_default = (ins) => {
 		if (item.link) feedItem.url = item.link;
 		if (item.title) feedItem.title = item.title;
 		if (item.description && item.content) feedItem.summary = item.description;
-		if (item.image) feedItem.image = item.image;
+		if (item.image) feedItem.image = typeof item.image === "string" ? item.image : item.image.url;
 		if (item.date) feedItem.date_modified = item.date.toISOString();
 		if (item.published) feedItem.date_published = item.published.toISOString();
 		if (item.author) {
-			let author = item.author;
-			if (author instanceof Array) author = author[0];
+			const author = Array.isArray(item.author) ? item.author[0] : item.author;
 			feedItem.author = {};
 			if (author.name) feedItem.author.name = author.name;
 			if (author.link) feedItem.author.url = author.link;
@@ -108580,9 +108643,6 @@ var json_default = (ins) => {
 
 //#endregion
 //#region src/rss2.ts
-/**
-* Returns a RSS 2.0 feed
-*/
 var rss2_default = (ins) => {
 	const { options, extensions } = ins;
 	let needsAtomNamespace = false;
@@ -108597,11 +108657,11 @@ var rss2_default = (ins) => {
 			_attributes: { version: "2.0" },
 			channel: {
 				title: { _text: options.title },
-				link: { _text: sanitize(options.link) },
+				link: { _text: sanitizeUrl(options.link) },
 				description: { _text: options.description ?? "" },
 				lastBuildDate: { _text: options.updated ? options.updated.toUTCString() : new Date().toUTCString() },
-				docs: { _text: options.docs ? options.docs : "https://validator.w3.org/feed/docs/rss2.html" },
-				generator: { _text: options.generator ?? generator }
+				docs: { _text: options.docs ?? "https://validator.w3.org/feed/docs/rss2.html" },
+				...options.generator === false ? {} : { generator: { _text: options.generator ?? generator } }
 			}
 		}
 	};
@@ -108610,73 +108670,41 @@ var rss2_default = (ins) => {
 		type: "text/xsl"
 	} } };
 	else delete base._instruction;
-	/**
-	* Channel language
-	* https://validator.w3.org/feed/docs/rss2.html#ltlanguagegtSubelementOfLtchannelgt
-	*/
 	if (options.language) base.rss.channel.language = { _text: options.language };
-	/**
-	* Channel ttl
-	* https://validator.w3.org/feed/docs/rss2.html#ltttlgtSubelementOfLtchannelgt
-	*/
 	if (options.ttl) base.rss.channel.ttl = { _text: options.ttl };
-	/**
-	* Channel Image
-	* https://validator.w3.org/feed/docs/rss2.html#ltimagegtSubelementOfLtchannelgt
-	*/
 	if (options.image) base.rss.channel.image = {
 		title: { _text: options.title },
 		url: { _text: options.image },
-		link: { _text: sanitize(options.link) }
+		link: { _text: sanitizeUrl(options.link) }
 	};
-	/**
-	* Channel Copyright
-	* https://validator.w3.org/feed/docs/rss2.html#optionalChannelElements
-	*/
 	if (options.copyright) base.rss.channel.copyright = { _text: options.copyright };
-	/**
-	* Channel Categories
-	* https://validator.w3.org/feed/docs/rss2.html#comments
-	*/
 	ins.categories.forEach((category) => {
 		if (!base.rss.channel.category) base.rss.channel.category = [];
 		base.rss.channel.category.push({ _text: category });
 	});
-	/**
-	* Feed URL
-	* http://validator.w3.org/feed/docs/warning/MissingAtomSelfLink.html
-	*/
-	const atomLink = options.feed ?? (options.feedLinks && options.feedLinks.rss);
+	const atomLink = options.feed ?? options.feedLinks?.rss;
 	if (atomLink) {
 		needsAtomNamespace = true;
 		if (!base.rss.channel["atom:link"]) base.rss.channel["atom:link"] = [];
 		base.rss.channel["atom:link"].push({ _attributes: {
-			href: sanitize(atomLink),
+			href: sanitizeUrl(atomLink),
 			rel: "self",
 			type: "application/rss+xml"
 		} });
 	}
-	/**
-	* Hub for PubSubHubbub
-	* https://code.google.com/p/pubsubhubbub/
-	*/
 	if (options.hub) {
 		needsAtomNamespace = true;
 		if (!base.rss.channel["atom:link"]) base.rss.channel["atom:link"] = [];
 		base.rss.channel["atom:link"].push({ _attributes: {
-			href: sanitize(options.hub),
+			href: sanitizeUrl(options.hub),
 			rel: "hub"
 		} });
 	}
-	/**
-	* Channel Categories
-	* https://validator.w3.org/feed/docs/rss2.html#hrelementsOfLtitemgt
-	*/
 	base.rss.channel.item = [];
 	ins.items.forEach((entry) => {
 		const item = {};
 		if (entry.title) item.title = { _cdata: entry.title };
-		if (entry.link) item.link = { _text: sanitize(entry.link) };
+		if (entry.link) item.link = { _text: sanitizeUrl(entry.link) };
 		if (entry.guid) item.guid = {
 			_text: entry.guid,
 			_attributes: { isPermaLink: false }
@@ -108686,7 +108714,7 @@ var rss2_default = (ins) => {
 			_attributes: { isPermaLink: false }
 		};
 		else if (entry.link) item.guid = {
-			_text: sanitize(entry.link),
+			_text: sanitizeUrl(entry.link),
 			_attributes: { isPermaLink: true }
 		};
 		if (entry.date) item.pubDate = { _text: entry.date.toUTCString() };
@@ -108696,39 +108724,24 @@ var rss2_default = (ins) => {
 			needsContentNamespace = true;
 			item["content:encoded"] = { _cdata: entry.content };
 		}
-		/**
-		* Item Author
-		* https://validator.w3.org/feed/docs/rss2.html#ltauthorgtSubelementOfLtitemgt
-		*/
 		if (Array.isArray(entry.author)) {
 			item.author = [];
 			entry.author.forEach((author) => {
-				if (author.email && author.name) item.author.push({ _text: author.email + " (" + author.name + ")" });
+				if (author.email && author.name) item.author.push({ _text: `${author.email} (${author.name})` });
 				else if (author.name) item.author.push({ _text: author.name });
 			});
 		}
-		/**
-		* Item Category
-		* https://validator.w3.org/feed/docs/rss2.html#ltcategorygtSubelementOfLtitemgt
-		*/
 		if (Array.isArray(entry.category)) {
 			item.category = [];
 			entry.category.forEach((category) => {
 				item.category.push(formatCategory(category));
 			});
 		}
-		/**
-		* Item Enclosure
-		* https://validator.w3.org/feed/docs/rss2.html#ltenclosuregtSubelementOfLtitemgt
-		*/
 		if (entry.enclosure) item.enclosure = formatEnclosure(entry.enclosure);
 		if (entry.image) item.enclosure = formatEnclosure(entry.image, "image");
 		if (entry.audio) {
-			let duration = void 0;
-			if (options.podcast && typeof entry.audio !== "string" && entry.audio.duration) {
-				duration = entry.audio.duration;
-				entry.audio.duration = void 0;
-			}
+			const duration = options.podcast && typeof entry.audio !== "string" && entry.audio.duration ? entry.audio.duration : void 0;
+			if (duration) entry.audio.duration = void 0;
 			item.enclosure = formatEnclosure(entry.audio, "audio");
 			if (duration) item["itunes:duration"] = formatDuration(duration);
 		}
@@ -108746,10 +108759,6 @@ var rss2_default = (ins) => {
 		base.rss.channel[e.name] = e.objects;
 	});
 	if (needsAtomNamespace) base.rss._attributes["xmlns:atom"] = "http://www.w3.org/2005/Atom";
-	/**
-	* Podcast extensions
-	* https://support.google.com/podcast-publishers/answer/9889544?hl=en
-	*/
 	if (options.podcast) {
 		base.rss._attributes["xmlns:googleplay"] = "http://www.google.com/schemas/play-podcasts/1.0";
 		base.rss._attributes["xmlns:itunes"] = "http://www.itunes.com/dtds/podcast-1.0.dtd";
@@ -108765,7 +108774,7 @@ var rss2_default = (ins) => {
 			base.rss.channel["googleplay:author"] = options.author.name;
 			base.rss.channel["itunes:author"] = options.author.name;
 		}
-		if (options.image) base.rss.channel["googleplay:image"] = { _attributes: { href: sanitize(options.image) } };
+		if (options.image) base.rss.channel["googleplay:image"] = { _attributes: { href: sanitizeUrl(options.image) } };
 	}
 	return lib.js2xml(base, {
 		compact: true,
@@ -108773,31 +108782,25 @@ var rss2_default = (ins) => {
 		spaces: 4
 	});
 };
-/**
-* Returns a formated enclosure
-* @param enclosure
-* @param mimeCategory
-*/
 const formatEnclosure = (enclosure, mimeCategory = "image") => {
 	if (typeof enclosure === "string") {
-		const type$1 = new URL(sanitize(enclosure)).pathname.split(".").slice(-1)[0];
+		const sanitizedUrl$1 = sanitizeUrl(enclosure);
+		const type$1 = new URL(sanitizedUrl$1).pathname.split(".").slice(-1)[0];
 		return { _attributes: {
-			url: enclosure,
+			url: sanitizedUrl$1,
 			length: 0,
 			type: `${mimeCategory}/${type$1}`
 		} };
 	}
-	const type = new URL(sanitize(enclosure.url)).pathname.split(".").slice(-1)[0];
+	const sanitizedUrl = sanitizeUrl(enclosure.url);
+	const type = new URL(sanitizedUrl).pathname.split(".").slice(-1)[0];
 	return { _attributes: {
 		length: 0,
 		type: `${mimeCategory}/${type}`,
-		...enclosure
+		...enclosure,
+		url: sanitizedUrl
 	} };
 };
-/**
-* Returns a formated category
-* @param category
-*/
 const formatCategory = (category) => {
 	const { name, domain } = category;
 	return {
@@ -108805,24 +108808,17 @@ const formatCategory = (category) => {
 		_attributes: { domain }
 	};
 };
-/**
-* Returns a formated duration from seconds
-* @param duration
-*/
 const formatDuration = (duration) => {
 	const seconds = duration % 60;
 	const totalMinutes = Math.floor(duration / 60);
 	const minutes = totalMinutes % 60;
 	const hours = Math.floor(totalMinutes / 60);
-	const notHours = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
-	return hours > 0 ? hours + ":" + notHours : notHours;
+	const notHours = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+	return hours > 0 ? `${hours}:${notHours}` : notHours;
 };
 
 //#endregion
 //#region src/feed.ts
-/**
-* Class used to generate Feeds
-*/
 var Feed = class {
 	items = [];
 	categories = [];
@@ -108831,44 +108827,33 @@ var Feed = class {
 	constructor(options) {
 		this.options = options;
 	}
-	/**
-	* Add a feed item
-	* @param item
-	*/
-	addItem = (item) => this.items.push(item);
-	/**
-	* Add a category
-	* @param category
-	*/
-	addCategory = (category) => this.categories.push(category);
-	/**
-	* Add a contributor
-	* @param contributor
-	*/
-	addContributor = (contributor) => this.contributors.push(contributor);
-	/**
-	* Adds an extension
-	* @param extension
-	*/
-	addExtension = (extension) => this.extensions.push(extension);
-	/**
-	* Returns a Atom 1.0 feed
-	*/
-	atom1 = () => atom1_default(this);
-	/**
-	* Returns a RSS 2.0 feed
-	*/
-	rss2 = () => rss2_default(this);
-	/**
-	* Returns a JSON1 feed
-	*/
-	json1 = () => json_default(this);
+	addItem(item) {
+		this.items.push(item);
+	}
+	addCategory(category) {
+		this.categories.push(category);
+	}
+	addContributor(contributor) {
+		this.contributors.push(contributor);
+	}
+	addExtension(extension) {
+		this.extensions.push(extension);
+	}
+	atom1() {
+		return atom1_default(this);
+	}
+	rss2() {
+		return rss2_default(this);
+	}
+	json1() {
+		return json_default(this);
+	}
 };
 
 //#endregion
 
 //# sourceMappingURL=feed.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/queue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/queue.js
 
 
 
@@ -109355,7 +109340,7 @@ const unsafeCompleteTakers = (strategy, queue, takers) => {
   }
 };
 //# sourceMappingURL=queue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Queue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Queue.js
 
 /**
  * @since 2.0.0
@@ -109604,7 +109589,7 @@ const Queue_takeBetween = takeBetween;
  */
 const Queue_takeN = takeN;
 //# sourceMappingURL=Queue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelChildExecutorDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelChildExecutorDecision.js
 /** @internal */
 const channelChildExecutorDecision_OP_CONTINUE = "Continue";
 /** @internal */
@@ -109612,7 +109597,7 @@ const OP_CLOSE = "Close";
 /** @internal */
 const channelChildExecutorDecision_OP_YIELD = "Yield";
 //# sourceMappingURL=channelChildExecutorDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/childExecutorDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/childExecutorDecision.js
 
 
 
@@ -109673,13 +109658,13 @@ const childExecutorDecision_match = /*#__PURE__*/(/* unused pure expression or s
   }
 })));
 //# sourceMappingURL=childExecutorDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/continuation.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/continuation.js
 /** @internal */
 const OP_CONTINUATION_K = "ContinuationK";
 /** @internal */
 const OP_CONTINUATION_FINALIZER = "ContinuationFinalizer";
 //# sourceMappingURL=continuation.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/continuation.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/continuation.js
 
 
 /** @internal */
@@ -109728,13 +109713,13 @@ class ContinuationFinalizerImpl {
   }
 }
 //# sourceMappingURL=continuation.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelUpstreamPullStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelUpstreamPullStrategy.js
 /** @internal */
 const OP_PULL_AFTER_NEXT = "PullAfterNext";
 /** @internal */
 const OP_PULL_AFTER_ALL_ENQUEUED = "PullAfterAllEnqueued";
 //# sourceMappingURL=channelUpstreamPullStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/upstreamPullStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/upstreamPullStrategy.js
 
 
 
@@ -109787,7 +109772,7 @@ const upstreamPullStrategy_match = /*#__PURE__*/(/* unused pure expression or su
   }
 })));
 //# sourceMappingURL=upstreamPullStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channel.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channel.js
 /** @internal */
 const OP_BRACKET_OUT = "BracketOut";
 /** @internal */
@@ -109817,7 +109802,7 @@ const OP_SUCCEED_NOW = "SucceedNow";
 /** @internal */
 const channel_OP_SUSPEND = "Suspend";
 //# sourceMappingURL=channel.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/core-stream.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/core-stream.js
 
 
 
@@ -110053,7 +110038,7 @@ const write = out => {
   return op;
 };
 //# sourceMappingURL=core-stream.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelState.js
 /** @internal */
 const channelState_OP_DONE = "Done";
 /** @internal */
@@ -110063,7 +110048,7 @@ const channelState_OP_FROM_EFFECT = "FromEffect";
 /** @internal */
 const channelState_OP_READ = "Read";
 //# sourceMappingURL=channelState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/channelState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/channelState.js
 
 
 
@@ -110123,7 +110108,7 @@ const channelState_effect = self => isFromEffect(self) ? self.effect : _void;
 /** @internal */
 const effectOrUndefinedIgnored = self => isFromEffect(self) ? Effect_ignore(self.effect) : undefined;
 //# sourceMappingURL=channelState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/subexecutor.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/subexecutor.js
 
 
 
@@ -110276,13 +110261,13 @@ class subexecutor_Emit {
   }
 }
 //# sourceMappingURL=subexecutor.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelUpstreamPullRequest.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelUpstreamPullRequest.js
 /** @internal */
 const OP_PULLED = "Pulled";
 /** @internal */
 const OP_NO_UPSTREAM = "NoUpstream";
 //# sourceMappingURL=channelUpstreamPullRequest.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/upstreamPullRequest.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/upstreamPullRequest.js
 
 
 
@@ -110335,7 +110320,7 @@ const upstreamPullRequest_match = /*#__PURE__*/(/* unused pure expression or sup
   }
 })));
 //# sourceMappingURL=upstreamPullRequest.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/channelExecutor.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/channelExecutor.js
 
 
 
@@ -111024,13 +111009,13 @@ const runScopedInterpret = (channelState, exec) => {
   }
 };
 //# sourceMappingURL=channelExecutor.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelMergeDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelMergeDecision.js
 /** @internal */
 const channelMergeDecision_OP_DONE = "Done";
 /** @internal */
 const OP_AWAIT = "Await";
 //# sourceMappingURL=channelMergeDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/mergeDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/mergeDecision.js
 
 
 
@@ -111080,7 +111065,7 @@ const mergeDecision_match = /*#__PURE__*/Function_dual(2, (self, {
   }
 });
 //# sourceMappingURL=mergeDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelMergeState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelMergeState.js
 /** @internal */
 const OP_BOTH_RUNNING = "BothRunning";
 /** @internal */
@@ -111088,7 +111073,7 @@ const OP_LEFT_DONE = "LeftDone";
 /** @internal */
 const OP_RIGHT_DONE = "RightDone";
 //# sourceMappingURL=channelMergeState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/mergeState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/mergeState.js
 
 
 
@@ -111158,13 +111143,13 @@ const mergeState_match = /*#__PURE__*/(/* unused pure expression or super */ nul
   }
 })));
 //# sourceMappingURL=mergeState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/channelMergeStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/channelMergeStrategy.js
 /** @internal */
 const OP_BACK_PRESSURE = "BackPressure";
 /** @internal */
 const OP_BUFFER_SLIDING = "BufferSliding";
 //# sourceMappingURL=channelMergeStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/mergeStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/mergeStrategy.js
 
 
 
@@ -111211,7 +111196,7 @@ const mergeStrategy_match = /*#__PURE__*/Function_dual(2, (self, {
   }
 });
 //# sourceMappingURL=mergeStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel/singleProducerAsyncInput.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel/singleProducerAsyncInput.js
 
 
 
@@ -111375,7 +111360,7 @@ class SingleProducerAsyncInputImpl {
 /** @internal */
 const singleProducerAsyncInput_make = () => Function_pipe(Deferred_make(), Effect_flatMap(deferred => Ref_make(stateEmpty(deferred))), Effect_map(ref => new SingleProducerAsyncInputImpl(ref)));
 //# sourceMappingURL=singleProducerAsyncInput.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/channel.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/channel.js
 
 
 
@@ -112059,7 +112044,7 @@ const ChannelException = error => ({
 /** @internal */
 const isChannelException = u => Predicate_hasProperty(u, ChannelExceptionTypeId);
 //# sourceMappingURL=channel.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/MergeDecision.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/MergeDecision.js
 
 /**
  * @since 2.0.0
@@ -112095,7 +112080,7 @@ const MergeDecision_isMergeDecision = isMergeDecision;
  */
 const MergeDecision_match = mergeDecision_match;
 //# sourceMappingURL=MergeDecision.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/pubsub.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/pubsub.js
 
 
 
@@ -113359,7 +113344,7 @@ const emptyReplayWindow = {
   takeAll: () => Chunk_empty()
 };
 //# sourceMappingURL=pubsub.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/PubSub.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/PubSub.js
 
 /**
  * Creates a bounded `PubSub` with the back pressure strategy. The `PubSub` will retain
@@ -113480,7 +113465,7 @@ const PubSub_publishAll = publishAll;
  */
 const PubSub_subscribe = subscribe;
 //# sourceMappingURL=PubSub.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/rcRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/rcRef.js
 
 
 
@@ -113610,7 +113595,7 @@ const invalidate = self_ => {
   }));
 };
 //# sourceMappingURL=rcRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/RcRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/RcRef.js
 
 /**
  * @since 3.5.0
@@ -113662,7 +113647,7 @@ const RcRef_get = rcRef_get;
  */
 const RcRef_invalidate = invalidate;
 //# sourceMappingURL=RcRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Runtime.js
 
 /**
  * Executes the effect using the provided Scheduler or using the global
@@ -113844,7 +113829,7 @@ const Runtime_setFiberRef = setFiberRef;
  */
 const Runtime_deleteFiberRef = deleteFiberRef;
 //# sourceMappingURL=Runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Schedule.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Schedule.js
 
 /**
  * @since 2.0.0
@@ -115440,7 +115425,7 @@ const Schedule_zipWith = schedule_zipWith;
  */
 const Schedule_CurrentIterationMetadata = CurrentIterationMetadata;
 //# sourceMappingURL=Schedule.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/opCodes/streamHaltStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/opCodes/streamHaltStrategy.js
 /** @internal */
 const OP_LEFT = "Left";
 /** @internal */
@@ -115450,7 +115435,7 @@ const OP_BOTH = "Both";
 /** @internal */
 const OP_EITHER = "Either";
 //# sourceMappingURL=streamHaltStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/haltStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/haltStrategy.js
 
 
 /** @internal */
@@ -115514,7 +115499,7 @@ const haltStrategy_match = /*#__PURE__*/Function_dual(2, (self, options) => {
   }
 });
 //# sourceMappingURL=haltStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/StreamHaltStrategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/StreamHaltStrategy.js
 /**
  * @since 2.0.0
  */
@@ -115572,7 +115557,7 @@ const StreamHaltStrategy_isEither = haltStrategy_isEither;
  */
 const StreamHaltStrategy_match = haltStrategy_match;
 //# sourceMappingURL=StreamHaltStrategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/sink.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/sink.js
 
 
 
@@ -116374,7 +116359,7 @@ const mkString = /*#__PURE__*/sink_suspend(() => {
 /** @internal */
 const sink_timed = /*#__PURE__*/(/* unused pure expression or super */ null && (pipe(/*#__PURE__*/withDuration(sink_drain), /*#__PURE__*/sink_map(tuple => tuple[1]))));
 //# sourceMappingURL=sink.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/versioned.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/versioned.js
 /** @internal */
 class Versioned {
   value;
@@ -116383,7 +116368,7 @@ class Versioned {
   }
 }
 //# sourceMappingURL=versioned.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/entry.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/entry.js
 
 /** @internal */
 const entry_make = (ref, isNew) => ({
@@ -116426,7 +116411,7 @@ const isChanged = self => {
   return self.isChanged;
 };
 //# sourceMappingURL=entry.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/journal.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/journal.js
 
 /** @internal */
 const JournalAnalysisInvalid = "Invalid";
@@ -116516,7 +116501,7 @@ const journal_isInvalid = journal => {
   return !journal_isValid(journal);
 };
 //# sourceMappingURL=journal.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/opCodes/stm.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/opCodes/stm.js
 /** @internal */
 const OP_WITH_STM_RUNTIME = "WithSTMRuntime";
 /** @internal */
@@ -116542,7 +116527,7 @@ const stm_OP_INTERRUPT = "Interrupt";
 /** @internal */
 const OP_TRACED = "Traced";
 //# sourceMappingURL=stm.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/opCodes/tExit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/opCodes/tExit.js
 /** @internal */
 const tExit_OP_FAIL = "Fail";
 /** @internal */
@@ -116554,13 +116539,13 @@ const tExit_OP_SUCCEED = "Succeed";
 /** @internal */
 const tExit_OP_RETRY = "Retry";
 //# sourceMappingURL=tExit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/opCodes/tryCommit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/opCodes/tryCommit.js
 /** @internal */
 const tryCommit_OP_DONE = "Done";
 /** @internal */
 const tryCommit_OP_SUSPEND = "Suspend";
 //# sourceMappingURL=tryCommit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/opCodes/stmState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/opCodes/stmState.js
 /** @internal */
 const stmState_OP_DONE = "Done";
 /** @internal */
@@ -116568,7 +116553,7 @@ const OP_INTERRUPTED = "Interrupted";
 /** @internal */
 const stmState_OP_RUNNING = "Running";
 //# sourceMappingURL=stmState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/stmState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/stmState.js
 
 
 
@@ -116658,7 +116643,7 @@ const fromTExit = tExit => {
   }
 };
 //# sourceMappingURL=stmState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/tExit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/tExit.js
 
 
 
@@ -116759,7 +116744,7 @@ const tExit_retry = {
 const tExit_void_ = /*#__PURE__*/(/* unused pure expression or super */ null && (tExit_succeed(undefined)));
 
 //# sourceMappingURL=tExit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/tryCommit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/tryCommit.js
 
 /** @internal */
 const tryCommit_done = exit => {
@@ -116776,7 +116761,7 @@ const tryCommit_suspend = journal => {
   };
 };
 //# sourceMappingURL=tryCommit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/txnId.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/txnId.js
 /** @internal */
 const txnCounter = {
   ref: 0
@@ -116788,7 +116773,7 @@ const txnId_make = () => {
   return newId;
 };
 //# sourceMappingURL=txnId.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/core.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/core.js
 
 
 
@@ -117290,7 +117275,7 @@ const stm_core_zipRight = /*#__PURE__*/Function_dual(2, (self, that) => Function
 /** @internal */
 const stm_core_zipWith = /*#__PURE__*/Function_dual(3, (self, that, f) => Function_pipe(self, stm_core_flatMap(a => Function_pipe(that, stm_core_map(b => f(a, b))))));
 //# sourceMappingURL=core.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/opCodes/strategy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/opCodes/strategy.js
 /** @internal */
 const OP_BACKPRESSURE_STRATEGY = "BackPressure";
 /** @internal */
@@ -117298,7 +117283,7 @@ const OP_DROPPING_STRATEGY = "Dropping";
 /** @internal */
 const OP_SLIDING_STRATEGY = "Sliding";
 //# sourceMappingURL=strategy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/stm.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/stm.js
 
 
 
@@ -117776,7 +117761,7 @@ const stm_when = /*#__PURE__*/(/* unused pure expression or super */ null && (du
 /** @internal */
 const whenSTM = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (self, predicate) => core.flatMap(predicate, bool => bool ? stm_asSome(self) : stm_succeedNone))));
 //# sourceMappingURL=stm.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/tRef.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/tRef.js
 
 
 
@@ -117877,7 +117862,7 @@ const tRef_unsafeSet = /*#__PURE__*/Function_dual(3, (self, value, journal) => {
   return undefined;
 });
 //# sourceMappingURL=tRef.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/tQueue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/tQueue.js
 
 
 
@@ -118136,7 +118121,7 @@ const tQueue_takeUpTo = /*#__PURE__*/Function_dual(2, (self, max) => self.takeUp
 const tQueue_unbounded = () => makeQueue(Number.MAX_SAFE_INTEGER, Dropping);
 const makeQueue = (requestedCapacity, strategy) => stm_core_map(tRef_make([]), ref => new TQueueImpl(ref, requestedCapacity, strategy));
 //# sourceMappingURL=tQueue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stm/tPubSub.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stm/tPubSub.js
 
 
 
@@ -118513,7 +118498,7 @@ const subscribeScoped = self => Effect_acquireRelease(tPubSub_subscribe(self), d
 /** @internal */
 const tPubSub_unbounded = () => makeTPubSub(Number.MAX_SAFE_INTEGER, Dropping);
 //# sourceMappingURL=tPubSub.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/TPubSub.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/TPubSub.js
 
 /**
  * @since 2.0.0
@@ -118645,7 +118630,7 @@ const TPubSub_subscribeScoped = subscribeScoped;
  */
 const TPubSub_unbounded = tPubSub_unbounded;
 //# sourceMappingURL=TPubSub.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/TQueue.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/TQueue.js
 /**
  * @since 2.0.0
  */
@@ -118875,7 +118860,451 @@ const TQueue_takeUpTo = tQueue_takeUpTo;
  */
 const TQueue_unbounded = tQueue_unbounded;
 //# sourceMappingURL=TQueue.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/ringBuffer.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/mailbox.js
+
+
+
+
+
+
+
+
+
+
+
+
+/** @internal */
+const mailbox_TypeId = /*#__PURE__*/Symbol.for("effect/Mailbox");
+/** @internal */
+const ReadonlyTypeId = /*#__PURE__*/Symbol.for("effect/Mailbox/ReadonlyMailbox");
+/** @internal */
+const isMailbox = u => hasProperty(u, mailbox_TypeId);
+/** @internal */
+const isReadonlyMailbox = u => hasProperty(u, ReadonlyTypeId);
+const mailbox_empty = /*#__PURE__*/Chunk_empty();
+const exitEmpty = /*#__PURE__*/exitSucceed(mailbox_empty);
+const exitFalse = /*#__PURE__*/exitSucceed(false);
+const exitTrue = /*#__PURE__*/exitSucceed(true);
+const constDone = [mailbox_empty, true];
+class MailboxImpl extends Effectable_Class {
+  scheduler;
+  capacity;
+  strategy;
+  [mailbox_TypeId] = mailbox_TypeId;
+  [ReadonlyTypeId] = ReadonlyTypeId;
+  state = {
+    _tag: "Open",
+    takers: /*#__PURE__*/new Set(),
+    offers: /*#__PURE__*/new Set(),
+    awaiters: /*#__PURE__*/new Set()
+  };
+  messages = [];
+  messagesChunk = /*#__PURE__*/Chunk_empty();
+  constructor(scheduler, capacity, strategy) {
+    super();
+    this.scheduler = scheduler;
+    this.capacity = capacity;
+    this.strategy = strategy;
+  }
+  offer(message) {
+    return suspend(() => {
+      if (this.state._tag !== "Open") {
+        return exitFalse;
+      } else if (this.messages.length + this.messagesChunk.length >= this.capacity) {
+        switch (this.strategy) {
+          case "dropping":
+            return exitFalse;
+          case "suspend":
+            if (this.capacity <= 0 && this.state.takers.size > 0) {
+              this.messages.push(message);
+              this.releaseTaker();
+              return exitTrue;
+            }
+            return this.offerRemainingSingle(message);
+          case "sliding":
+            this.unsafeTake();
+            this.messages.push(message);
+            return exitTrue;
+        }
+      }
+      this.messages.push(message);
+      this.scheduleReleaseTaker();
+      return exitTrue;
+    });
+  }
+  unsafeOffer(message) {
+    if (this.state._tag !== "Open") {
+      return false;
+    } else if (this.messages.length + this.messagesChunk.length >= this.capacity) {
+      if (this.strategy === "sliding") {
+        this.unsafeTake();
+        this.messages.push(message);
+        return true;
+      } else if (this.capacity <= 0 && this.state.takers.size > 0) {
+        this.messages.push(message);
+        this.releaseTaker();
+        return true;
+      }
+      return false;
+    }
+    this.messages.push(message);
+    this.scheduleReleaseTaker();
+    return true;
+  }
+  offerAll(messages) {
+    return suspend(() => {
+      if (this.state._tag !== "Open") {
+        return succeed(Chunk_fromIterable(messages));
+      }
+      const remaining = this.unsafeOfferAllArray(messages);
+      if (remaining.length === 0) {
+        return exitEmpty;
+      } else if (this.strategy === "dropping") {
+        return succeed(unsafeFromArray(remaining));
+      }
+      return this.offerRemainingArray(remaining);
+    });
+  }
+  unsafeOfferAll(messages) {
+    return unsafeFromArray(this.unsafeOfferAllArray(messages));
+  }
+  unsafeOfferAllArray(messages) {
+    if (this.state._tag !== "Open") {
+      return Array_fromIterable(messages);
+    } else if (this.capacity === Number.POSITIVE_INFINITY || this.strategy === "sliding") {
+      if (this.messages.length > 0) {
+        this.messagesChunk = Chunk_appendAll(this.messagesChunk, unsafeFromArray(this.messages));
+      }
+      if (this.strategy === "sliding") {
+        this.messagesChunk = this.messagesChunk.pipe(Chunk_appendAll(Chunk_fromIterable(messages)), Chunk_takeRight(this.capacity));
+      } else if (isChunk(messages)) {
+        this.messagesChunk = Chunk_appendAll(this.messagesChunk, messages);
+      } else {
+        this.messages = Array_fromIterable(messages);
+      }
+      this.scheduleReleaseTaker();
+      return [];
+    }
+    const free = this.capacity <= 0 ? this.state.takers.size : this.capacity - this.messages.length - this.messagesChunk.length;
+    if (free === 0) {
+      return Array_fromIterable(messages);
+    }
+    const remaining = [];
+    let i = 0;
+    for (const message of messages) {
+      if (i < free) {
+        this.messages.push(message);
+      } else {
+        remaining.push(message);
+      }
+      i++;
+    }
+    this.scheduleReleaseTaker();
+    return remaining;
+  }
+  fail(error) {
+    return this.done(exitFail(error));
+  }
+  failCause(cause) {
+    return this.done(exitFailCause(cause));
+  }
+  unsafeDone(exit) {
+    if (this.state._tag !== "Open") {
+      return false;
+    } else if (this.state.offers.size === 0 && this.messages.length === 0 && this.messagesChunk.length === 0) {
+      this.finalize(exit);
+      return true;
+    }
+    this.state = {
+      ...this.state,
+      _tag: "Closing",
+      exit
+    };
+    return true;
+  }
+  shutdown = /*#__PURE__*/sync(() => {
+    if (this.state._tag === "Done") {
+      return true;
+    }
+    this.messages = [];
+    this.messagesChunk = mailbox_empty;
+    const offers = this.state.offers;
+    this.finalize(this.state._tag === "Open" ? exitVoid : this.state.exit);
+    if (offers.size > 0) {
+      for (const entry of offers) {
+        if (entry._tag === "Single") {
+          entry.resume(exitFalse);
+        } else {
+          entry.resume(exitSucceed(unsafeFromArray(entry.remaining.slice(entry.offset))));
+        }
+      }
+      offers.clear();
+    }
+    return true;
+  });
+  done(exit) {
+    return sync(() => this.unsafeDone(exit));
+  }
+  end = /*#__PURE__*/this.done(exitVoid);
+  clear = /*#__PURE__*/suspend(() => {
+    if (this.state._tag === "Done") {
+      return exitAs(this.state.exit, mailbox_empty);
+    }
+    const messages = this.unsafeTakeAll();
+    this.releaseCapacity();
+    return succeed(messages);
+  });
+  takeAll = /*#__PURE__*/suspend(() => {
+    if (this.state._tag === "Done") {
+      return exitAs(this.state.exit, constDone);
+    }
+    const messages = this.unsafeTakeAll();
+    if (messages.length === 0) {
+      return core_zipRight(this.awaitTake, this.takeAll);
+    }
+    return succeed([messages, this.releaseCapacity()]);
+  });
+  takeN(n) {
+    return suspend(() => {
+      if (this.state._tag === "Done") {
+        return exitAs(this.state.exit, constDone);
+      } else if (n <= 0) {
+        return succeed([mailbox_empty, false]);
+      } else if (this.capacity <= 0 && this.messages.length === 0 && this.messagesChunk.length === 0 && this.state.offers.size > 0) {
+        this.capacity = 1;
+        this.releaseCapacity();
+        this.capacity = 0;
+        const messages = Chunk_of(this.messages.pop());
+        return succeed([messages, this.releaseCapacity()]);
+      }
+      n = Math.min(n, this.capacity || 1);
+      let messages;
+      if (n <= this.messagesChunk.length) {
+        messages = Chunk_take(this.messagesChunk, n);
+        this.messagesChunk = Chunk_drop(this.messagesChunk, n);
+      } else if (n <= this.messages.length + this.messagesChunk.length) {
+        this.messagesChunk = Chunk_appendAll(this.messagesChunk, unsafeFromArray(this.messages));
+        this.messages = [];
+        messages = Chunk_take(this.messagesChunk, n);
+        this.messagesChunk = Chunk_drop(this.messagesChunk, n);
+      } else {
+        return core_zipRight(this.awaitTake, this.takeN(n));
+      }
+      return succeed([messages, this.releaseCapacity()]);
+    });
+  }
+  unsafeTake() {
+    if (this.state._tag === "Done") {
+      return exitZipRight(this.state.exit, exitFail(new Cause_NoSuchElementException()));
+    }
+    let message;
+    if (this.messagesChunk.length > 0) {
+      message = Chunk_unsafeHead(this.messagesChunk);
+      this.messagesChunk = Chunk_drop(this.messagesChunk, 1);
+    } else if (this.messages.length > 0) {
+      message = this.messages[0];
+      this.messagesChunk = Chunk_drop(unsafeFromArray(this.messages), 1);
+      this.messages = [];
+    } else if (this.capacity <= 0 && this.state.offers.size > 0) {
+      this.capacity = 1;
+      this.releaseCapacity();
+      this.capacity = 0;
+      const message = this.messages.pop();
+      this.releaseCapacity();
+      return exitSucceed(message);
+    } else {
+      return undefined;
+    }
+    this.releaseCapacity();
+    return exitSucceed(message);
+  }
+  take = /*#__PURE__*/suspend(() => this.unsafeTake() ?? core_zipRight(this.awaitTake, this.take));
+  await = /*#__PURE__*/asyncInterrupt(resume => {
+    if (this.state._tag === "Done") {
+      return resume(this.state.exit);
+    }
+    this.state.awaiters.add(resume);
+    return sync(() => {
+      if (this.state._tag !== "Done") {
+        this.state.awaiters.delete(resume);
+      }
+    });
+  });
+  unsafeSize() {
+    const size = this.messages.length + this.messagesChunk.length;
+    return this.state._tag === "Done" ? Option_none() : Option_some(size);
+  }
+  size = /*#__PURE__*/sync(() => this.unsafeSize());
+  commit() {
+    return this.takeAll;
+  }
+  pipe() {
+    return Pipeable_pipeArguments(this, arguments);
+  }
+  toJSON() {
+    return {
+      _id: "effect/Mailbox",
+      state: this.state._tag,
+      size: this.unsafeSize().toJSON()
+    };
+  }
+  toString() {
+    return format(this);
+  }
+  [Inspectable_NodeInspectSymbol]() {
+    return format(this);
+  }
+  offerRemainingSingle(message) {
+    return asyncInterrupt(resume => {
+      if (this.state._tag !== "Open") {
+        return resume(exitFalse);
+      }
+      const entry = {
+        _tag: "Single",
+        message,
+        resume
+      };
+      this.state.offers.add(entry);
+      return sync(() => {
+        if (this.state._tag === "Open") {
+          this.state.offers.delete(entry);
+        }
+      });
+    });
+  }
+  offerRemainingArray(remaining) {
+    return asyncInterrupt(resume => {
+      if (this.state._tag !== "Open") {
+        return resume(exitSucceed(unsafeFromArray(remaining)));
+      }
+      const entry = {
+        _tag: "Array",
+        remaining,
+        offset: 0,
+        resume
+      };
+      this.state.offers.add(entry);
+      return sync(() => {
+        if (this.state._tag === "Open") {
+          this.state.offers.delete(entry);
+        }
+      });
+    });
+  }
+  releaseCapacity() {
+    if (this.state._tag === "Done") {
+      return this.state.exit._tag === "Success";
+    } else if (this.state.offers.size === 0) {
+      if (this.state._tag === "Closing" && this.messages.length === 0 && this.messagesChunk.length === 0) {
+        this.finalize(this.state.exit);
+        return this.state.exit._tag === "Success";
+      }
+      return false;
+    }
+    let n = this.capacity - this.messages.length - this.messagesChunk.length;
+    for (const entry of this.state.offers) {
+      if (n === 0) return false;else if (entry._tag === "Single") {
+        this.messages.push(entry.message);
+        n--;
+        entry.resume(exitTrue);
+        this.state.offers.delete(entry);
+      } else {
+        for (; entry.offset < entry.remaining.length; entry.offset++) {
+          if (n === 0) return false;
+          this.messages.push(entry.remaining[entry.offset]);
+          n--;
+        }
+        entry.resume(exitEmpty);
+        this.state.offers.delete(entry);
+      }
+    }
+    return false;
+  }
+  awaitTake = /*#__PURE__*/asyncInterrupt(resume => {
+    if (this.state._tag === "Done") {
+      return resume(this.state.exit);
+    }
+    this.state.takers.add(resume);
+    return sync(() => {
+      if (this.state._tag !== "Done") {
+        this.state.takers.delete(resume);
+      }
+    });
+  });
+  scheduleRunning = false;
+  scheduleReleaseTaker() {
+    if (this.scheduleRunning) {
+      return;
+    }
+    this.scheduleRunning = true;
+    this.scheduler.scheduleTask(this.releaseTaker, 0);
+  }
+  releaseTaker = () => {
+    this.scheduleRunning = false;
+    if (this.state._tag === "Done") {
+      return;
+    } else if (this.state.takers.size === 0) {
+      return;
+    }
+    for (const taker of this.state.takers) {
+      this.state.takers.delete(taker);
+      taker(exitVoid);
+      if (this.messages.length + this.messagesChunk.length === 0) {
+        break;
+      }
+    }
+  };
+  unsafeTakeAll() {
+    if (this.messagesChunk.length > 0) {
+      const messages = this.messages.length > 0 ? Chunk_appendAll(this.messagesChunk, unsafeFromArray(this.messages)) : this.messagesChunk;
+      this.messagesChunk = mailbox_empty;
+      this.messages = [];
+      return messages;
+    } else if (this.messages.length > 0) {
+      const messages = unsafeFromArray(this.messages);
+      this.messages = [];
+      return messages;
+    } else if (this.state._tag !== "Done" && this.state.offers.size > 0) {
+      this.capacity = 1;
+      this.releaseCapacity();
+      this.capacity = 0;
+      return Chunk_of(this.messages.pop());
+    }
+    return mailbox_empty;
+  }
+  finalize(exit) {
+    if (this.state._tag === "Done") {
+      return;
+    }
+    const openState = this.state;
+    this.state = {
+      _tag: "Done",
+      exit
+    };
+    for (const taker of openState.takers) {
+      taker(exit);
+    }
+    openState.takers.clear();
+    for (const awaiter of openState.awaiters) {
+      awaiter(exit);
+    }
+    openState.awaiters.clear();
+  }
+}
+/** @internal */
+const mailbox_make = capacity => withFiberRuntime(fiber => succeed(new MailboxImpl(fiber.currentScheduler, typeof capacity === "number" ? capacity : capacity?.capacity ?? Number.POSITIVE_INFINITY, typeof capacity === "number" ? "suspend" : capacity?.strategy ?? "suspend")));
+/** @internal */
+const into = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (effect, self) => core.uninterruptibleMask(restore => core.matchCauseEffect(restore(effect), {
+  onFailure: cause => self.failCause(cause),
+  onSuccess: _ => self.end
+})))));
+/** @internal */
+const mailbox_toChannel = self => {
+  const loop = core_stream_flatMap(self.takeAll, ([messages, done]) => done ? messages.length === 0 ? core_stream_void_ : write(messages) : channel_zipRight(write(messages), loop));
+  return loop;
+};
+//# sourceMappingURL=mailbox.js.map
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/ringBuffer.js
 
 
 
@@ -118932,7 +119361,7 @@ class RingBuffer {
   }
 }
 //# sourceMappingURL=ringBuffer.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/debounceState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/debounceState.js
 /** @internal */
 const OP_NOT_STARTED = "NotStarted";
 /** @internal */
@@ -118954,7 +119383,7 @@ const debounceState_current = fiber => ({
   fiber
 });
 //# sourceMappingURL=debounceState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/emit.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/emit.js
 
 
 
@@ -119004,50 +119433,23 @@ const emit_make = emit => {
   return Object.assign(emit, ops);
 };
 /** @internal */
-const makePush = (queue, scheduler) => {
+const makePush = mailbox => {
   let finished = false;
-  let buffer = [];
-  let running = false;
   function array(items) {
     if (finished) return false;
-    if (items.length <= 50_000) {
-      buffer.push.apply(buffer, items);
-    } else {
-      for (let i = 0; i < items.length; i++) {
-        buffer.push(items[0]);
-      }
-    }
-    if (!running) {
-      running = true;
-      scheduler.scheduleTask(flush, 0);
-    }
-    return true;
-  }
-  function flush() {
-    running = false;
-    if (buffer.length > 0) {
-      queue.unsafeOffer(buffer);
-      buffer = [];
-    }
+    return Chunk_isEmpty(mailbox.unsafeOfferAll(items));
   }
   function done(exit) {
     if (finished) return;
     finished = true;
     if (exit._tag === "Success") {
-      buffer.push(exit.value);
+      mailbox.unsafeOffer(exit.value);
     }
-    flush();
-    queue.unsafeOffer(exit._tag === "Success" ? Exit_void_ : exit);
+    mailbox.unsafeDone(exit._tag === "Success" ? Exit_void_ : exit);
   }
   return {
     single(value) {
-      if (finished) return false;
-      buffer.push(value);
-      if (!running) {
-        running = true;
-        scheduler.scheduleTask(flush, 0);
-      }
-      return true;
+      return finished ? false : mailbox.unsafeOffer(value);
     },
     array,
     chunk(chunk) {
@@ -119057,8 +119459,7 @@ const makePush = (queue, scheduler) => {
     end() {
       if (finished) return;
       finished = true;
-      flush();
-      queue.unsafeOffer(Exit_void_);
+      mailbox.unsafeDone(Exit_void_);
     },
     halt(cause) {
       return done(Exit_failCause(cause));
@@ -119075,7 +119476,7 @@ const makePush = (queue, scheduler) => {
   };
 };
 //# sourceMappingURL=emit.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/handoff.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/handoff.js
 
 
 
@@ -119131,7 +119532,7 @@ const handoff_take = self => Effect_flatMap(Deferred_make(), deferred => Effect_
 /** @internal */
 const handoff_poll = self => Effect.flatMap(Deferred.make(), deferred => Effect.flatten(Ref.modify(self.ref, state => pipe(state, handoffStateMatch(() => [Effect.succeed(Option.none()), state], (value, notifyProducer) => [Effect.as(Deferred.succeed(notifyProducer, void 0), Option.some(value)), handoffStateEmpty(deferred)])))));
 //# sourceMappingURL=handoff.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/handoffSignal.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/handoffSignal.js
 /** @internal */
 const handoffSignal_OP_EMIT = "Emit";
 /** @internal */
@@ -119154,7 +119555,7 @@ const handoffSignal_end = reason => ({
   reason
 });
 //# sourceMappingURL=handoffSignal.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/pull.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/pull.js
 
 
 
@@ -119175,7 +119576,7 @@ const pull_failCause = cause => Effect_mapError(Effect_failCause(cause), Option_
 /** @internal */
 const fromDequeue = dequeue => Effect.flatMap(Queue.take(dequeue), take.done);
 //# sourceMappingURL=pull.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/sinkEndReason.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/sinkEndReason.js
 /** @internal */
 const OP_SCHEDULE_END = "ScheduleEnd";
 /** @internal */
@@ -119189,7 +119590,7 @@ const UpstreamEnd = {
   _tag: OP_UPSTREAM_END
 };
 //# sourceMappingURL=sinkEndReason.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/zipAllState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/zipAllState.js
 /** @internal */
 const OP_DRAIN_LEFT = "DrainLeft";
 /** @internal */
@@ -119223,7 +119624,7 @@ const PullRight = leftChunk => ({
   leftChunk
 });
 //# sourceMappingURL=zipAllState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream/zipChunksState.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream/zipChunksState.js
 /** @internal */
 const zipChunksState_OP_PULL_BOTH = "PullBoth";
 /** @internal */
@@ -119245,7 +119646,7 @@ const zipChunksState_PullRight = leftChunk => ({
   leftChunk
 });
 //# sourceMappingURL=zipChunksState.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/take.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/take.js
 
 
 
@@ -119354,7 +119755,10 @@ const take_of = value => new TakeImpl(Exit_succeed(Chunk_of(value)));
 /** @internal */
 const take_tap = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(2, (self, f) => pipe(self.exit, Exit.forEachEffect(f), Effect.asVoid))));
 //# sourceMappingURL=take.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/stream.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/stream.js
+
+
+
 
 
 
@@ -119577,22 +119981,17 @@ const stream_asyncEffect = (register, bufferSize) => Function_pipe(Effect_acquir
   }), channel_unwrap);
   return loop;
 }))))), channel_unwrapScoped, stream_fromChannel);
-const queueFromBufferOptionsPush = options => {
+const mailboxFromBufferOptionsPush = options => {
   if (options?.bufferSize === "unbounded" || options?.bufferSize === undefined && options?.strategy === undefined) {
-    return Queue_unbounded();
+    return mailbox_make();
   }
-  switch (options?.strategy) {
-    case "sliding":
-      return Queue_sliding(options.bufferSize ?? 16);
-    default:
-      return Queue_dropping(options?.bufferSize ?? 16);
-  }
+  return mailbox_make({
+    capacity: options?.bufferSize ?? 16,
+    strategy: options?.strategy ?? "dropping"
+  });
 };
 /** @internal */
-const asyncPush = (register, options) => Effect_acquireRelease(queueFromBufferOptionsPush(options), Queue_shutdown).pipe(Effect_tap(queue => getWith(FiberRef_currentScheduler, scheduler => register(makePush(queue, scheduler)))), Effect_map(queue => {
-  const loop = core_stream_flatMap(Queue_take(queue), item => isExit(item) ? Exit_isSuccess(item) ? core_stream_void_ : core_stream_failCause(item.cause) : channel_zipRight(write(unsafeFromArray(item)), loop));
-  return loop;
-}), channel_unwrapScoped, stream_fromChannel);
+const asyncPush = (register, options) => Effect_acquireRelease(mailboxFromBufferOptionsPush(options), mailbox => mailbox.shutdown).pipe(Effect_tap(mailbox => register(makePush(mailbox))), Effect_map(mailboxToStream), stream_unwrapScoped);
 /** @internal */
 const asyncScoped = (register, bufferSize) => Function_pipe(Effect_acquireRelease(queueFromBufferOptions(bufferSize), queue => Queue_shutdown(queue)), Effect_flatMap(output => Function_pipe(Effect_runtime(), Effect_flatMap(runtime => Function_pipe(register(emit_make(k => Function_pipe(fromPull(k), Effect_flatMap(take => Queue_offer(output, take)), Effect_asVoid, Runtime_runPromiseExit(runtime)).then(exit => {
   if (Exit_isFailure(exit)) {
@@ -120279,6 +120678,17 @@ const stream_toChannel = stream => {
     throw new TypeError(`Expected a Stream.`);
   }
 };
+/** @internal */
+const mailboxToStream = self => stream_fromChannel(mailbox_toChannel(self));
+/** @internal */
+const mailboxFromStream = /*#__PURE__*/(/* unused pure expression or super */ null && (dual(args => isStream(args[0]), (self, options) => effectCore.tap(fiberRuntime.acquireRelease(mailbox.make(options), mailbox => mailbox.shutdown), mailbox => {
+  const writer = core.readWithCause({
+    onInput: input => core.flatMap(mailbox.offerAll(input), () => writer),
+    onFailure: cause => mailbox.failCause(cause),
+    onDone: () => mailbox.end
+  });
+  return fiberRuntime.scopeWith(scope => stream_toChannel(self).pipe(core.pipeTo(writer), channelExecutor.runIn(scope), circular.forkIn(scope)));
+}))));
 /** @internal */
 const fromChunk = chunk => new StreamImpl(Chunk_isEmpty(chunk) ? core_stream_void_ : write(chunk));
 /** @internal */
@@ -122221,7 +122631,7 @@ const fromEventListener = (target, type, options) => asyncPush(emit => Effect_ac
   bufferSize: typeof options === "object" ? options.bufferSize : undefined
 });
 //# sourceMappingURL=stream.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/internal/groupBy.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/internal/groupBy.js
 
 
 
@@ -122435,7 +122845,7 @@ const groupByIterable = /*#__PURE__*/Function_dual(2, (iterable, f) => {
   return unsafeFromArray(builder.map(tuple => [tuple[0], unsafeFromArray(tuple[1])]));
 });
 //# sourceMappingURL=groupBy.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/effect@3.21.4-JETQuaM4_41O5-VcgvhS-w/node_modules/effect/dist/esm/Stream.js
+;// CONCATENATED MODULE: ./node_modules/.store/effect@3.22.1-qtTtPugaLJEZHF4Eq3ZKTw/node_modules/effect/dist/esm/Stream.js
 
 
 /**
