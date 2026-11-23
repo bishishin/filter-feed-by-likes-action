@@ -91863,6 +91863,11 @@ const Match_exhaustive = exhaustive;
 const SafeRefinementId = /*#__PURE__*/(/* unused pure expression or super */ null && (Symbol.for("effect/SafeRefinement")));
 const Match_Fail = /*#__PURE__*/(/* unused pure expression or super */ null && (Symbol.for("effect/Fail")));
 //# sourceMappingURL=Match.js.map
+;// CONCATENATED MODULE: external "node:fs"
+const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
+// EXTERNAL MODULE: ./node_modules/.store/rss-parser@3.13.0-4jBh4mqTjxc0RmwyBPMx1Q/node_modules/rss-parser/index.js
+var rss_parser = __nccwpck_require__(190);
+var rss_parser_default = /*#__PURE__*/__nccwpck_require__.n(rss_parser);
 // EXTERNAL MODULE: ./node_modules/.store/xml-js@1.6.11-V9oqbQIw05xxjNG_DoGLOg/node_modules/xml-js/lib/index.js
 var lib = __nccwpck_require__(2950);
 ;// CONCATENATED MODULE: ./node_modules/.store/feed@6.0.0-WfRxaOr1QtSLbHGbdyKzIw/node_modules/feed/lib/feed.js
@@ -92289,6 +92294,82 @@ var Feed = class {
 //#endregion
 
 //# sourceMappingURL=feed.js.map
+;// CONCATENATED MODULE: ./src/generate.ts
+
+class FeedGenerator {
+    env;
+    inputs;
+    scoreApi;
+    now;
+    constructor(env, inputs, scoreApi, now = () => new Date()) {
+        this.env = env;
+        this.inputs = inputs;
+        this.scoreApi = scoreApi;
+        this.now = now;
+    }
+    async generate(original, published) {
+        const now = this.now();
+        const publishableItems = this.selectPublishable(original.items, published?.items ?? []);
+        const scores = await this.scoreApi.fetch(new Set(publishableItems.map((v) => v.link)));
+        const newItems = this.publishItemsOnHighScore(publishableItems, scores);
+        return this.createFeed(newItems, now, original, published);
+    }
+    selectPublishable(fetchedItems, publishedItems) {
+        const publishedLinks = new Set(publishedItems.map((item) => item.link).filter(isPresent));
+        return fetchedItems
+            .map(convertFeedItem)
+            .filter(isPresent)
+            .filter((item) => !publishedLinks.has(item.link));
+    }
+    publishItemsOnHighScore(items, scores) {
+        return items.filter((item) => (scores.get(item.link) ?? 0) >= this.inputs.threshold);
+    }
+    createFeed(newItems, updateAt, original, published) {
+        const publishedItems = published?.items.map(convertFeedItem).filter(isPresent) ?? [];
+        const base = this.buildBaseFeed(original, updateAt);
+        for (const item of [...newItems, ...publishedItems]) {
+            base.addItem(item);
+        }
+        return base;
+    }
+    buildBaseFeed(original, updateAt) {
+        const tagUriSchema = [
+            `tag:${this.env.repositoryOwner}.github.io,2024,`,
+            this.env.repositoryId,
+            this.inputs.outputPath,
+        ].join("/"); // 概ね一意にする
+        const title = original.title ?? "";
+        return new Feed({
+            id: tagUriSchema,
+            title: title,
+            copyright: `${updateAt.getFullYear()} ${title} ${original.link}`,
+            language: "ja",
+            generator: this.env.actionRepository,
+            updated: updateAt,
+            ...(original.link && { link: original.link }),
+            ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
+        });
+    }
+}
+/** null / undefined だけを除外する(空文字は有効な値として残す) */
+function isPresent(value) {
+    return value !== undefined && value !== null;
+}
+/** linkが無い項目は変換せず undefined を返す */
+function convertFeedItem(item) {
+    const { link } = item;
+    if (!isPresent(link)) {
+        return undefined;
+    }
+    return {
+        title: item.title ?? "",
+        link,
+        date: item.isoDate ? new Date(item.isoDate) : new Date(),
+        ...(item.pubDate && { published: new Date(item.pubDate) }),
+        ...(item.creator && { author: [{ name: item.creator }] }),
+    };
+}
+
 ;// CONCATENATED MODULE: external "node:timers/promises"
 const promises_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:timers/promises");
 ;// CONCATENATED MODULE: ./src/score.ts
@@ -92354,110 +92435,28 @@ class HatenaCounts {
     }
 }
 
-;// CONCATENATED MODULE: ./src/generate.ts
-
-
-
-/**
- * 暫定アダプタ: Effect の環境として ApiService を渡すためのタグ
- * generate() を Promise 化する際に削除する
- */
-const ApiServiceTag = GenericTag("ApiService");
-class FeedGenerator {
-    env;
-    inputs;
-    constructor(env, inputs) {
-        this.env = env;
-        this.inputs = inputs;
-    }
-    generate(original, published) {
-        return Effect_Do.pipe(Effect_bind("now", () => Clock_currentTimeMillis), Effect_let_("publishableItems", () => this.selectPublishable(original.items, published?.items ?? [])), Effect_bind("scores", ({ publishableItems }) => Effect_flatMap(ApiServiceTag, (api) => Effect_tryPromise({
-            try: () => new HatenaCounts(api).fetch(new Set(publishableItems.map((v) => v.link))),
-            catch: toError,
-        }))), Effect_let_("newItems", ({ publishableItems, scores }) => this.publishItemsOnHighScore(publishableItems, scores)), Effect_map(({ newItems, now }) => this.createFeed(newItems, now, original, published)));
-    }
-    selectPublishable(fetchedItems, publishedItems) {
-        const publishedLinks = new Set(publishedItems.map((item) => item.link).filter(isPresent));
-        return fetchedItems
-            .map(convertFeedItem)
-            .filter(isPresent)
-            .filter((item) => !publishedLinks.has(item.link));
-    }
-    publishItemsOnHighScore(items, scores) {
-        return items.filter((item) => (scores.get(item.link) ?? 0) >= this.inputs.threshold);
-    }
-    createFeed(newItems, updateAtMilliseconds, original, published) {
-        const publishedItems = published?.items.map(convertFeedItem).filter(isPresent) ?? [];
-        const base = this.buildBaseFeed(original, new Date(updateAtMilliseconds));
-        for (const item of [...newItems, ...publishedItems]) {
-            base.addItem(item);
-        }
-        return base;
-    }
-    buildBaseFeed(original, updateAt) {
-        const tagUriSchema = [
-            `tag:${this.env.repositoryOwner}.github.io,2024,`,
-            this.env.repositoryId,
-            this.inputs.outputPath,
-        ].join("/"); // 概ね一意にする
-        const title = original.title ?? "";
-        return new Feed({
-            id: tagUriSchema,
-            title: title,
-            copyright: `${updateAt.getFullYear()} ${title} ${original.link}`,
-            language: "ja",
-            generator: this.env.actionRepository,
-            updated: updateAt,
-            ...(original.link && { link: original.link }),
-            ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
-        });
-    }
-}
-/** Promise の reject 値を Error に正規化する(元のエラーメッセージを保持する) */
-function toError(cause) {
-    return cause instanceof Error ? cause : new Error(String(cause));
-}
-/** null / undefined だけを除外する(空文字は有効な値として残す) */
-function isPresent(value) {
-    return value !== undefined && value !== null;
-}
-/** linkが無い項目は変換せず undefined を返す */
-function convertFeedItem(item) {
-    const { link } = item;
-    if (!isPresent(link)) {
-        return undefined;
-    }
-    return {
-        title: item.title ?? "",
-        link,
-        date: item.isoDate ? new Date(item.isoDate) : new Date(),
-        ...(item.pubDate && { published: new Date(item.pubDate) }),
-        ...(item.creator && { author: [{ name: item.creator }] }),
-    };
-}
-
-;// CONCATENATED MODULE: external "node:fs"
-const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
-// EXTERNAL MODULE: ./node_modules/.store/rss-parser@3.13.0-4jBh4mqTjxc0RmwyBPMx1Q/node_modules/rss-parser/index.js
-var rss_parser = __nccwpck_require__(190);
-var rss_parser_default = /*#__PURE__*/__nccwpck_require__.n(rss_parser);
 ;// CONCATENATED MODULE: ./src/main.ts
 
 
 
 
-function main(env, inputs) {
-    return Effect_Do.pipe(Effect_bind("origFeed", () => Effect_tryPromise(() => new (rss_parser_default())().parseString(external_node_fs_namespaceObject.readFileSync(inputs.originalPath, "utf-8")))), Effect_bind("cacheFeed", () => loadCacheFile(inputs.cachePath)), Effect_flatMap(({ origFeed, cacheFeed }) => new FeedGenerator(env, inputs).generate(origFeed, cacheFeed)), Effect_tap((feed) => external_node_fs_namespaceObject.writeFileSync(inputs.outputPath, feed.atom1())));
+async function main(env, inputs, api, now) {
+    const origFeed = await new (rss_parser_default())().parseString(external_node_fs_namespaceObject.readFileSync(inputs.originalPath, "utf-8"));
+    const cacheFeed = await loadCacheFile(inputs.cachePath);
+    const feed = await new FeedGenerator(env, inputs, new HatenaCounts(api), now).generate(origFeed, cacheFeed);
+    external_node_fs_namespaceObject.writeFileSync(inputs.outputPath, feed.atom1());
+    return feed;
 }
 /**
  * 配信済みキャッシュを読み込む
  * - path が undefined、またはファイルが存在しない場合は undefined(初期起動扱い)
- * - 読み込み・パースに失敗した場合はエラー
+ * - 読み込み・パースに失敗した場合は reject
  */
-function loadCacheFile(path) {
-    return Effect_try_(() => path !== undefined && external_node_fs_namespaceObject.existsSync(path)).pipe(Effect_flatMap((exists) => exists && path !== undefined
-        ? Effect_Do.pipe(Effect_bind("data", () => Effect_try_(() => external_node_fs_namespaceObject.readFileSync(path, "utf-8"))), Effect_flatMap(({ data }) => Effect_tryPromise(() => new (rss_parser_default())().parseString(data))))
-        : Effect_succeed(undefined)));
+async function loadCacheFile(path) {
+    if (path === undefined || !external_node_fs_namespaceObject.existsSync(path)) {
+        return undefined;
+    }
+    return new (rss_parser_default())().parseString(external_node_fs_namespaceObject.readFileSync(path, "utf-8"));
 }
 
 ;// CONCATENATED MODULE: ./src/index.ts
@@ -92465,7 +92464,6 @@ function loadCacheFile(path) {
  * actionのエントリーポイント
  * action環境に依存する実装もここで注入する
  */
-
 
 
 
@@ -92491,7 +92489,7 @@ async function getJson(url, params) {
     }
     return response.json();
 }
-const apiService = { getJson };
+const api = { getJson };
 const logger = Logger_make(({ logLevel, message }) => {
     Match_type().pipe(Match_tagsExhaustive({
         Fatal: () => error(`${message}`),
@@ -92504,5 +92502,5 @@ const logger = Logger_make(({ logLevel, message }) => {
         None: () => Function_identity,
     }))(logLevel);
 });
-Effect_Do.pipe(Effect_bind("env", () => actionEnvConfig), Effect_bind("inputs", () => actionInputsConfig), Effect_flatMap(({ env, inputs }) => main(env, inputs)), Effect_provideService(ApiServiceTag, apiService), Effect_provide(Logger_replace(Logger_defaultLogger, logger)), Effect_catchAllCause((e) => try_(() => setFailed(e.toString()))), esm_NodeRuntime_runMain);
+Effect_Do.pipe(Effect_bind("env", () => actionEnvConfig), Effect_bind("inputs", () => actionInputsConfig), Effect_flatMap(({ env, inputs }) => Effect_tryPromise(() => main(env, inputs, api))), Effect_provide(Logger_replace(Logger_defaultLogger, logger)), Effect_catchAllCause((e) => try_(() => setFailed(e.toString()))), esm_NodeRuntime_runMain);
 

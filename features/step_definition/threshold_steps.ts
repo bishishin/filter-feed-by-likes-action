@@ -7,6 +7,8 @@ import {
   FeedGenerator,
 } from "../../src/generate.ts";
 
+const dummyScoreApi = { fetch: async () => new Map<string, number>() };
+
 class CustomWorld extends World {
   threshold: number;
   items: gen.Item[];
@@ -32,6 +34,7 @@ Then(
     const generator = new FeedGenForTest(
       {} as ActionEnvironment,
       { threshold: this.threshold } as ActionInputs,
+      dummyScoreApi,
     );
     const items = generator.publishItemsOnHighScoreForTest(
       this.items,

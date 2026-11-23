@@ -7,6 +7,8 @@ import {
   FeedGenerator,
 } from "../../src/generate.ts";
 
+const dummyScoreApi = { fetch: async () => new Map<string, number>() };
+
 class CustomWorld extends World {
   publishedList: parser.Item[];
   fetchedList: parser.Item[];
@@ -30,6 +32,7 @@ Then(
     const generator = new FeedGenForTest(
       {} as ActionEnvironment,
       {} as ActionInputs,
+      dummyScoreApi,
     );
     const existCache = generator.selectPublishableFotTest(
       this.fetchedList,

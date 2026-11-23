@@ -14,7 +14,6 @@ import {
   Match,
   Option,
 } from "effect";
-import { ApiServiceTag } from "./generate.ts";
 import { main } from "./main.ts";
 import type { ApiService } from "./score.ts";
 
@@ -41,7 +40,7 @@ async function getJson(url: string, params: URLSearchParams): Promise<unknown> {
   }
   return response.json();
 }
-const apiService: ApiService = { getJson };
+const api: ApiService = { getJson };
 const logger = Logger.make(({ logLevel, message }) => {
   Match.type<LogLevel.LogLevel>().pipe(
     Match.tagsExhaustive({
@@ -59,8 +58,9 @@ const logger = Logger.make(({ logLevel, message }) => {
 Effect.Do.pipe(
   Effect.bind("env", () => actionEnvConfig),
   Effect.bind("inputs", () => actionInputsConfig),
-  Effect.flatMap(({ env, inputs }) => main(env, inputs)),
-  Effect.provideService(ApiServiceTag, apiService),
+  Effect.flatMap(({ env, inputs }) =>
+    Effect.tryPromise(() => main(env, inputs, api)),
+  ),
   Effect.provide(Logger.replace(Logger.defaultLogger, logger)),
   Effect.catchAllCause((e) => Either.try(() => core.setFailed(e.toString()))),
   Node.runMain,

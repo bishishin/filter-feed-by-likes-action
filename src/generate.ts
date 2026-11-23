@@ -1,13 +1,6 @@
-import { type Cause, Clock, Context, Effect } from "effect";
 import * as gen from "feed";
 import type parser from "rss-parser";
-import { type ApiService, HatenaCounts } from "./score.ts";
-
-/**
- * 暫定アダプタ: Effect の環境として ApiService を渡すためのタグ
- * generate() を Promise 化する際に削除する
- */
-export const ApiServiceTag = Context.GenericTag<ApiService>("ApiService");
+import type { ScoreApi } from "./score.ts";
 
 export interface ActionEnvironment {
   readonly repositoryOwner: string;
@@ -25,39 +18,35 @@ export interface ActionInputs {
 export class FeedGenerator {
   private readonly env: ActionEnvironment;
   private readonly inputs: ActionInputs;
+  private readonly scoreApi: ScoreApi;
+  private readonly now: () => Date;
 
-  constructor(env: ActionEnvironment, inputs: ActionInputs) {
+  constructor(
+    env: ActionEnvironment,
+    inputs: ActionInputs,
+    scoreApi: ScoreApi,
+    now: () => Date = () => new Date(),
+  ) {
     this.env = env;
     this.inputs = inputs;
+    this.scoreApi = scoreApi;
+    this.now = now;
   }
 
-  public generate(
+  public async generate(
     original: parser.Output<parser.Item>,
     published?: parser.Output<parser.Item>,
-  ): Effect.Effect<gen.Feed, Cause.UnknownException | Error, ApiService> {
-    return Effect.Do.pipe(
-      Effect.bind("now", () => Clock.currentTimeMillis),
-      Effect.let("publishableItems", () =>
-        this.selectPublishable(original.items, published?.items ?? []),
-      ),
-      Effect.bind("scores", ({ publishableItems }) =>
-        Effect.flatMap(ApiServiceTag, (api) =>
-          Effect.tryPromise({
-            try: () =>
-              new HatenaCounts(api).fetch(
-                new Set(publishableItems.map((v) => v.link)),
-              ),
-            catch: toError,
-          }),
-        ),
-      ),
-      Effect.let("newItems", ({ publishableItems, scores }) =>
-        this.publishItemsOnHighScore(publishableItems, scores),
-      ),
-      Effect.map(({ newItems, now }) =>
-        this.createFeed(newItems, now, original, published),
-      ),
+  ): Promise<gen.Feed> {
+    const now = this.now();
+    const publishableItems = this.selectPublishable(
+      original.items,
+      published?.items ?? [],
     );
+    const scores = await this.scoreApi.fetch(
+      new Set(publishableItems.map((v) => v.link)),
+    );
+    const newItems = this.publishItemsOnHighScore(publishableItems, scores);
+    return this.createFeed(newItems, now, original, published);
   }
 
   protected selectPublishable(
@@ -84,13 +73,13 @@ export class FeedGenerator {
 
   private createFeed(
     newItems: readonly gen.Item[],
-    updateAtMilliseconds: number,
+    updateAt: Date,
     original: parser.Output<parser.Item>,
     published?: parser.Output<parser.Item>,
   ): gen.Feed {
     const publishedItems =
       published?.items.map(convertFeedItem).filter(isPresent) ?? [];
-    const base = this.buildBaseFeed(original, new Date(updateAtMilliseconds));
+    const base = this.buildBaseFeed(original, updateAt);
     for (const item of [...newItems, ...publishedItems]) {
       base.addItem(item);
     }
@@ -118,11 +107,6 @@ export class FeedGenerator {
       ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
     });
   }
-}
-
-/** Promise の reject 値を Error に正規化する(元のエラーメッセージを保持する) */
-function toError(cause: unknown): Error {
-  return cause instanceof Error ? cause : new Error(String(cause));
 }
 
 /** null / undefined だけを除外する(空文字は有効な値として残す) */

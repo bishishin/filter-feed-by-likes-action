@@ -1,8 +1,6 @@
 import * as fs from "node:fs";
 import { describe, it } from "node:test";
 import { expect } from "chai";
-import { Effect, TestContext } from "effect";
-import { ApiServiceTag } from "../src/generate.ts";
 import { main } from "../src/main.ts";
 
 /*
@@ -32,12 +30,7 @@ describe("prevent flaky test", async () => {
       };
       t.after(() => fs.rmSync(dummyInputs.outputPath));
       const expected = fs.readFileSync("test/expected.atom").toString();
-      await Effect.Do.pipe(
-        Effect.flatMap(() => main(dummyEnv, dummyInputs)),
-        Effect.provideService(ApiServiceTag, apiService),
-        Effect.provide(TestContext.TestContext),
-        Effect.runPromise,
-      );
+      await main(dummyEnv, dummyInputs, apiService, () => new Date(0));
       const actual = fs.readFileSync(dummyInputs.outputPath).toString();
       expect(actual).to.equal(expected.replace(/\r?\n$/, ""));
     });

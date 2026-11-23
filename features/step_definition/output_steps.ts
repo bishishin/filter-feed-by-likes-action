@@ -7,6 +7,8 @@ import {
   FeedGenerator,
 } from "../../src/generate.ts";
 
+const dummyScoreApi = { fetch: async () => new Map<string, number>() };
+
 type SourceItem = {
   readonly link: string;
   readonly title: string;
@@ -46,6 +48,7 @@ When("元記事を配信用の記事に変換", function (this: CustomWorld) {
   const generator = new FeedGenForTest(
     {} as ActionEnvironment,
     {} as ActionInputs,
+    dummyScoreApi,
   );
   [this.outputItem] = generator.selectPublishableForTest([this.sourceItem], []);
 });

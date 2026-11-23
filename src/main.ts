@@ -1,5 +1,4 @@
 import * as fs from "node:fs";
-import { type Cause, Effect } from "effect";
 import type * as gen from "feed";
 import parser from "rss-parser";
 import {
@@ -7,49 +6,38 @@ import {
   type ActionInputs,
   FeedGenerator,
 } from "./generate.ts";
-import type { ApiService } from "./score.ts";
+import { type ApiService, HatenaCounts } from "./score.ts";
 
-export function main(
+export async function main(
   env: ActionEnvironment,
   inputs: ActionInputs,
-): Effect.Effect<gen.Feed, Cause.UnknownException | Error, ApiService> {
-  return Effect.Do.pipe(
-    Effect.bind("origFeed", () =>
-      Effect.tryPromise(() =>
-        new parser().parseString(fs.readFileSync(inputs.originalPath, "utf-8")),
-      ),
-    ),
-    Effect.bind("cacheFeed", () => loadCacheFile(inputs.cachePath)),
-    Effect.flatMap(({ origFeed, cacheFeed }) =>
-      new FeedGenerator(env, inputs).generate(origFeed, cacheFeed),
-    ),
-    Effect.tap((feed) => fs.writeFileSync(inputs.outputPath, feed.atom1())),
+  api: ApiService,
+  now?: () => Date,
+): Promise<gen.Feed> {
+  const origFeed = await new parser().parseString(
+    fs.readFileSync(inputs.originalPath, "utf-8"),
   );
+  const cacheFeed = await loadCacheFile(inputs.cachePath);
+  const feed = await new FeedGenerator(
+    env,
+    inputs,
+    new HatenaCounts(api),
+    now,
+  ).generate(origFeed, cacheFeed);
+  fs.writeFileSync(inputs.outputPath, feed.atom1());
+  return feed;
 }
 
 /**
  * 配信済みキャッシュを読み込む
  * - path が undefined、またはファイルが存在しない場合は undefined(初期起動扱い)
- * - 読み込み・パースに失敗した場合はエラー
+ * - 読み込み・パースに失敗した場合は reject
  */
-export function loadCacheFile(
+export async function loadCacheFile(
   path: string | undefined,
-): Effect.Effect<
-  parser.Output<parser.Item> | undefined,
-  Cause.UnknownException
-> {
-  return Effect.try(() => path !== undefined && fs.existsSync(path)).pipe(
-    Effect.flatMap((exists) =>
-      exists && path !== undefined
-        ? Effect.Do.pipe(
-            Effect.bind("data", () =>
-              Effect.try(() => fs.readFileSync(path, "utf-8")),
-            ),
-            Effect.flatMap(({ data }) =>
-              Effect.tryPromise(() => new parser().parseString(data)),
-            ),
-          )
-        : Effect.succeed(undefined),
-    ),
-  );
+): Promise<parser.Output<parser.Item> | undefined> {
+  if (path === undefined || !fs.existsSync(path)) {
+    return undefined;
+  }
+  return new parser().parseString(fs.readFileSync(path, "utf-8"));
 }
