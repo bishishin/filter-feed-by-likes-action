@@ -9,8 +9,6 @@ import {
   Schema,
   Stream,
 } from "effect";
-import * as R from "rambda";
-
 export type ApiFetchError =
   | Cause.UnknownException
   | ParseResult.ParseError
@@ -32,6 +30,18 @@ export type ScoreFetchEffect = Effect.Effect<
 >;
 export interface ScoreApi {
   fetch(links: ReadonlySet<string>): ScoreFetchEffect;
+}
+
+/**
+ * 配列を size 件ずつのチャンクに分割する純粋関数。
+ * 空配列は空の配列を返す。最後のチャンクは size 未満になることがある。
+ */
+function chunk<T>(items: readonly T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    result.push(items.slice(i, i + size));
+  }
+  return result;
 }
 
 export class HatenaCounts implements ScoreApi {
@@ -61,11 +71,9 @@ export class HatenaCounts implements ScoreApi {
   protected static buildParamsList(
     links: ReadonlySet<string>,
   ): readonly URLSearchParams[] {
-    return R.pipe(
-      Array.from(links),
-      R.map((l) => ["url", l] as [string, string]),
-      R.splitEvery(50),
-      R.map((kv) => new URLSearchParams(kv)),
+    return chunk(Array.from(links), 50).map(
+      (urls) =>
+        new URLSearchParams(urls.map((l) => ["url", l] as [string, string])),
     );
   }
 }
