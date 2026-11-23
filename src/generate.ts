@@ -56,8 +56,9 @@ export class FeedGenerator {
     const publishedLinks = new Set(
       publishedItems.map((item) => item.link).filter(isPresent),
     );
+    const now = this.now();
     return fetchedItems
-      .map(convertFeedItem)
+      .map((item) => convertFeedItem(item, now))
       .filter(isPresent)
       .filter((item) => !publishedLinks.has(item.link));
   }
@@ -78,7 +79,9 @@ export class FeedGenerator {
     published?: parser.Output<parser.Item>,
   ): gen.Feed {
     const publishedItems =
-      published?.items.map(convertFeedItem).filter(isPresent) ?? [];
+      published?.items
+        .map((item) => convertFeedItem(item, updateAt))
+        .filter(isPresent) ?? [];
     const base = this.buildBaseFeed(original, updateAt);
     for (const item of [...newItems, ...publishedItems]) {
       base.addItem(item);
@@ -114,8 +117,14 @@ function isPresent<T>(value: T | null | undefined): value is T {
   return value !== undefined && value !== null;
 }
 
-/** linkが無い項目は変換せず undefined を返す */
-function convertFeedItem(item: parser.Item): gen.Item | undefined {
+/**
+ * linkが無い項目は変換せず undefined を返す
+ * 更新日時が無い項目は fallbackDate(現在時刻)で補う
+ */
+function convertFeedItem(
+  item: parser.Item,
+  fallbackDate: Date,
+): gen.Item | undefined {
   const { link } = item;
   if (!isPresent(link)) {
     return undefined;
@@ -123,7 +132,7 @@ function convertFeedItem(item: parser.Item): gen.Item | undefined {
   return {
     title: item.title ?? "",
     link,
-    date: item.isoDate ? new Date(item.isoDate) : new Date(),
+    date: item.isoDate ? new Date(item.isoDate) : fallbackDate,
     ...(item.pubDate && { published: new Date(item.pubDate) }),
     ...(item.creator && { author: [{ name: item.creator }] }),
   };

@@ -37226,6 +37226,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"amp":"&","apos":"\'","gt":">","lt":"
 /************************************************************************/
 var __webpack_exports__ = {};
 
+// EXTERNAL MODULE: external "node:util"
+var external_node_util_ = __nccwpck_require__(7975);
 ;// CONCATENATED MODULE: external "os"
 const external_os_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 ;// CONCATENATED MODULE: ./node_modules/.store/@actions/core@3.0.1-ltK75NQAX0B_fyp0bfr5Kg/node_modules/@actions/core/lib/utils.js
@@ -40053,7 +40055,7 @@ function isDebug() {
  * @param message debug message
  */
 function core_debug(message) {
-    issueCommand('debug', {}, message);
+    command_issueCommand('debug', {}, message);
 }
 /**
  * Adds an error issue
@@ -40191,8 +40193,11 @@ function readActionEnvironment(env) {
 // https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
 function readActionInputs(env) {
     const thresholdText = required(env, "INPUT_THRESHOLD");
+    // Number() だけだと "0x10" や "1e3" も整数として通るため、10進の整数表記に限定する
+    // 前後の空白は core.getInput と同様に許容する
     const threshold = Number(thresholdText);
-    if (!Number.isInteger(threshold)) {
+    if (!/^\s*[+-]?\d+\s*$/.test(thresholdText) ||
+        !Number.isSafeInteger(threshold)) {
         throw new Error(`Invalid INPUT_THRESHOLD: expected an integer but got "${thresholdText}"`);
     }
     // 未指定のinputは空文字で渡されることがあるため、空文字も未指定として扱う
@@ -40658,8 +40663,9 @@ class FeedGenerator {
     }
     selectPublishable(fetchedItems, publishedItems) {
         const publishedLinks = new Set(publishedItems.map((item) => item.link).filter(isPresent));
+        const now = this.now();
         return fetchedItems
-            .map(convertFeedItem)
+            .map((item) => convertFeedItem(item, now))
             .filter(isPresent)
             .filter((item) => !publishedLinks.has(item.link));
     }
@@ -40667,7 +40673,9 @@ class FeedGenerator {
         return items.filter((item) => (scores.get(item.link) ?? 0) >= this.inputs.threshold);
     }
     createFeed(newItems, updateAt, original, published) {
-        const publishedItems = published?.items.map(convertFeedItem).filter(isPresent) ?? [];
+        const publishedItems = published?.items
+            .map((item) => convertFeedItem(item, updateAt))
+            .filter(isPresent) ?? [];
         const base = this.buildBaseFeed(original, updateAt);
         for (const item of [...newItems, ...publishedItems]) {
             base.addItem(item);
@@ -40697,8 +40705,11 @@ class FeedGenerator {
 function isPresent(value) {
     return value !== undefined && value !== null;
 }
-/** linkが無い項目は変換せず undefined を返す */
-function convertFeedItem(item) {
+/**
+ * linkが無い項目は変換せず undefined を返す
+ * 更新日時が無い項目は fallbackDate(現在時刻)で補う
+ */
+function convertFeedItem(item, fallbackDate) {
     const { link } = item;
     if (!isPresent(link)) {
         return undefined;
@@ -40706,7 +40717,7 @@ function convertFeedItem(item) {
     return {
         title: item.title ?? "",
         link,
-        date: item.isoDate ? new Date(item.isoDate) : new Date(),
+        date: item.isoDate ? new Date(item.isoDate) : fallbackDate,
         ...(item.pubDate && { published: new Date(item.pubDate) }),
         ...(item.creator && { author: [{ name: item.creator }] }),
     };
@@ -40738,13 +40749,14 @@ function parseHatenaCounts(json) {
     if (typeof json !== "object" || json === null || Array.isArray(json)) {
         throw new Error("Invalid response: expected an object of counts");
     }
-    const entries = Object.entries(json);
-    for (const [key, value] of entries) {
-        if (!Number.isInteger(value)) {
+    const counts = new Map();
+    for (const [key, value] of Object.entries(json)) {
+        if (typeof value !== "number" || !Number.isInteger(value)) {
             throw new Error(`Invalid response: count for "${key}" is not an integer: ${String(value)}`);
         }
+        counts.set(key, value);
     }
-    return new Map(entries);
+    return counts;
 }
 class HatenaCounts {
     api;
@@ -40809,20 +40821,45 @@ async function loadCacheFile(path) {
 
 
 
+
+/** 応答の無いAPIでジョブが止まり続けないよう、1リクエストの上限時間を設ける */
+const REQUEST_TIMEOUT_MS = 30_000;
 async function getJson(url, params) {
-    const response = await fetch(`${url}?${params.toString()}`);
+    const response = await fetch(`${url}?${params.toString()}`, {
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
     if (!response.ok) {
         throw new Error(`${response.status}\t${url}`);
     }
     return response.json();
 }
 const api = { getJson };
+/**
+ * cause を辿ってエラーメッセージを連結する
+ * fetch の失敗は message が "fetch failed" だけで、本当の原因(DNS解決失敗など)は cause に入るため
+ */
+function describeError(error) {
+    const messages = [];
+    let current = error;
+    // 循環参照に備えて辿る深さを制限する
+    for (let depth = 0; depth < 5 && current !== undefined; depth++) {
+        if (!(current instanceof Error)) {
+            messages.push(String(current));
+            break;
+        }
+        messages.push(current.message);
+        current = current.cause;
+    }
+    return messages.join(": ");
+}
 async function run() {
     const env = readActionEnvironment(process.env);
     const inputs = readActionInputs(process.env);
     await main(env, inputs, api);
 }
 run().catch((error) => {
-    setFailed(error instanceof Error ? error.message : String(error));
+    setFailed(describeError(error));
+    // スタックトレースを含む詳細はデバッグログ(ACTIONS_STEP_DEBUG)で確認できるようにする
+    core_debug((0,external_node_util_.inspect)(error));
 });
 

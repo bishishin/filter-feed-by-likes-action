@@ -16,7 +16,7 @@
 
 ## 技術スタック
 
-- **ランタイム**: Node.js 20+
+- **ランタイム**: Node.js 24(`package.json` の `engines`、`action.yml` の `runs.using: node24`)
 - **言語**: TypeScript
 - **主要ライブラリ**:
   - `feed`: Atom/RSSフィード生成
@@ -38,8 +38,10 @@ src/
   ├── generate.ts    # FeedGeneratorクラス(フィード生成ロジック)
   └── score.ts       # ScoreApi実装(はてなブックマーク件数取得、レスポンス検証)
 test/
-  ├── main.test.ts   # フィード生成のユニットテスト
+  ├── main.test.ts   # main の結合テスト(test/expected.atom との比較)
   ├── config.test.ts # 入力読み取りのユニットテスト
+  ├── score.test.ts  # スコア取得(レスポンス検証、逐次リクエスト)のユニットテスト
+  ├── generate.test.ts # フィード生成(現在時刻の注入など)のユニットテスト
   ├── bundle.test.ts # 配布物(dist)の検査。dist が必要
   ├── *.atom         # テスト用フィードファイル
 features/
@@ -98,16 +100,18 @@ protected selectPublishable(
 
 ## テスト方針
 
-### ユニットテスト (`test/main.test.ts`)
+### ユニットテスト (`test/*.test.ts`)
 
-- Node.js組み込みテストランナー使用
-- 主要ロジック(フィルタリング、スコア取得、キャッシュ処理)をテスト
-- モックの`ApiService`/`ScoreApi`や現在時刻関数(例: `() => new Date(0)`)を引数で注入
+- Node.js組み込みテストランナー使用。`npm run test-unit` の対象は `package.json` に列挙する(`test/bundle.test.ts` は dist が必要なため `npm run package` で実行)
+- `test/main.test.ts`: 元フィードとキャッシュから生成したフィードを `test/expected.atom` と比較
+- `test/score.test.ts`: レスポンス検証、バッチごとの逐次リクエストと待機、結果のまとめ
+- `test/generate.test.ts`: `FeedGenerator` が注入した現在時刻を使うこと
+- モックの`ApiService`/`ScoreApi`や現在時刻関数(例: `() => new Date(0)`)、`sleep`を引数で注入する。期待値の `updated` は1970年なので、現在時刻は必ずエポックに固定する
 
 ### 入力読み取りのテスト (`test/config.test.ts`)
 
 - `readActionEnvironment` / `readActionInputs` を環境変数オブジェクトを渡して検証
-- 必須項目の欠落、`INPUT_CACHE` の未設定・空文字、`INPUT_THRESHOLD` の不正値(整数以外はエラー)
+- 必須項目の欠落、`INPUT_CACHE` の未設定・空文字、`INPUT_THRESHOLD` の不正値(10進の整数表記以外はエラー)
 
 ### BDDシナリオテスト (`features/`)
 
@@ -130,7 +134,7 @@ npm run all
 npm run bundle  # リント→パッケージング
 
 # テストのみ
-npm test  # ユニット+BDD並列実行
+npm test  # 型チェック+ユニット+BDD並列実行
 ```
 
 ## デバッグ・トラブルシューティング
@@ -138,12 +142,14 @@ npm test  # ユニット+BDD並列実行
 ### ログ確認
 
 - ログ出力が必要な場合は`@actions/core`の`core.info()`/`core.warning()`等を直接使用
-- 処理中の例外は`src/index.ts`で`core.setFailed()`に渡され、Actionが失敗する
+- 処理中の例外は`src/index.ts`で`core.setFailed()`に渡され、Actionが失敗する。メッセージは`cause`を辿って連結する(`fetch failed`の原因などを表示するため)
+- スタックトレースを含む詳細は`core.debug()`に出力される。確認するには、デバッグログを有効にしてワークフローを再実行する(またはシークレット/変数`ACTIONS_STEP_DEBUG`を`true`にする)
 
 ### APIレート制限
 
 - `src/score.ts`の`REQUEST_INTERVAL_MS`(3000ms)で遅延制御。リクエストは逐次実行し、2回目以降の前に`sleep`する
 - バッチサイズは50件/リクエスト(はてなブックマークAPI制限)
+- 1リクエストのタイムアウトは`src/index.ts`の`REQUEST_TIMEOUT_MS`(30秒)
 
 ### キャッシュ問題
 

@@ -37,15 +37,16 @@ export function parseHatenaCounts(json: unknown): Map<string, number> {
   if (typeof json !== "object" || json === null || Array.isArray(json)) {
     throw new Error("Invalid response: expected an object of counts");
   }
-  const entries = Object.entries(json);
-  for (const [key, value] of entries) {
-    if (!Number.isInteger(value)) {
+  const counts = new Map<string, number>();
+  for (const [key, value] of Object.entries(json)) {
+    if (typeof value !== "number" || !Number.isInteger(value)) {
       throw new Error(
         `Invalid response: count for "${key}" is not an integer: ${String(value)}`,
       );
     }
+    counts.set(key, value);
   }
-  return new Map(entries as [string, number][]);
+  return counts;
 }
 
 export class HatenaCounts implements ScoreApi {

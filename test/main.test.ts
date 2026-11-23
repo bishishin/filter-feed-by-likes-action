@@ -22,7 +22,8 @@ describe("main", () => {
       outputPath: "test/output.atom",
       threshold: 1,
     };
-    t.after(() => fs.rmSync(dummyInputs.outputPath));
+    // main が失敗して出力が無い場合でも、後片付けで本来のエラーを隠さない
+    t.after(() => fs.rmSync(dummyInputs.outputPath, { force: true }));
     const expected = fs.readFileSync("test/expected.atom").toString();
     await main(dummyEnv, dummyInputs, apiService, () => new Date(0));
     const actual = fs.readFileSync(dummyInputs.outputPath).toString();

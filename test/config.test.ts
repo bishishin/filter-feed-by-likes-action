@@ -62,13 +62,19 @@ describe("readActionInputs", () => {
       .undefined;
   });
 
-  for (const text of ["abc", "1.5", ""]) {
+  for (const text of ["abc", "1.5", "", "0x10", "1e3", "1 0"]) {
     it(`INPUT_THRESHOLD が "${text}" ならエラー`, () => {
       expect(() =>
         readActionInputs({ ...fullEnv, INPUT_THRESHOLD: text }),
       ).to.throw("INPUT_THRESHOLD");
     });
   }
+
+  it("INPUT_THRESHOLD の前後の空白は許容する", () => {
+    expect(
+      readActionInputs({ ...fullEnv, INPUT_THRESHOLD: " 10 " }).threshold,
+    ).to.equal(10);
+  });
 
   it("INPUT_THRESHOLD の負の整数は受け付ける", () => {
     expect(

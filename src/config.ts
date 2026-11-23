@@ -26,8 +26,13 @@ export function readActionEnvironment(
 // https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
 export function readActionInputs(env: NodeJS.ProcessEnv): ActionInputs {
   const thresholdText = required(env, "INPUT_THRESHOLD");
+  // Number() だけだと "0x10" や "1e3" も整数として通るため、10進の整数表記に限定する
+  // 前後の空白は core.getInput と同様に許容する
   const threshold = Number(thresholdText);
-  if (!Number.isInteger(threshold)) {
+  if (
+    !/^\s*[+-]?\d+\s*$/.test(thresholdText) ||
+    !Number.isSafeInteger(threshold)
+  ) {
     throw new Error(
       `Invalid INPUT_THRESHOLD: expected an integer but got "${thresholdText}"`,
     );
