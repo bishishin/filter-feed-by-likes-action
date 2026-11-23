@@ -3,36 +3,10 @@
  * action環境に依存する実装もここで注入する
  */
 import * as core from "@actions/core";
-import { NodeRuntime as Node } from "@effect/platform-node";
-import {
-  Config,
-  Effect,
-  Either,
-  identity,
-  Logger,
-  type LogLevel,
-  Match,
-  Option,
-} from "effect";
+import { readActionEnvironment, readActionInputs } from "./config.ts";
 import { main } from "./main.ts";
 import type { ApiService } from "./score.ts";
 
-// https://docs.github.com/ja/actions/learn-github-actions/variables#default-environment-variables
-const actionEnvConfig = Config.all({
-  repositoryOwner: Config.string("GITHUB_REPOSITORY_OWNER"),
-  repositoryId: Config.string("GITHUB_REPOSITORY_ID"),
-  actionRepository: Config.string("GITHUB_ACTION_REPOSITORY"),
-});
-// core.getInputを使わずとも、内部実装的にも自動的で設定されるINPUT_*環境変数を見ているため、環境変数利用に合わせる
-// https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
-const actionInputsConfig = Config.all({
-  originalPath: Config.string("INPUT_ORIGINAL"),
-  cachePath: Config.option(Config.string("INPUT_CACHE")).pipe(
-    Config.map(Option.getOrUndefined),
-  ),
-  outputPath: Config.string("INPUT_OUTPUT"),
-  threshold: Config.integer("INPUT_THRESHOLD"),
-});
 async function getJson(url: string, params: URLSearchParams): Promise<unknown> {
   const response = await fetch(`${url}?${params.toString()}`);
   if (!response.ok) {
@@ -41,27 +15,13 @@ async function getJson(url: string, params: URLSearchParams): Promise<unknown> {
   return response.json();
 }
 const api: ApiService = { getJson };
-const logger = Logger.make(({ logLevel, message }) => {
-  Match.type<LogLevel.LogLevel>().pipe(
-    Match.tagsExhaustive({
-      Fatal: () => core.error(`${message}`),
-      Error: () => core.error(`${message}`),
-      Warning: () => core.warning(`${message}`),
-      Info: () => core.info(`${message}`),
-      Debug: () => core.debug(`${message}`),
-      Trace: () => core.debug(`${message}`),
-      All: identity,
-      None: () => identity,
-    }),
-  )(logLevel);
+
+async function run(): Promise<void> {
+  const env = readActionEnvironment(process.env);
+  const inputs = readActionInputs(process.env);
+  await main(env, inputs, api);
+}
+
+run().catch((error: unknown) => {
+  core.setFailed(error instanceof Error ? error.message : String(error));
 });
-Effect.Do.pipe(
-  Effect.bind("env", () => actionEnvConfig),
-  Effect.bind("inputs", () => actionInputsConfig),
-  Effect.flatMap(({ env, inputs }) =>
-    Effect.tryPromise(() => main(env, inputs, api)),
-  ),
-  Effect.provide(Logger.replace(Logger.defaultLogger, logger)),
-  Effect.catchAllCause((e) => Either.try(() => core.setFailed(e.toString()))),
-  Node.runMain,
-);
