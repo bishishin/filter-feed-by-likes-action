@@ -33,7 +33,6 @@
     "@effect/platform-node": "^0.108.1",
     "effect": "^3.21.2",
     "feed": "~6.0.0",
-    "rambda": "^11.0.1",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
