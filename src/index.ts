@@ -13,6 +13,7 @@ import {
   Logger,
   type LogLevel,
   Match,
+  Option,
   Schema,
 } from "effect";
 import { main } from "./main.ts";
@@ -28,7 +29,9 @@ const actionEnvConfig = Config.all({
 // https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
 const actionInputsConfig = Config.all({
   originalPath: Config.string("INPUT_ORIGINAL"),
-  cachePath: Config.option(Config.string("INPUT_CACHE")),
+  cachePath: Config.option(Config.string("INPUT_CACHE")).pipe(
+    Config.map(Option.getOrUndefined),
+  ),
   outputPath: Config.string("INPUT_OUTPUT"),
   threshold: Config.integer("INPUT_THRESHOLD"),
 });

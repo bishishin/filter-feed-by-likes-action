@@ -1,14 +1,7 @@
 import * as fs from "node:fs";
 import { describe, it } from "node:test";
 import { expect } from "chai";
-import {
-  Duration,
-  Effect,
-  Layer,
-  Option,
-  TestClock,
-  TestContext,
-} from "effect";
+import { Duration, Effect, Layer, TestClock, TestContext } from "effect";
 import { main } from "../src/main.ts";
 import { ApiService } from "../src/score.ts";
 
@@ -35,7 +28,7 @@ describe("prevent flaky test", async () => {
       };
       const dummyInputs = {
         originalPath: "test/original.atom",
-        cachePath: Option.some("test/cache.atom"),
+        cachePath: "test/cache.atom",
         outputPath: "test/output.atom",
         threshold: 1,
       };

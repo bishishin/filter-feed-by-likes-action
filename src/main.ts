@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import { type Cause, Effect, Option } from "effect";
+import { type Cause, Effect } from "effect";
 import type * as gen from "feed";
 import parser from "rss-parser";
 import {
@@ -31,22 +31,29 @@ export function main(
   );
 }
 
+/**
+ * 配信済みキャッシュを読み込む
+ * - path が undefined、またはファイルが存在しない場合は undefined(初期起動扱い)
+ * - 読み込み・パースに失敗した場合はエラー
+ */
 export function loadCacheFile(
-  path: Option.Option<string>,
+  path: string | undefined,
 ): Effect.Effect<
   parser.Output<parser.Item> | undefined,
   Cause.UnknownException
 > {
-  return path.pipe(
-    Effect.flatMap((p) =>
-      Effect.try(() => (fs.existsSync(p) ? Option.some(p) : Option.none())),
+  return Effect.try(() => path !== undefined && fs.existsSync(path)).pipe(
+    Effect.flatMap((exists) =>
+      exists && path !== undefined
+        ? Effect.Do.pipe(
+            Effect.bind("data", () =>
+              Effect.try(() => fs.readFileSync(path, "utf-8")),
+            ),
+            Effect.flatMap(({ data }) =>
+              Effect.tryPromise(() => new parser().parseString(data)),
+            ),
+          )
+        : Effect.succeed(undefined),
     ),
-    Effect.flatten,
-    Effect.flatMap((p) => Effect.try(() => fs.readFileSync(p, "utf-8"))),
-    Effect.flatMap((data) =>
-      Effect.tryPromise(() => new parser().parseString(data)),
-    ),
-    Effect.optionFromOptional,
-    Effect.map(Option.getOrUndefined),
   );
 }

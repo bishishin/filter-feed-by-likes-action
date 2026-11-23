@@ -1,4 +1,4 @@
-import { Clock, Effect, Option } from "effect";
+import { Clock, Effect } from "effect";
 import * as gen from "feed";
 import type parser from "rss-parser";
 import {
@@ -16,7 +16,7 @@ export interface ActionEnvironment {
 
 export interface ActionInputs {
   readonly originalPath: string;
-  readonly cachePath: Option.Option<string>;
+  readonly cachePath: string | undefined;
   readonly outputPath: string;
   readonly threshold: number;
 }
@@ -58,13 +58,11 @@ export class FeedGenerator {
     publishedItems: readonly parser.Item[],
   ): readonly gen.Item[] {
     const publishedLinks = new Set(
-      publishedItems
-        .map((item) => Option.fromNullable(item.link))
-        .flatMap(Option.toArray),
+      publishedItems.map((item) => item.link).filter(isPresent),
     );
     return fetchedItems
       .map(convertFeedItem)
-      .flatMap(Option.toArray)
+      .filter(isPresent)
       .filter((item) => !publishedLinks.has(item.link));
   }
 
@@ -84,7 +82,7 @@ export class FeedGenerator {
     published?: parser.Output<parser.Item>,
   ): gen.Feed {
     const publishedItems =
-      published?.items.map(convertFeedItem).flatMap(Option.toArray) ?? [];
+      published?.items.map(convertFeedItem).filter(isPresent) ?? [];
     const base = this.buildBaseFeed(original, new Date(updateAtMilliseconds));
     for (const item of [...newItems, ...publishedItems]) {
       base.addItem(item);
@@ -115,14 +113,22 @@ export class FeedGenerator {
   }
 }
 
-function convertFeedItem(item: parser.Item): Option.Option<gen.Item> {
-  return Option.fromNullable(item.link).pipe(
-    Option.map((l) => ({
-      title: item.title ?? "",
-      link: l,
-      date: item.isoDate ? new Date(item.isoDate) : new Date(),
-      ...(item.pubDate && { published: new Date(item.pubDate) }),
-      ...(item.creator && { author: [{ name: item.creator }] }),
-    })),
-  );
+/** null / undefined だけを除外する(空文字は有効な値として残す) */
+function isPresent<T>(value: T | null | undefined): value is T {
+  return value !== undefined && value !== null;
+}
+
+/** linkが無い項目は変換せず undefined を返す */
+function convertFeedItem(item: parser.Item): gen.Item | undefined {
+  const { link } = item;
+  if (!isPresent(link)) {
+    return undefined;
+  }
+  return {
+    title: item.title ?? "",
+    link,
+    date: item.isoDate ? new Date(item.isoDate) : new Date(),
+    ...(item.pubDate && { published: new Date(item.pubDate) }),
+    ...(item.creator && { author: [{ name: item.creator }] }),
+  };
 }

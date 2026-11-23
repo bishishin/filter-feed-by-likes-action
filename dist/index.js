@@ -92274,7 +92274,7 @@ const Logger_minimumLogLevel = minimumLogLevel;
  */
 const Logger_isLogger = isLogger;
 //# sourceMappingURL=Logger.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform@0.97.1-BiKkVHQi__yzsvYcFlrTvg/node_modules/@effect/platform/dist/esm/Runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform@0.97.1-h5lUOqZNwWP4WBrg8ttR_g/node_modules/@effect/platform/dist/esm/Runtime.js
 /**
  * @since 1.0.0
  */
@@ -92326,7 +92326,7 @@ const makeRunMain = f => Function_dual(args => Effect_isEffect(args[0]), (effect
   });
 });
 //# sourceMappingURL=Runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-9TQhWuxQ2MHNrgDCUyLmrg/node_modules/@effect/platform-node-shared/dist/esm/internal/runtime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-iKD9k7Zne0zTHRsYPvBo7Q/node_modules/@effect/platform-node-shared/dist/esm/internal/runtime.js
 
 
 /** @internal */
@@ -92358,7 +92358,7 @@ const runMain = /*#__PURE__*/makeRunMain(({
   process.on("SIGTERM", onSigint);
 });
 //# sourceMappingURL=runtime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-9TQhWuxQ2MHNrgDCUyLmrg/node_modules/@effect/platform-node-shared/dist/esm/NodeRuntime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node-shared@0.61.1-iKD9k7Zne0zTHRsYPvBo7Q/node_modules/@effect/platform-node-shared/dist/esm/NodeRuntime.js
 
 /**
  * @since 1.0.0
@@ -92366,7 +92366,7 @@ const runMain = /*#__PURE__*/makeRunMain(({
  */
 const NodeRuntime_runMain = runMain;
 //# sourceMappingURL=NodeRuntime.js.map
-;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node@0.108.1-GwsKkZWEElmbPKLk8F6FeA/node_modules/@effect/platform-node/dist/esm/NodeRuntime.js
+;// CONCATENATED MODULE: ./node_modules/.store/@effect/platform-node@0.108.1-Kv7YM2B8ri_gDMjRpcv98w/node_modules/@effect/platform-node/dist/esm/NodeRuntime.js
 /**
  * @since 1.0.0
  */
@@ -129020,19 +129020,17 @@ class FeedGenerator {
         return Effect_Do.pipe(Effect_bind("now", () => Clock_currentTimeMillis), Effect_let_("publishableItems", () => this.selectPublishable(original.items, published?.items ?? [])), Effect_bind("scores", ({ publishableItems }) => this.scoreApi.fetch(new Set(publishableItems.map((v) => v.link)))), Effect_let_("newItems", ({ publishableItems, scores }) => this.publishItemsOnHighScore(publishableItems, scores)), Effect_map(({ newItems, now }) => this.createFeed(newItems, now, original, published)));
     }
     selectPublishable(fetchedItems, publishedItems) {
-        const publishedLinks = new Set(publishedItems
-            .map((item) => Option_fromNullable(item.link))
-            .flatMap(toArray));
+        const publishedLinks = new Set(publishedItems.map((item) => item.link).filter(isPresent));
         return fetchedItems
             .map(convertFeedItem)
-            .flatMap(toArray)
+            .filter(isPresent)
             .filter((item) => !publishedLinks.has(item.link));
     }
     publishItemsOnHighScore(items, scores) {
         return items.filter((item) => (scores.get(item.link) ?? 0) >= this.inputs.threshold);
     }
     createFeed(newItems, updateAtMilliseconds, original, published) {
-        const publishedItems = published?.items.map(convertFeedItem).flatMap(toArray) ?? [];
+        const publishedItems = published?.items.map(convertFeedItem).filter(isPresent) ?? [];
         const base = this.buildBaseFeed(original, new Date(updateAtMilliseconds));
         for (const item of [...newItems, ...publishedItems]) {
             base.addItem(item);
@@ -129058,14 +129056,23 @@ class FeedGenerator {
         });
     }
 }
+/** null / undefined だけを除外する(空文字は有効な値として残す) */
+function isPresent(value) {
+    return value !== undefined && value !== null;
+}
+/** linkが無い項目は変換せず undefined を返す */
 function convertFeedItem(item) {
-    return Option_fromNullable(item.link).pipe(Option_map((l) => ({
+    const { link } = item;
+    if (!isPresent(link)) {
+        return undefined;
+    }
+    return {
         title: item.title ?? "",
-        link: l,
+        link,
         date: item.isoDate ? new Date(item.isoDate) : new Date(),
         ...(item.pubDate && { published: new Date(item.pubDate) }),
         ...(item.creator && { author: [{ name: item.creator }] }),
-    })));
+    };
 }
 
 ;// CONCATENATED MODULE: ./src/main.ts
@@ -129076,8 +129083,15 @@ function convertFeedItem(item) {
 function main(env, inputs) {
     return Effect_Do.pipe(Effect_bind("origFeed", () => Effect_tryPromise(() => new (rss_parser_default())().parseString(external_node_fs_namespaceObject.readFileSync(inputs.originalPath, "utf-8")))), Effect_bind("cacheFeed", () => loadCacheFile(inputs.cachePath)), Effect_flatMap(({ origFeed, cacheFeed }) => new FeedGenerator(env, inputs).generate(origFeed, cacheFeed)), Effect_tap((feed) => external_node_fs_namespaceObject.writeFileSync(inputs.outputPath, feed.atom1())));
 }
+/**
+ * 配信済みキャッシュを読み込む
+ * - path が undefined、またはファイルが存在しない場合は undefined(初期起動扱い)
+ * - 読み込み・パースに失敗した場合はエラー
+ */
 function loadCacheFile(path) {
-    return path.pipe(Effect_flatMap((p) => Effect_try_(() => (external_node_fs_namespaceObject.existsSync(p) ? Option_some(p) : Option_none()))), Effect_flatten, Effect_flatMap((p) => Effect_try_(() => external_node_fs_namespaceObject.readFileSync(p, "utf-8"))), Effect_flatMap((data) => Effect_tryPromise(() => new (rss_parser_default())().parseString(data))), Effect_optionFromOptional, Effect_map(Option_getOrUndefined));
+    return Effect_try_(() => path !== undefined && external_node_fs_namespaceObject.existsSync(path)).pipe(Effect_flatMap((exists) => exists && path !== undefined
+        ? Effect_Do.pipe(Effect_bind("data", () => Effect_try_(() => external_node_fs_namespaceObject.readFileSync(path, "utf-8"))), Effect_flatMap(({ data }) => Effect_tryPromise(() => new (rss_parser_default())().parseString(data))))
+        : Effect_succeed(undefined)));
 }
 
 ;// CONCATENATED MODULE: ./src/index.ts
@@ -129100,7 +129114,7 @@ const actionEnvConfig = Config_all({
 // https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#example-specifying-inputs
 const actionInputsConfig = Config_all({
     originalPath: Config_string("INPUT_ORIGINAL"),
-    cachePath: Config_option(Config_string("INPUT_CACHE")),
+    cachePath: Config_option(Config_string("INPUT_CACHE")).pipe(Config_map(Option_getOrUndefined)),
     outputPath: Config_string("INPUT_OUTPUT"),
     threshold: Config_integer("INPUT_THRESHOLD"),
 });
