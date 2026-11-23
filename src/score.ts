@@ -1,35 +1,20 @@
-import {
-  type Cause,
-  Context,
-  Duration,
-  Effect,
-  type ParseResult,
-  Record,
-  Schedule,
-  Schema,
-  Stream,
-} from "effect";
-export type ApiFetchError =
-  | Cause.UnknownException
-  | ParseResult.ParseError
-  | Error;
-export class ApiService extends Context.Tag("ApiService")<
-  ApiService,
-  {
-    get<T>(
-      schema: Schema.Schema<T>,
-      url: string,
-      params: URLSearchParams,
-    ): Effect.Effect<T, ApiFetchError, ApiService>;
-  }
->() {}
-export type ScoreFetchEffect = Effect.Effect<
-  ReadonlyMap<string, number>,
-  ApiFetchError,
-  ApiService
->;
+import { setTimeout as delay } from "node:timers/promises";
+
+/** HTTP取得の抽象。テストではモックを渡す */
+export interface ApiService {
+  getJson(url: string, params: URLSearchParams): Promise<unknown>;
+}
+
+/** 指定ミリ秒待機する関数。テストでは仮想時刻を進める偽物を渡す */
+export type Sleep = (milliseconds: number) => Promise<void>;
+
+/** はてなAPIへの配慮として、リクエスト間に設ける最小間隔 */
+export const REQUEST_INTERVAL_MS = 3000;
+
+const defaultSleep: Sleep = (milliseconds) => delay(milliseconds);
+
 export interface ScoreApi {
-  fetch(links: ReadonlySet<string>): ScoreFetchEffect;
+  fetch(links: ReadonlySet<string>): Promise<ReadonlyMap<string, number>>;
 }
 
 /**
@@ -44,28 +29,54 @@ function chunk<T>(items: readonly T[], size: number): T[][] {
   return result;
 }
 
+/**
+ * はてなブックマーク件数APIのレスポンスを検証する。
+ * 「文字列キー → 整数値」のオブジェクトでなければ Error を投げる。
+ */
+export function parseHatenaCounts(json: unknown): Map<string, number> {
+  if (typeof json !== "object" || json === null || Array.isArray(json)) {
+    throw new Error("Invalid response: expected an object of counts");
+  }
+  const entries = Object.entries(json);
+  for (const [key, value] of entries) {
+    if (!Number.isInteger(value)) {
+      throw new Error(
+        `Invalid response: count for "${key}" is not an integer: ${String(value)}`,
+      );
+    }
+  }
+  return new Map(entries as [string, number][]);
+}
+
 export class HatenaCounts implements ScoreApi {
-  public fetch(links: ReadonlySet<string>): ScoreFetchEffect {
-    const url = "https://bookmark.hatenaapis.com/count/entries";
-    const schema = Schema.Record({ key: Schema.String, value: Schema.Int });
-    return Stream.Do.pipe(
-      Stream.bind("params", () => this.createRequestStream(links)),
-      Stream.bindEffect("api", () => ApiService),
-      Stream.mapEffect(({ api, params }) => api.get(schema, url, params)),
-      Stream.map(Record.toEntries),
-      Stream.flattenIterables,
-      Stream.runCollect,
-      Effect.map((v) => new Map(v)),
-    );
+  private readonly api: ApiService;
+  private readonly sleep: Sleep;
+
+  constructor(api: ApiService, sleep: Sleep = defaultSleep) {
+    this.api = api;
+    this.sleep = sleep;
   }
 
-  protected createRequestStream(
+  /**
+   * リクエストは並列にせず逐次実行する。
+   * 2回目以降のリクエストの前に REQUEST_INTERVAL_MS 待機する。
+   */
+  public async fetch(
     links: ReadonlySet<string>,
-  ): Stream.Stream<URLSearchParams> {
+  ): Promise<ReadonlyMap<string, number>> {
+    const url = "https://bookmark.hatenaapis.com/count/entries";
+    const result = new Map<string, number>();
     const paramsList = HatenaCounts.buildParamsList(links);
-    return Stream.fromIterable(paramsList).pipe(
-      Stream.schedule(Schedule.spaced(Duration.seconds(3))),
-    );
+    for (const [index, params] of paramsList.entries()) {
+      if (index > 0) {
+        await this.sleep(REQUEST_INTERVAL_MS);
+      }
+      const counts = parseHatenaCounts(await this.api.getJson(url, params));
+      for (const [link, count] of counts) {
+        result.set(link, count);
+      }
+    }
+    return result;
   }
 
   protected static buildParamsList(

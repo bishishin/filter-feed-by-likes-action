@@ -7,16 +7,12 @@ import {
   type ActionInputs,
   FeedGenerator,
 } from "./generate.ts";
-import type { ApiFetchError, ApiService } from "./score.ts";
+import type { ApiService } from "./score.ts";
 
 export function main(
   env: ActionEnvironment,
   inputs: ActionInputs,
-): Effect.Effect<
-  gen.Feed,
-  Cause.UnknownException | Error | ApiFetchError,
-  ApiService
-> {
+): Effect.Effect<gen.Feed, Cause.UnknownException | Error, ApiService> {
   return Effect.Do.pipe(
     Effect.bind("origFeed", () =>
       Effect.tryPromise(() =>

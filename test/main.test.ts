@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
 import { describe, it } from "node:test";
 import { expect } from "chai";
-import { Duration, Effect, Layer, TestClock, TestContext } from "effect";
+import { Effect, TestContext } from "effect";
+import { ApiServiceTag } from "../src/generate.ts";
 import { main } from "../src/main.ts";
-import { ApiService } from "../src/score.ts";
 
 /*
   @effect/platform-nodeのファイル操作を導入した際に、flaky testが発生したため
@@ -18,9 +18,7 @@ describe("prevent flaky test", async () => {
         "http://example.org/2003/12/13/atom02": 0,
         "http://example.org/2003/12/13/atom03": 1,
       };
-      const makeApiService = Effect.succeed(
-        ApiService.of({ get: <T>() => Effect.succeed(scores as T) }),
-      );
+      const apiService = { getJson: async () => scores };
       const dummyEnv = {
         repositoryOwner: "hoge",
         repositoryId: "01234",
@@ -36,10 +34,7 @@ describe("prevent flaky test", async () => {
       const expected = fs.readFileSync("test/expected.atom").toString();
       await Effect.Do.pipe(
         Effect.flatMap(() => main(dummyEnv, dummyInputs)),
-        Effect.zipLeft(TestClock.adjust(Duration.seconds(3)), {
-          concurrent: true,
-        }),
-        Effect.provide(Layer.effect(ApiService, makeApiService)),
+        Effect.provideService(ApiServiceTag, apiService),
         Effect.provide(TestContext.TestContext),
         Effect.runPromise,
       );

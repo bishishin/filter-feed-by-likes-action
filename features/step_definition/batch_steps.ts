@@ -14,10 +14,15 @@ class HatenaCountsForTest extends HatenaCounts {
   buildParamsList = HatenaCounts.buildParamsList;
 }
 
+// buildParamsList はAPIを呼ばないため、ダミーの ApiService を渡す
+const dummyApi = { getJson: async () => ({}) };
+
 Then(
   "50件ずつにまとめて{int}回のリクエストにする",
   function (this: CustomWorld, count: number) {
-    const paramsList = new HatenaCountsForTest().buildParamsList(this.links);
+    const paramsList = new HatenaCountsForTest(dummyApi).buildParamsList(
+      this.links,
+    );
     expect(paramsList.length).to.equal(count);
     const sizes = paramsList.map((v) => v.size);
     expect(sizes.reduce((acc, value) => acc + value, 0)).to.eq(this.links.size);

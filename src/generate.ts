@@ -1,12 +1,13 @@
-import { Clock, Effect } from "effect";
+import { type Cause, Clock, Context, Effect } from "effect";
 import * as gen from "feed";
 import type parser from "rss-parser";
-import {
-  type ApiFetchError,
-  type ApiService,
-  HatenaCounts,
-  type ScoreApi,
-} from "./score.ts";
+import { type ApiService, HatenaCounts } from "./score.ts";
+
+/**
+ * 暫定アダプタ: Effect の環境として ApiService を渡すためのタグ
+ * generate() を Promise 化する際に削除する
+ */
+export const ApiServiceTag = Context.GenericTag<ApiService>("ApiService");
 
 export interface ActionEnvironment {
   readonly repositoryOwner: string;
@@ -24,25 +25,31 @@ export interface ActionInputs {
 export class FeedGenerator {
   private readonly env: ActionEnvironment;
   private readonly inputs: ActionInputs;
-  private readonly scoreApi: ScoreApi;
 
   constructor(env: ActionEnvironment, inputs: ActionInputs) {
     this.env = env;
     this.inputs = inputs;
-    this.scoreApi = new HatenaCounts();
   }
 
   public generate(
     original: parser.Output<parser.Item>,
     published?: parser.Output<parser.Item>,
-  ): Effect.Effect<gen.Feed, ApiFetchError | Error, ApiService> {
+  ): Effect.Effect<gen.Feed, Cause.UnknownException | Error, ApiService> {
     return Effect.Do.pipe(
       Effect.bind("now", () => Clock.currentTimeMillis),
       Effect.let("publishableItems", () =>
         this.selectPublishable(original.items, published?.items ?? []),
       ),
       Effect.bind("scores", ({ publishableItems }) =>
-        this.scoreApi.fetch(new Set(publishableItems.map((v) => v.link))),
+        Effect.flatMap(ApiServiceTag, (api) =>
+          Effect.tryPromise({
+            try: () =>
+              new HatenaCounts(api).fetch(
+                new Set(publishableItems.map((v) => v.link)),
+              ),
+            catch: toError,
+          }),
+        ),
       ),
       Effect.let("newItems", ({ publishableItems, scores }) =>
         this.publishItemsOnHighScore(publishableItems, scores),
@@ -111,6 +118,11 @@ export class FeedGenerator {
       ...(original.feedUrl && { feedLinks: { rss: original.feedUrl } }),
     });
   }
+}
+
+/** Promise の reject 値を Error に正規化する(元のエラーメッセージを保持する) */
+function toError(cause: unknown): Error {
+  return cause instanceof Error ? cause : new Error(String(cause));
 }
 
 /** null / undefined だけを除外する(空文字は有効な値として残す) */

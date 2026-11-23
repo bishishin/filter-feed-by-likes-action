@@ -9,15 +9,14 @@ import {
   Effect,
   Either,
   identity,
-  Layer,
   Logger,
   type LogLevel,
   Match,
   Option,
-  Schema,
 } from "effect";
+import { ApiServiceTag } from "./generate.ts";
 import { main } from "./main.ts";
-import { type ApiFetchError, ApiService } from "./score.ts";
+import type { ApiService } from "./score.ts";
 
 // https://docs.github.com/ja/actions/learn-github-actions/variables#default-environment-variables
 const actionEnvConfig = Config.all({
@@ -35,21 +34,14 @@ const actionInputsConfig = Config.all({
   outputPath: Config.string("INPUT_OUTPUT"),
   threshold: Config.integer("INPUT_THRESHOLD"),
 });
-function get<T>(
-  schema: Schema.Schema<T>,
-  url: string,
-  params: URLSearchParams,
-): Effect.Effect<T, ApiFetchError> {
-  return Effect.tryPromise(() => fetch(`${url}?${params.toString()}`)).pipe(
-    Effect.filterOrFail(
-      (response) => response.ok,
-      (response) => new Error(`${response.status}\t${response.url}`),
-    ),
-    Effect.flatMap((response) => Effect.tryPromise(() => response.json())),
-    Effect.flatMap(Schema.decodeUnknownEither(schema)),
-  );
+async function getJson(url: string, params: URLSearchParams): Promise<unknown> {
+  const response = await fetch(`${url}?${params.toString()}`);
+  if (!response.ok) {
+    throw new Error(`${response.status}\t${url}`);
+  }
+  return response.json();
 }
-const makeApiService = Effect.succeed(ApiService.of({ get }));
+const apiService: ApiService = { getJson };
 const logger = Logger.make(({ logLevel, message }) => {
   Match.type<LogLevel.LogLevel>().pipe(
     Match.tagsExhaustive({
@@ -68,7 +60,7 @@ Effect.Do.pipe(
   Effect.bind("env", () => actionEnvConfig),
   Effect.bind("inputs", () => actionInputsConfig),
   Effect.flatMap(({ env, inputs }) => main(env, inputs)),
-  Effect.provide(Layer.effect(ApiService, makeApiService)),
+  Effect.provideService(ApiServiceTag, apiService),
   Effect.provide(Logger.replace(Logger.defaultLogger, logger)),
   Effect.catchAllCause((e) => Either.try(() => core.setFailed(e.toString()))),
   Node.runMain,
